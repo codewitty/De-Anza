@@ -31,19 +31,20 @@ int main()
 	random_num = rand() % (MAX - MIN + 1) + MIN;
 	cout << "Enter a number within the range 1 to 8: ";
 	cin >> num; // first try
-	if( num == random_num ){
-		cout << "Congratulations! You did it!\n";	
+	if( num == random_num )
+	{
+		cout << "Congratulations! You did it!\n";
 		return(0);	
 	}
 	
 	
-	if( num < random_num )
-            cout << "Your guess is low!";
-        else
-		cout << "Your guess is high!";
-            	cout << " Try again!\n\n";
-		cout << "Enter a number within the range 1 to 8: " ;
-        	cin >> num; // second try
+		if( num < random_num )
+            	cout << "Your guess is low!";
+        	else
+			cout << "Your guess is high!";
+            		cout << " Try again!\n\n";
+			cout << "Enter a number within the range 1 to 8: " ;
+        		cin >> num; // second try
         		if( num == random_num )
            			cout << "Congratulations! You did it!\n\n";
         		else
@@ -54,13 +55,22 @@ int main()
 
 /**~*~*~*~*~*~*~*~*~*
 Enter a number within the range 1 to 8: 2
-Your guess is low! Try again!
+Your guess is high! Try again!
+
+Enter a number within the range 1 to 8: 4
+Sorry, the number was
+1
+
 */
 
 
 /**~*~*~*~*~*~*~*~*~*
+Enter a number within the range 1 to 8: 2
+Your guess is low! Try again!
+
 Enter a number within the range 1 to 8: 5
 Sorry, the number was
-7
+6
+
 */
 
