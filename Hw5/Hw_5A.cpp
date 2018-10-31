@@ -1,11 +1,11 @@
-/**~*
+/**~*~*~*
    PART A
- 
+
    This program displays a menu and asks the user to make a
    selection. A do-while loop repeats the program until the
    user selects item 4 from the menu.
 
-   JOSHUA N. GOMES
+   JOSHUA N GOMES
 */
 
 #include <iostream>
@@ -82,6 +82,73 @@ int main()
 }
 
 /**~*~*~*~*~*~*~*~*~*
- OUTPUT
+
+		C++ Loops Menu: Print the powers of 2 using a
+
+1. for loop
+2. while loop
+3. do - while loop
+4. Quit the Program
+
+Enter your choice: 
+1
+Your choice is the "for loop":
+
+2 to 0 is 1
+2 to 1 is 2
+2 to 2 is 4
+2 to 3 is 8
+2 to 4 is 16
+2 to 5 is 32
+
+		C++ Loops Menu: Print the powers of 2 using a
+
+1. for loop
+2. while loop
+3. do - while loop
+4. Quit the Program
+
+Enter your choice: 
+2
+Your choice is the "while loop": 
+
+2 to 0 is 1
+2 to 1 is 2
+2 to 2 is 4
+2 to 3 is 8
+2 to 4 is 16
+2 to 5 is 32
+
+		C++ Loops Menu: Print the powers of 2 using a
+
+1. for loop
+2. while loop
+3. do - while loop
+4. Quit the Program
+
+Enter your choice: 
+3
+Your choice is the "do-while loop": 
+
+2 to 0 is 1
+2 to 1 is 2
+2 to 2 is 4
+2 to 3 is 8
+2 to 4 is 16
+2 to 5 is 32
+2 to 6 is 64
+
+		C++ Loops Menu: Print the powers of 2 using a
+
+1. for loop
+2. while loop
+3. do - while loop
+4. Quit the Program
+
+Enter your choice: 
+4
+Good bye!
+
+
 
 */
