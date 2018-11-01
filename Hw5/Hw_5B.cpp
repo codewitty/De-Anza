@@ -10,8 +10,11 @@
  
  NAME: 
  */
-#include<iostream>
-#include<fstream>
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <string>
+
 using namespace std;
 
 int main()
@@ -35,11 +38,11 @@ int main()
     
     // Open the same file to read from;
     //string fileName = "Number.txt";  // <==== Try to open this file!
+    ifstream inputFile;
     string fileName = "Numbers.txt";
-    ifstream inFile;
     
-    inFile.open(fileName);  // another way of opening the input file
-    if (!inFile) // could not open the input file // <=== Always check this!
+    inputFile.open(fileName);  // another way of opening the input file
+    if (!inputFile) // could not open the input file // <=== Always check this!
     {
         cout << "Error opening " << fileName << " for reading!\n";
     }
@@ -48,14 +51,14 @@ int main()
         // calculate the average of the positive numbers ( > 0 )
         // define other variables as needed
         int sum = 0;
-        while (inFile >> rNum)
+        while (inputFile >> rNum)
         {
             cout << rNum << " ";
             sum += rNum;
             
         }
         // Close the file.
-        inFile.close();
+        inputFile.close();
         
         // Show average
         cout << "\n\nThe average of the random numbers is: " << sum / 10.0 << endl;
