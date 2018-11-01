@@ -8,7 +8,7 @@
  Finish the program following the specifications listed below as comments.
  Run the program and save the output as a comment at the end of the source file.
  
- NAME: 
+ JOSHUA N. GOMES
  */
 #include <iostream>
 #include <fstream>
@@ -41,7 +41,7 @@ int main()
     ifstream inputFile;
     string fileName = "Numbers.txt";
     
-    inputFile.open(fileName);  // another way of opening the input file
+    inputFile.open(fileName.c_str());  // another way of opening the input file
     if (!inputFile) // could not open the input file // <=== Always check this!
     {
         cout << "Error opening " << fileName << " for reading!\n";
@@ -70,6 +70,10 @@ int main()
     return 0;
 }
 /**~*~*~*~*~*~*~*~*~*
- OUTPUT
+File with 10 random numbers created!
+0 39 -1 24 22 27 27 38 35 9 
+
+The average of the random numbers is: 22
+
  
  */
