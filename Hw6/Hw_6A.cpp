@@ -15,7 +15,7 @@
    This program will output the circumference and area
    of a circle with a given radius.
  
-   NAME:
+   NAME: JOSHUA N. GOMES
  
 *~**/
 
@@ -42,8 +42,8 @@ int main()
 	radius = getRadius();
    
     // Perform Calculations
-	calcCirc(radius);  //function to calculate circumference   
-	calcArea(radius); //function call to calculate Area for the circle
+	circ = calcCirc(radius);  //function to calculate circumference   
+	area = calcArea(radius); //function call to calculate Area for the circle
 
     // Display Results
     printResults(radius, circ, area); //call to arguments (actual parameters)
@@ -95,11 +95,11 @@ double	getRadius(void)
 
 double calcCirc(double radius)
 {
-	int Circumferences = 2 * PI * radius;
-	 return (Circumferences);
+	double circ = 2.0 * PI * radius;
+	return (circ);
 }
 
 double	calcArea(double radius)
 {
-	return ( PI * radius * radius);
+	return  ( PI * radius * radius * 1.0);
 }
