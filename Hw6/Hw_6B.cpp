@@ -18,7 +18,7 @@
 
    Find and fix the errors, then run the program and save its output.
  
-   NAME:
+   NAME: Joshua N. Gomes
  
 *~**/
 
@@ -32,7 +32,7 @@ const  double PI = 3.14;
 void welcome(void);
 void farewell(void);
 void displayRectangle(double length, double width, double area, double perim);
-void calculateRectangle(double length, double width, double area, double perim);
+void calculateRectangle(double length, double width, double &area, double &perim);
 bool getRectangle(ifstream &inFile, double &length, double &width);
 
 int main()
@@ -51,7 +51,7 @@ int main()
     }
     while (getRectangle(inFile, length, width))
     {
-        calculateRectangle(length, width, perim, area);
+        calculateRectangle(length, width, area, perim);
         displayRectangle(length, width, area, perim);
     }
     inFile.close();
@@ -71,7 +71,6 @@ void welcome(void)
          << "\tperimeter and\n"
          << "\tarea\n"
          << "of several rectangles.\n\n";
-    return;
 }
 
 /**~*~*
@@ -114,12 +113,11 @@ bool getRectangle(ifstream &inFile, double &length, double &width)
  This function calcualtes 
  the area and the perimeter of a rectangle
  *~**/
-void displayRectangle(double length, double width,
-                      double area, double perim)
+void calculateRectangle(double length, double width,
+                      double &area, double &perim)
 {
     perim = 2 * (length + width);
     area  = length * width;
-    return;
 }
 /**
 OUTPUT:
