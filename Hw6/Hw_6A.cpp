@@ -6,7 +6,7 @@
        void welcome(void);                          // No paramaters, no return value
        void farewell(void);
        void printCircle(double, double, double);    // PASS BY VALUE
-       double getRadius(void);                      // return a value
+       double getRadius(void);                      // return a value which is a double
        double calcArea(double);                     // receive a value and return a value
        double calcCirc(double);
  
@@ -31,6 +31,7 @@ void	printResults(double radius, double circ, double area);
 double	getRadius(void);
 double calcCirc(double radius);
 double	calcArea(double radius);
+void	calculateCircle(double radius, double &area, double &circ);
 
 int main()
 {
@@ -48,8 +49,10 @@ int main()
     // Display Results
     printResults(radius, circ, area); //call to arguments (actual parameters)
 
-    
-    
+    area = circ = 0;
+    calculateCircle(radius, area, circ);    
+
+	printResults(radius, circ, area); 
 
     farewell(); // Display an "end of the program" message
     
@@ -103,3 +106,13 @@ double	calcArea(double radius)
 {
 	return  ( PI * radius * radius * 1.0);
 }
+
+void	calculateCircle(double radius, double &area, double &circ)
+{
+
+	area =	( PI * radius * radius * 1.0);
+	circ = 	2.0 * PI * radius;
+	return;
+}
+
+ 
