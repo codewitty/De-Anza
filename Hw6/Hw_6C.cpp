@@ -26,7 +26,7 @@ using namespace std;
 const int DE_BUG = true;
 
 void printInfo(void);
-bool getScores(void);
+bool getScores(ifstream &inFile, string &, double &, double &, double &, double &, double &);
 void calcScore(void);
 void findLowest(void);
 void findHighest(void);
