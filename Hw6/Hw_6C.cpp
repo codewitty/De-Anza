@@ -13,7 +13,7 @@
  the screen. Write to a file named results.txt the names of the performers and their
  final score.
  
- NAME:
+ NAME: JOSHUA N. GOMES
  
  *~**/
 
@@ -24,7 +24,6 @@
 
 using namespace std;
 
-const int DE_BUG = false;
 
 void	printInfo(void);
 bool	getScores(ifstream &inFile, string &name, double &, double &, double &, double &, double &);
@@ -108,8 +107,7 @@ and getting the average of the remaining three.
  */
 double	calcScore(double sc1, double sc2, double sc3, double sc4, double sc5)
 {
-	if (DE_BUG)
-        	cout << "This is the calcScore function" << endl;
+        cout << "This is the calcScore function" << endl;
 	double low = findLowest(sc1, sc2, sc3, sc4, sc5);
 	double high = findHighest(sc1, sc2, sc3, sc4, sc5);
 	return (sc1 + sc2 + sc3 + sc4 + sc5 - (low + high))/ 3;
@@ -158,8 +156,7 @@ We need this function in order to write to the file "results.txt"
 void	writeScore(ofstream &outFile, string name, double finalScore)
 
 {
-	if (DE_BUG)
-		cout << "This is the writeScore function" << endl;
+	cout << "This is the writeScore function" << endl;
 	outFile << "Performer Name: " << name << "\tFinal Score: " << showpoint << fixed << setprecision(2) <<  finalScore << endl;
 
 }

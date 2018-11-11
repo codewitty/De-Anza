@@ -15,7 +15,7 @@
    This program will output the circumference and area
    of a circle with a given radius.
  
-   NAME: JOSHUA N. GOMES
+   NAME: JOSHUA GOMES
  
 *~**/
 
@@ -25,11 +25,11 @@ using namespace std;
 
 const  double PI = 3.14;
 
-void welcome(void);
-void farewell(void);
+void	welcome(void);
+void	farewell(void);
 void	printResults(double radius, double circ, double area);
 double	getRadius(void);
-double calcCirc(double radius);
+double	calcCirc(double radius);
 double	calcArea(double radius);
 void	calculateCircle(double radius, double &area, double &circ);
 
@@ -96,7 +96,7 @@ double	getRadius(void)
 
 }
 
-double calcCirc(double radius)
+double	calcCirc(double radius)
 {
 	double circ = 2.0 * PI * radius;
 	return (circ);
