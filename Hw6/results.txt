@@ -1,0 +1,8 @@
+Performer Name: John	Final Score: 7.47
+Performer Name: Dan	Final Score: 9.07
+Performer Name: Mary	Final Score: 8.27
+Performer Name: Andrew	Final Score: 9.00
+Performer Name: Sue	Final Score: 9.13
+Performer Name: Linda	Final Score: 8.60
+Performer Name: David	Final Score: 8.40
+Performer Name: Ann	Final Score: 8.00

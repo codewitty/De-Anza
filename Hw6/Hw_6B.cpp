@@ -37,27 +37,27 @@ bool getRectangle(ifstream &inFile, double &length, double &width);
 
 int main()
 {
-    ifstream inFile;
-    double length, width;
+	ifstream inFile;
+	double length, width;
 	double area, perim;
 
-    welcome();
+	welcome();
     //inFile.open("rectngles.txt"); // <== incorect file name!
-    inFile.open("rectangles.txt");
-    if(!inFile)
-    {
-        cout << "\a\a~*~ ERROR opening the input file! ~*~\n";
-        return 1; // or you could use exit(1);
-    }
-    while (getRectangle(inFile, length, width))
-    {
-        calculateRectangle(length, width, area, perim);
-        displayRectangle(length, width, area, perim);
-    }
-    inFile.close();
-    farewell();
+	inFile.open("rectangles.txt");
+	if(!inFile)
+	{
+		cout << "\a\a~*~ ERROR opening the input file! ~*~\n";
+		return 1; // or you could use exit(1);
+	}
+	while (getRectangle(inFile, length, width))
+	{
+		calculateRectangle(length, width, area, perim);
+		displayRectangle(length, width, area, perim);
+	}
+	inFile.close();
+	farewell();
 
-    return 0;
+    return (0);
 }
 
 /**~*~*

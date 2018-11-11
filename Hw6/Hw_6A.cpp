@@ -35,7 +35,7 @@ void	calculateCircle(double radius, double &area, double &circ);
 
 int main()
 {
-    double radius;
+	double radius;
 	double area, circ;
     // Display a welcome message
 	welcome();
@@ -47,16 +47,16 @@ int main()
 	area = calcArea(radius); //function call to calculate Area for the circle
 
     // Display Results
-    printResults(radius, circ, area); //call to arguments (actual parameters)
+	printResults(radius, circ, area); //call to arguments (actual parameters)
 
-    area = circ = 0;
-    calculateCircle(radius, area, circ);    
+	area = circ = 0;
+	calculateCircle(radius, area, circ);    
 
 	printResults(radius, circ, area); 
 
-    farewell(); // Display an "end of the program" message
+	farewell(); // Display an "end of the program" message
     
-   return 0;
+   return (0);
 }
 
 void	welcome() //function definition
@@ -115,4 +115,36 @@ void	calculateCircle(double radius, double &area, double &circ)
 	return;
 }
 
+/****************************************
+
+*************Output***********
+
+WELCOME to the CIRCLE calculator!
+
+This program will output the
+	circumference and
+	area
+of a circle with a given radius.
+
+Enter radius (must be > 0): 3
+
+
+RESULTS
+	Radius = 3
+	Circumference = 18.84
+	Area = 28.26
+
+
+RESULTS
+	Radius = 3
+	Circumference = 18.84
+	Area = 28.26
+
+
+	 ~~*~~ The END ~~*~~ 
+
+	        ~~*~~ 
+	      Thank you
+	for using my program!
  
+*******************************************/
