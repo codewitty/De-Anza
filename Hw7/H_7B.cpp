@@ -1,7 +1,7 @@
 /*
   Exam Statistics.
  
-  NAME
+  NAME: Joshua
 */
 #include <iostream>
 #include <iomanip>
