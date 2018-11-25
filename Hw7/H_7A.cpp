@@ -4,7 +4,7 @@
 // Find and fix the errors. Run the program once (enter at least 5 scores) and
 // save the output at the end of the source file a a comment
 
-// NAME:Joshua Nelson Gomes
+// NAME:Joshua Gomes
 
 #include <iostream>
 #include <iomanip>
