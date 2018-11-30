@@ -4,18 +4,16 @@
 // Find and fix the errors. Run the program once (enter at least 5 scores) and
 // save the output at the end of the source file a a comment
 
-// NAME:Joshua Gomes
+// NAME:
 
 #include <iostream>
 #include <iomanip>
-#include <fstream>
-
 using namespace std;
 
 // Function prototypes
-void getTestScores(double scores[], int size);
-double getTotal(const double array, int size);
-double getLowest(const double array, int &size);
+void getTestScores(double scores[], int &size);
+double getTotal(const double array[], int size);
+double getLowest(const double array[], int size);
 
 int main()
 {
@@ -27,13 +25,13 @@ int main()
           average;          // Average test score
 
    // Get the test scores from the user.
-   getTestScores(testScores[], size);
+   getTestScores(testScores, size);
 
    // Get the total of the test scores.
-   total = getTotal(testScores[], size
+   total = getTotal(testScores, size);
 
    // Get the lowest test score.
-   lowestScore = getLowest(testScores[], size);
+   lowestScore = getLowest(testScores, size);
 
    // Subtract the lowest score from the total.
    total -= lowestScore;
@@ -45,6 +43,8 @@ int main()
    // Set up numeric output formatting.
    cout << fixed << showpoint << setprecision(1);
    // Display the average.
+   cout << size << endl;
+   cout << total << endl;
    cout << "The lowest score is " << lowestScore << ".\n";
    cout << "The average with the lowest score "
        << "dropped is " << average << ".\n";
@@ -66,10 +66,10 @@ void getTestScores(double scores[], int &size)
    cout << "Enter the number of scores ";
    cin >> size;
    // Get each test score.
-   for(index = 1; index <= size; index++)
+   for(index = 0; index <= size - 1; index++)
    {
       cout << "Enter test score number " 
-           << index << ": ";
+           << (index + 1) << ": ";
       cin >> scores[index];
    }
 }
@@ -85,7 +85,7 @@ double getTotal(const double array[], int size)
    double total = 0; // Accumulator
 
    // Add each element to total.
-   for (int count = 0; count < size; count + 1)
+   for (int count = 0; count < size; count++)
       total += array[count];
 
    // Return the total.
@@ -115,7 +115,7 @@ double getLowest(const double array[], int size)
    }
 
    // Return the lowest value.
-   return array[lowest];
+   return lowest;
 }
 /************ OUTPUT *******************
 
