@@ -12,7 +12,7 @@ using namespace std;
 // Function prototypes
 void	welcome(void);
 bool	getScores(ifstream &inFile, string s_id[], int finalScores[], int size);
-double 	Lowest(const int [], int size);
+double 	getLowest(const int [], int size);
 double 	get_highest(const int [], int size);
 void	output_info(const string [], const int [], int size, double lowestScore, double highestScore, double average);
 void	write_to_file(ofstream &outFile, const string [], const int [], int size, double average);
@@ -50,13 +50,20 @@ int main()
 	
 	// Calculate the average
 	average = total / size;
+
+	//Calculate the lowest score in the list
+	lowestScore = getLowest(finalScores, size);
 	
-	lowestScore = Lowest(finalScores, size);
+	//Calculate the highest score in the list
 	highestScore = get_highest(finalScores, size);
-	cout << highestScore << endl;
+
+	//Display the required info
 	output_info(s_id, finalScores, size, lowestScore, highestScore, average);
+	
+	//close the input file
 	inFile.close();
 	
+	//Prompt user to enter output file  name
 	cout << "Please enter the name of the file you'd like to write the results to.\n";
 	cin >> outputFile;
 	
@@ -74,6 +81,8 @@ int main()
 
 	// Close the file.
 	outFile.close();
+
+	//End of Program Message
 	exit_message();
 
 	return (0);
@@ -82,7 +91,7 @@ int main()
 //This function prints a welcome message to the screen. It also explains what the program does. 
 void	welcome(void)
 {
-	cout	<< "This program reads the final exam scores and corresponding student id's it then "
+	cout	<< "*****Welcome******\nThis program reads the final exam scores and corresponding student id's it then "
 		<< "displays the following results: \n• The total number of students in the array \n• The class average \n"
 		<< "• The lowest score in the array followed by the ids of the students with that score \n"
 		<< "• The highest score in the array followed by the ids of the students with that score.\n"
@@ -119,9 +128,9 @@ double getTotal(const int array[], int size)
 }
 
 //****************************************************
-// The getLowest function accepts a double array and *
-// its size as arguments. The lowest value in the    *
-// array is returned as a double.                    *
+// The get_highest function accepts a double array   *
+// and its size as arguments. The highest value in   *
+// the array is returned as a double.                *
 //****************************************************
 
 
@@ -144,7 +153,15 @@ double	get_highest(const int array[], int size)
 	// Return the lowest value.
 	return high;
 }
-double	Lowest(const int array[], int size)
+
+//****************************************************
+// The getLowest function accepts a double array and *
+// its size as arguments. The lowest value in the    *
+// array is returned as a double.                    *
+//****************************************************
+
+
+double	getLowest(const int array[], int size)
 {
 	double lowest;	// To hold the lowest value
 	
@@ -163,6 +180,11 @@ double	Lowest(const int array[], int size)
 	// Return the lowest value.
 	return lowest;
 }
+
+ /*~*~*~*
+This function prints the required information to the screen. It also checks the input file for all the scores that are equal to the lowest and highest scores and prints them out along with the respective student id's.
+*/
+
 void	output_info(const string s_id[], const int finalScores[], int size, double lowestScore, double highestScore, double average){
 	int count = 0;
 	cout 	<< "The average class score is: "
@@ -189,6 +211,10 @@ void	output_info(const string s_id[], const int finalScores[], int size, double 
 	}
 }
 
+ /*~*~*~*
+This function writes all the scores that are below average along with the respective student id's 
+to the user specified file.
+*/
 
 void	write_to_file(ofstream &outFile, const string s_id[] , const int finalScores[], int size, double average)
 {
@@ -201,8 +227,45 @@ void	write_to_file(ofstream &outFile, const string s_id[] , const int finalScore
 	}
 }
 
+//This function prints an exit message to the screen
 void	exit_message(void)
 {
 	cout << "*************************** End of Program *****************************\n"
 		<< "~~~~~~~~~~~That's All Folks!!!~~~~~~~~~~~~~~~" << endl;
 }
+
+/*************************************************
+OUTPUT
+*****Welcome******
+This program reads the final exam scores and corresponding student id's it then displays the following results: 
+• The total number of students in the array 
+• The class average 
+• The lowest score in the array followed by the ids of the students with that score 
+• The highest score in the array followed by the ids of the students with that score.
+The program also prompts the user to enter the name of an output file it writes all the scores below the average, and the corresponding id's.
+ ****** Let's Begin ******
+
+Please enter the name of the file that contains the student id's and exam scores.
+scores.txt
+The average class score is: 81.6923 and the class strength is 13.
+The students with the lowest score are: 
+SW111 score : 45
+TY4XZ score : 45
+9QWE9 score : 45
+The students with the highest score are: 
+DR123 score : 100
+2ABCD score : 100
+AK323 score : 100
+Please enter the name of the file you'd like to write the results to.
+yes.txt
+*************************** End of Program *****************************
+~~~~~~~~~~~That's All Folks!!!~~~~~~~~~~~~~~~
+
+***OUTPUT FILE*****
+cat yes.txt
+SW111 : 45
+TY4XZ : 45
+AC234 : 78
+9QWE9 : 45
+
+*/

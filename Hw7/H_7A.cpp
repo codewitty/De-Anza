@@ -38,13 +38,11 @@ int main()
 
    // Calculate the average. Divide by 3 because
    // the lowest test score was dropped.
-   average = total / size;
+   average = total / (size - 1);
 
    // Set up numeric output formatting.
    cout << fixed << showpoint << setprecision(1);
    // Display the average.
-   cout << size << endl;
-   cout << total << endl;
    cout << "The lowest score is " << lowestScore << ".\n";
    cout << "The average with the lowest score "
        << "dropped is " << average << ".\n";
@@ -63,7 +61,7 @@ void getTestScores(double scores[], int &size)
    int index;
    
    // Get the number of scores
-   cout << "Enter the number of scores ";
+   cout << "Enter the number of scores: ";
    cin >> size;
    // Get each test score.
    for(index = 0; index <= size - 1; index++)
@@ -118,5 +116,12 @@ double getLowest(const double array[], int size)
    return lowest;
 }
 /************ OUTPUT *******************
-
+Enter the number of scores: 5
+Enter test score number 1: 56
+Enter test score number 2: 64
+Enter test score number 3: 33
+Enter test score number 4: 87
+Enter test score number 5: 76
+The lowest score is 33.0.
+The average with the lowest score dropped is 70.8.
  */
