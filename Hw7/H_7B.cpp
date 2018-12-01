@@ -1,7 +1,7 @@
 /*
   Exam Statistics.
  
-  NAME
+NAME: JOSHUA N GOMES 
 */
 #include <iostream>
 #include <iomanip>
@@ -11,11 +11,13 @@ using namespace std;
 
 // Function prototypes
 void	welcome(void);
-bool	getScores(ifstream &inFile, string &s_id, double &finalScores, int size);
-double 	Lowest(const double array[], int size);
-double 	get_highest(const double array[], int size);
-
-double getTotal(const double array[], int size);
+bool	getScores(ifstream &inFile, string s_id[], int finalScores[], int size);
+double 	Lowest(const int [], int size);
+double 	get_highest(const int [], int size);
+void	output_info(const string [], const int [], int size, double lowestScore, double highestScore, double average);
+void	write_to_file(ofstream &outFile, const string [], const int [], int size, double average);
+double	getTotal(const int [], int size);
+void	exit_message(void);
 
 int main()
 {
@@ -25,10 +27,9 @@ int main()
 	ofstream outFile;
 	const int SIZE = 45;		// Array maximum size
 	int size = 0;			// Array actual size
-	int y = 0;
 	string s_id[SIZE];		// Array of student id's
-	double	finalScores[SIZE],	// Array of final exam scores
-        	total,			// Total of the scores
+	int	finalScores[SIZE];	// Array of final exam scores
+        double	total,			// Total of the scores
 		lowestScore,		// Lowest test score
 		highestScore,		// Highest exam score
 		average;		// Average test score
@@ -36,20 +37,14 @@ int main()
 	welcome();
 	cout << "Please enter the name of the file that contains the student id's and exam scores.\n";
 	cin >> inputFile;
-	inFile.open("scores.txt");
+	inFile.open(inputFile);
 	if(!inFile)
     		{
         		cout << "\a\a~*~ ERROR opening the input file! ~*~\n";
-        		return 1;
+        		return(1);
     		}
-	for(int i = 0; i < SIZE ; i++)
-	{
-		inFile << s_id[i] << finalScores[i];
-		size++;
-	}
-		
-		//while (getScores(inFile, s_id, finalScores))
-      		//size++;
+	while (getScores(inFile, s_id, finalScores, size))
+      		size++;
 	// Get the total of the test scores.
 	total = getTotal(finalScores, size);
 	
@@ -58,69 +53,51 @@ int main()
 	
 	lowestScore = Lowest(finalScores, size);
 	highestScore = get_highest(finalScores, size);
-	cout << "The average class score is"
-        << average << " and the class strength is " << size << ".\n"
-	<< "The students with the lowest score are: ";
-
-	while (y < size)
-	{
-		if (finalScores[y] == lowestScore)
-		{
-			cout << s_id[y] << " score : " << lowestScore << endl;
-		}
-		y++;
-	}
-
-	cout << "The students with the highest score are: ";
-	
-	while (y < size)
-	{
-		if (finalScores[y] == highestScore)
-		{
-			cout << s_id[y] << " score : " << highestScore << endl;
-		}
-		y++;
-	}
+	cout << highestScore << endl;
+	output_info(s_id, finalScores, size, lowestScore, highestScore, average);
 	inFile.close();
 	
 	cout << "Please enter the name of the file you'd like to write the results to.\n";
 	cin >> outputFile;
 	
-	outFile.open(outputFile);
-	// Write the array contents to the file.
-	for (int y; y < size; y++)
+	// Open the output file and perform validation
+    	outFile.open(outputFile);
+
+	if(!outFile)
 	{
-		if (finalScores[y] < average)
-		{
-			 outFile << s_id[y] << " : " << finalScores[y] << endl;
-		}
-		y++;
-	}
+        	cout << "~*~ Error opening the output file! ~*~\n";
+		return(1);
+	}	
+	
+	// Write the array contents to the file.
+	write_to_file(outFile, s_id, finalScores, size, average);
+
 	// Close the file.
 	outFile.close();
-	cout << "That's all folks!!! \n\n\n";
+	exit_message();
 
-	return 0;
+	return (0);
 }
 
 //This function prints a welcome message to the screen. It also explains what the program does. 
 void	welcome(void)
 {
-	cout	<< "This program reads the final exam scores and corresponding student id's it then displays the following results"
+	cout	<< "This program reads the final exam scores and corresponding student id's it then "
 		<< "displays the following results: \n• The total number of students in the array \n• The class average \n"
 		<< "• The lowest score in the array followed by the ids of the students with that score \n"
 		<< "• The highest score in the array followed by the ids of the students with that score.\n"
-		<< " The program also prompts the user to enter the name of an output file it writes all the" 
-		<< " scores below the average, and the corresponding id's.\n\n";
+		<< "The program also prompts the user to enter the name of an output file it writes all the" 
+		<< " scores below the average, and the corresponding id's.\n"
+		<< " ****** Let's Begin ******\n\n";
 }
  /*~*~*~*
 This function checks the input file for data and reads the data line-by-line into the given variables
 To accomplish this we pass by reference into the declared variables. 
 */
-bool	getScores(ifstream &inFile, string &s_id, double &finalScores, int size)
+bool	getScores(ifstream &inFile, string s_id[], int finalScores[], int size)
 {
 	
-	return (inFile >> s_id[size] >> finalScores[size]);
+	return (bool)(inFile >> s_id[size] >> finalScores[size]);
 }
 
 //****************************************************
@@ -129,7 +106,7 @@ bool	getScores(ifstream &inFile, string &s_id, double &finalScores, int size)
 // elements is returned as a double.                 *
 //****************************************************
 
-double getTotal(const double array[], int size)
+double getTotal(const int array[], int size)
 {
    double total = 0; // Accumulator
 
@@ -148,7 +125,7 @@ double getTotal(const double array[], int size)
 //****************************************************
 
 
-double get_highest(const double array[], int size)
+double	get_highest(const int array[], int size)
 {
 	double high;	// To hold the highest value
 
@@ -167,10 +144,10 @@ double get_highest(const double array[], int size)
 	// Return the lowest value.
 	return high;
 }
-double Lowest(const double array[], int size)
+double	Lowest(const int array[], int size)
 {
 	double lowest;	// To hold the lowest value
-
+	
 	// Get the first array's first element.
 	lowest = array[0];
 
@@ -185,4 +162,47 @@ double Lowest(const double array[], int size)
 	}
 	// Return the lowest value.
 	return lowest;
+}
+void	output_info(const string s_id[], const int finalScores[], int size, double lowestScore, double highestScore, double average){
+	int count = 0;
+	cout 	<< "The average class score is: "
+		<< average << " and the class strength is " << size << ".\n"
+		<< "The students with the lowest score are: \n";
+	while (count < size)
+	{
+		if (finalScores[count] == lowestScore)
+		{
+			cout << s_id[count] << " score : " << lowestScore << endl;
+		}
+		count++;
+	}
+
+	cout	<< "The students with the highest score are: \n";
+	count = 0;
+	while (count < size)
+	{
+		if (finalScores[count] == highestScore)
+		{
+			cout << s_id[count] << " score : " << highestScore << endl;
+		}
+		count++;
+	}
+}
+
+
+void	write_to_file(ofstream &outFile, const string s_id[] , const int finalScores[], int size, double average)
+{
+	for (int y = 0; y < size; y++)
+	{
+		if (finalScores[y] < average)
+		{
+			 outFile << s_id[y] << " : " << finalScores[y] << endl;
+		}
+	}
+}
+
+void	exit_message(void)
+{
+	cout << "*************************** End of Program *****************************\n"
+		<< "~~~~~~~~~~~That's All Folks!!!~~~~~~~~~~~~~~~" << endl;
 }
