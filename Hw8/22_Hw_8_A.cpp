@@ -7,8 +7,7 @@
  of the source file.
  
  
- //  PLACE YOUR NAME HERE
- 
+Name: Joshua Gomes; 
 */
 #include <iostream>
 #include <fstream>
@@ -31,8 +30,8 @@ int main()
     for (int i = 0; i < 2 * length; i++) // SEARCH 20 times
     {
         int target = rand() % 41 + 10;  // generate a random target within the range 10 to 50
-        int location = searchList(array[], target, size);
-        if (location = -1)
+        int location = search_List(list, length, target);
+        if (location != -1)
             cout << target << " FOUND at location: " << location << endl;
         else
             cout << target << " NOT found!" << endl;
@@ -47,14 +46,14 @@ int main()
  It returns the index of the first element in the array that is equal to
  the target value.
  */
-int searchList(int array[], int size, int target)
+int search_List(int array[], int size, int target)
 {
     int index = 0;   // Used as a subscript to search array
     int pos   = -1;  // To record position of search value: -1 means not found
     
     while (index < size && pos == -1)
     {
-        if (array[index] = target) // If the value is found
+        if (array[index] == target) // If the value is found
         {
             pos = index; // Record the value's subscript
         }
@@ -64,5 +63,25 @@ int searchList(int array[], int size, int target)
 }
 
 /************** OUTPUT
- 
- */
+40 30 50 13 35 48 14 31 18 33 
+15 NOT found!
+46 NOT found!
+10 NOT found!
+33 FOUND at location: 9
+17 NOT found!
+29 NOT found!
+16 NOT found!
+42 NOT found!
+33 FOUND at location: 9
+27 NOT found!
+37 NOT found!
+16 NOT found!
+27 NOT found!
+16 NOT found!
+18 FOUND at location: 8
+32 NOT found!
+24 NOT found!
+29 NOT found!
+13 FOUND at location: 3
+23 NOT found!
+*/
