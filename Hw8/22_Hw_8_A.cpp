@@ -10,7 +10,6 @@
 Name: Joshua Gomes; 
 */
 #include <iostream>
-#include <fstream>
 
 using namespace std;
 

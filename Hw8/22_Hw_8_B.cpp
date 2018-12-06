@@ -6,11 +6,10 @@
  of the source file.
  
  
- 
+JOSHUA N. GOMES; 
 */
 
 #include <iostream>
-#include <fstream>
 
 using namespace std;
 
@@ -28,7 +27,7 @@ int main()
     cout << endl;
 
 
-    void selectionSort(int array[], int size);
+    selectionSort(list,size);
     for (int i = 0; i < size; i++)
     {
         cout << list[i] << " ";
@@ -48,19 +47,19 @@ void selectionSort(int array[], int size)
     {
         // look for smallest
         int minIndex = i;
-        for(int k = i + 1; k <= size; k++)
+        for(int k = i + 1; k < size; k++)
         {
             if (array[k] < array[minIndex])
                 minIndex = k;
         }
         // swap
-  
-    }
         int hold = array[minIndex];
         array[minIndex] = array[i];
         array[i] = hold;
+    }
 }
 
-/****************** OUTPUT
- 
+/****************** OUTPUT ***********************
+50 30 80 10 30 40 90 30 80 30 
+10 30 30 30 30 40 50 80 80 90  
 */
