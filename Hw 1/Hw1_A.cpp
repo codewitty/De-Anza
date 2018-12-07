@@ -3,7 +3,7 @@
  
 	Name: Joshua Nelson Gomes
 	IDE:  iTerm/Vim
-	Date: 10/01/2018
+Date: 10/01/2018
 */
 
 #include <iostream>     // The Input/ Output stream header file is needed to perform C++ I/O
