@@ -5,7 +5,7 @@
    selection. A do-while loop repeats the program until the
    user selects item 4 from the menu.
 
-   JOSHUA N GOMES
+   JOSHUA  GOMES
 */
 
 #include <iostream>
