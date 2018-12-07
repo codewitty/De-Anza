@@ -38,19 +38,57 @@ int main()
 		average;		// Average test score
 		
 	welcome();
+	//Prompt the user to enter name of file
 	cout << "Please enter the name of the file that contains the student id's and exam scores.\n";
 	cin >> inputFile;
+
+	//open inut file and check validity
 	inFile.open(inputFile);
 	if(!inFile)
     		{
         		cout << "\a\a~*~ ERROR opening the input file! ~*~\n";
         		return(1);
     		}
+
+	// Read the contents of the file into two parallel arrays.
 	while (getScores(inFile, s_id, finalScores, size))
       		size++;
 
 	//close the input file
 	inFile.close();
+	
+	//sort the scores in the ascending order
+	sort_ascending(s_id, finalScores, size);
+
+	// Open the output file and perform validation
+    	outFile1.open("scoresOut1.txt");
+	outFile2.open("scoresOut2.txt");
+
+
+	if(!outFile1)
+	{
+        	cout << "~*~ Error opening the output file \"scoresOut1.txt\"! ~*~\n";
+		return(1);
+	}	
+	
+	if(!outFile2)
+	{
+        	cout << "~*~ Error opening the output file \"scoresOut2.txt\"! ~*~\n";
+		return(1);
+	}
+
+	// Write the sorted array contents to the file.
+	write_to_file(outFile1, s_id, finalScores, size);
+
+	//sort the scores in the descending order
+	sort_descending(s_id, finalScores, size);
+
+	// Write sorted contents to output file
+	write_to_file(outFile2, s_id, finalScores, size);
+
+	// Close the files.
+	outFile1.close();
+	outFile2.close();
 
 	// Get the total of the test scores.
 	total = getTotal(finalScores, size);
@@ -66,31 +104,6 @@ int main()
 
 	//Display the required info
 	output_info(s_id, finalScores, size, lowestScore, highestScore, average);
-	
-		
-	sort_ascending(s_id, finalScores, size);
-
-	// Open the output file and perform validation
-    	outFile1.open("scoresOut1.txt");
-	outFile2.open("scoresOut2.txt");
-
-
-	if(!outFile1 || !outFile2)
-	{
-        	cout << "~*~ Error opening the output file! ~*~\n";
-		return(1);
-	}	
-	
-	// Write the array contents to the file.
-	write_to_file(outFile1, s_id, finalScores, size);
-
-	sort_descending(s_id, finalScores, size);
-
-	write_to_file(outFile2, s_id, finalScores, size);
-
-	// Close the file.
-	outFile1.close();
-	outFile2.close();
 
 	//End of Program Message
 	exit_message();
@@ -115,10 +128,10 @@ void	welcome(void)
 This function checks the input file for data and reads the data line-by-line into the given variables
 To accomplish this we pass by reference into the declared variables. 
 */
-bool	getScores(ifstream &inFile, string s_id[], int finalScores[], int size)
+bool	getScores(ifstream &in, string s[], int scores[], int i)
 {
 	
-	return (bool)(inFile >> s_id[size] >> finalScores[size]);
+	return (bool)(in >> s[i] >> scores[i]);
 }
 
 //****************************************************
@@ -127,12 +140,12 @@ bool	getScores(ifstream &inFile, string s_id[], int finalScores[], int size)
 // elements is returned as a double.                 *
 //****************************************************
 
-double getTotal(const int array[], int size)
+double getTotal(const int array[], int i)
 {
    double total = 0; // Accumulator
 
    // Add each element to total.
-   for (int counter = 0; counter < size; counter++)
+   for (int counter = 0; counter < i; counter++)
       total += array[counter];
 
    // Return the total.
@@ -146,7 +159,7 @@ double getTotal(const int array[], int size)
 //****************************************************
 
 
-double	get_highest(const int array[], int size)
+double	get_highest(const int array[], int i)
 {
 	double high;	// To hold the highest value
 
@@ -157,7 +170,7 @@ double	get_highest(const int array[], int size)
 	// value less than lowest is found, assign it
 	// to lowest. When a value more than highest is found assign it to highest.
 
-	for (int count = 1; count < size; count++)
+	for (int count = 1; count < i; count++)
 	{
 		if (array[count] > high)
 			high = array[count];
@@ -165,6 +178,16 @@ double	get_highest(const int array[], int size)
 	// Return the lowest value.
 	return high;
 }
+
+
+//****************************************************
+// The sort_ascending function accepts a double      *
+// array, a string array and its size as arguments   *
+// It then sorts the array in ascending order while  *
+// matching the initial indexes of the string array  *
+// to the corresponding value of the int array.	     *			   
+//****************************************************
+
 
 void	sort_ascending(string s[], int array[], int size)
 {
@@ -192,10 +215,21 @@ void	sort_ascending(string s[], int array[], int size)
     	}
 }
 
+//****************************************************
+// The sort_descending function accepts a double     *
+// array, a string array and its size as arguments   *
+// It then sorts the array in descending order while *
+// matching the initial indexes of the string array  *
+// to the corresponding value of the int array.	     *			   
+//****************************************************
+
+
+
 void	sort_descending(string s[], int array[], int size)
 {
 	for (int i = 0; i <= size + 1; i++)
 	{
+		//find the maximum value
 		int minIndex = i;
 		int mindex = i;
         	for(int k = i + 1; k < size; k++)
@@ -227,7 +261,7 @@ void	sort_descending(string s[], int array[], int size)
 //****************************************************
 
 
-double	getLowest(const int array[], int size)
+double	getLowest(const int array[], int i)
 {
 	double lowest;	// To hold the lowest value
 	
@@ -238,7 +272,7 @@ double	getLowest(const int array[], int size)
 	// value less than lowest is found, assign it
 	// to lowest.
 
-	for (int count = 1; count < size; count++)
+	for (int count = 1; count < i; count++)
 	{
 		if (array[count] < lowest)
 			lowest = array[count];
@@ -251,45 +285,46 @@ double	getLowest(const int array[], int size)
 This function prints the required information to the screen. It also checks the input file for all the scores that are equal to the lowest and highest scores and prints them out along with the respective student id's, the class strength and the class average.
 */
 
-void	output_info(string s_id[], int finalScores[], int size, double lowestScore, double highestScore, double average){
+void	output_info(string s[], int scores[], int i, double low, double high, double avg){
 	int count = 0;
-	cout 	<< "The highest score achieved is : " << highestScore << endl
+	cout 	<< "The highest score achieved is : " << high << endl
 		<< "The students who achieved the highest score are: \n"; 
-
-	while (count < size)
+	//find and print the highest scores with corresponding id's
+	while (count < i)
 	{
-		if (finalScores[count] == highestScore)
+		if (scores[count] == high)
 		{
-			cout << s_id[count] << " score : " << highestScore << endl;
+			cout << s[count] << " score : " << high << endl;
 		}
 		count++;
 	}	
 	
-	cout	<< "The lowest score achieved is: " << lowestScore << endl
+	cout	<< "The lowest score achieved is: " << low << endl
 		<< "The students with the lowest score are: \n";
+	//find and print the lowest scores with corresponding id's
 	count = 0;	
-	while (count < size)
+	while (count < i)
 	{
-		if (finalScores[count] == lowestScore)
+		if (scores[count] == low)
 		{
-			cout << s_id[count] << " score : " << lowestScore << endl;
+			cout << s[count] << " score : " << low << endl;
 		}
 		count++;
 	}
 
-	cout << "The class strength is: " << size << " and the class average class score is: "
-		<< average << endl;
+	cout	<< "The class strength is: " << i << ".\nThe class average score is: "
+		<< setprecision(2) << fixed << showpoint << avg << ".\n" << endl;
 }
 
  /*~*~*~*
 This function writes all the sorted scores to the appropriate file.
 */
 
-void	write_to_file(ofstream &outFile, const string s_id[] , const int finalScores[], int size) 
+void	write_to_file(ofstream &o, const string s[] , const int scores[], int size) 
 {
 	for (int y = 0; y < size; y++)
 	{
-		outFile << s_id[y] << " : " << finalScores[y] << endl;	
+		o << s[y] << " : " << scores[y] << endl;	
 	}
 }
 
@@ -302,4 +337,35 @@ void	exit_message(void)
 
 /*************************************************
 OUTPUT
+*****Welcome******
+This program reads the final exam scores and corresponding student id's into 2 parallel arrays.
+It then does the following: 
+• Sort the arrays in ascending order by student ID.
+• Write the sorted arrays to another output file named scoresOut1.txt
+• Sort the arrays in descending order by score.
+• Write the sorted arrays to an output file named scoresOut2.txt
+• The program also displays the following results: 
+• The total number of students in the array 
+• The class average 
+• The lowest score in the array followed by the ids of the students with that score 
+• The highest score in the array followed by the ids of the students with that score.
+ ****** Let's Begin ******
+
+Please enter the name of the file that contains the student id's and exam scores.
+scores.txt
+The highest score achieved is : 100
+The students who achieved the highest score are: 
+DR123 score : 100
+2ABCD score : 100
+AK323 score : 100
+The lowest score achieved is: 45
+The students with the lowest score are: 
+SW111 score : 45
+TY4XZ score : 45
+9QWE9 score : 45
+The class strength is: 13.
+The class average score is: 81.69.
+
+*************************** End of Program *****************************
+~~~~~~~~~~~That's All Folks!!!~~~~~~~~~~~~~~~
 */
