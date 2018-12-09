@@ -18,7 +18,7 @@
 
    Find and fix the errors, then run the program and save its output.
  
-  NAME: JOSHUA N. GOMES
+  NAME: JOSHUA NELSON GOMES. 
  
 *~**/
 
