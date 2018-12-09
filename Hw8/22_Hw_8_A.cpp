@@ -6,8 +6,8 @@
  Find and fix errors. Run the program once and save the output as a comment at the end 
  of the source file.
  
- 
-Name: Joshua Gomes; 
+JOSHUA NELSON GOMES
+
 */
 #include <iostream>
 
