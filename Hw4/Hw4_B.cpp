@@ -10,8 +10,7 @@
  The program generates a random number within the range 1 to 8 (inclusive)
  and asks the user to guess it in one or two tries.
 
-Name : Joshua N. Gomes
-
+NAME: JOSHUA GOMES;
 */
 #include <iostream>
 #include <ctime>
