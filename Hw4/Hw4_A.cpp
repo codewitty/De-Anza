@@ -9,7 +9,7 @@
  Run the program three times and save each output as a comment at the end
  of the source file.
 
-JOSHUA N. GOMES
+NAME: JOSHUA N. GOMES
 
 */
 
