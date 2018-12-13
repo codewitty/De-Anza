@@ -13,8 +13,7 @@
  the screen. Write to a file named results.txt the names of the performers and their
  final score.
  
- NAME: JOSHUA N. GOMES
- 
+Name: Joshua Gomes; 
  *~**/
 
 #include <iostream>
