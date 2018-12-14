@@ -1,8 +1,8 @@
 /**~*~*
    This is the first program that just writes out a simple message
  
-	Name: Joshua Nelson Gomes
-	IDE:  iTerm/Vim
+Name: Joshua Nelson Gomes;	
+IDE:  iTerm/Vim
 Date: 10/01/2018
 */
 
