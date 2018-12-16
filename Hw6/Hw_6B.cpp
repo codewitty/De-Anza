@@ -18,8 +18,7 @@
 
    Find and fix the errors, then run the program and save its output.
  
-  NAME: JOSHUA NELSON GOMES. 
- 
+Name: Joshua N Gomes; 
 *~**/
 
 #include <iostream>
