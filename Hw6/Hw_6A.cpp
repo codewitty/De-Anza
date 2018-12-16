@@ -15,8 +15,7 @@
    This program will output the circumference and area
    of a circle with a given radius.
  
-   NAME: JOSHUA GOMES
- 
+	NAME: JOSHUA N GOMES; 
 *~**/
 
 #include <iostream>
