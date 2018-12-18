@@ -1,7 +1,7 @@
 /*
   Exam Statistics II.
  
-NAME: JOSHUA N GOMES 
+Name: Joshua Nelson Gomes;
 */
 #include <iostream>
 #include <iomanip>
