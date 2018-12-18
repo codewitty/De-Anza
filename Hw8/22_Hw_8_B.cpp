@@ -6,7 +6,7 @@
  of the source file.
  
  
-JOSHUA N. GOMES; 
+Name: Joshua N Gomes;
 */
 
 #include <iostream>
