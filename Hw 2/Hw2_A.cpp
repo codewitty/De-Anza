@@ -3,7 +3,7 @@
 
   This program will display information about De Anza College
 
-  	NAME: JOSHUA N GOMES
+  	NAME: JOSHUA NELSON GOMES
 	IDE: vim / gcc
 	DATE: 10/03/2019 
 */
