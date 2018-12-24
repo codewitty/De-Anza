@@ -1,7 +1,7 @@
 /**~*~*
    This is the first program that just writes out a simple message
  
-Name: Joshua Nelson Gomes;	
+Name: Joshua N. Gomes;	
 IDE:  iTerm/Vim
 Date: 10/01/2018
 */
