@@ -9,11 +9,11 @@
  Assume there's only one winner!
  
  Input: Read data from an input file named performers.txt.
- Output: Write the number of participants, the name of the winner and winner’s score to
+ Output: Write the number of participants, the name of the winner and winnerâ€™s score to
  the screen. Write to a file named results.txt the names of the performers and their
  final score.
  
-Name: Joshua Gomes; 
+Name: Joshua Nelson Gomes; 
  *~**/
 
 #include <iostream>
