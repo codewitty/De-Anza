@@ -1,10 +1,12 @@
 // Program name: Lab1a
 //
-// Description: This program prints a greeting on the user's screen.
-// 
-// What's on your mind about this lab? This exercise gives me an
-// opportunity to get used to various activities needed to write
-// a successful C++ program.
+// Description: This program prints the Corporation Sales report
+// 		to the screen.
+//
+// What's on your mind about this lab? 
+// This exercise helps me understand the basic concepts 
+// of using 2D arrays, how to initialise them, 
+// pass them to functions and print them to the screen.
 //
 // Author: Joshua Nelson Gomes 
 //
@@ -13,15 +15,13 @@
 // IDE Used: Vim/Terminal
 //
 
-// Note: DO NOT remove these include statements.
-
 #include <iostream>
 #include <iomanip>
 #include <string>
 
 using namespace std;
 
-// Remove the following line if the definition foo is removed.
+//global constant declaration and function prototypes
 const int COLS = 4;
 void	printSalesData(double arr[][COLS], int rows);
 
@@ -47,19 +47,19 @@ int main() {
 	return 0;
 }
 
-// Remove the function template below for the labs not requiring functions.
 //************************************************************************
-//* Function name: foo
+//* Function name: printSalesData
 //*
-//* This function . . .
+//* This function prints the matrix portion of the report in the specified
+//* format.
 //*
 //* Parameters:
-//*    ptr - describe the purpose of this parameter
-//*    size - describe the purpose of this parameter
-//*
+//*	arr  -  This is a 2d Array of doubles.
+//*	rows -  This is an int variable that tells us how many rows the
+//*	        array is made up of.
 //* Returns:
+//*		Function does not return anything
 //*
-//*    Describe the return value
 //*
 //************************************************************************
 
