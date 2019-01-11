@@ -36,7 +36,7 @@ int main() {
 	};
 	//print header
 	cout << "Corporation Sales Report" << endl;
-    	cout << "DIV" << "\t\t\t" << "Q1\t\t\tQ2\t\t\tQ3\t\t\tQ4\n";
+    	cout << " DIV" << "\t\t\t" << "Q1\t\t\tQ2\t\t\tQ3\t\t\tQ4\n";
 
 	//print sales data
 	printSalesData(matrix, ROWS);
@@ -63,7 +63,7 @@ int main() {
 void	printSalesData(double arr[][COLS], int rows) {
 	for (int row = 0; row < rows; row++) {
 		// Print the row
-		cout << row << " ";
+		cout << "  " << row << " ";
 		for (int col = 0; col < COLS; col++) {
 			cout << arr[row][col];
 			cout << " ";
