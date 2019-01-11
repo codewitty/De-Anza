@@ -36,7 +36,10 @@ int main() {
 	};
 	//print header
 	cout << "Corporation Sales Report" << endl;
-    	cout << " DIV" << "\t\t\t" << "Q1\t\t\tQ2\t\t\tQ3\t\t\tQ4\n";
+    	cout << " DIV"	<< "        Q1"
+			<< "       Q2"
+			<< "       Q3"
+			<< "       Q4\n";
 
 	//print sales data
 	printSalesData(matrix, ROWS);
