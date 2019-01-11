@@ -22,9 +22,9 @@
 using namespace std;
 
 // Remove the following line if the definition foo is removed.
-void	header(void);
-
 const int COLS = 4;
+void	printSalesData(double arr[][COLS], int rows);
+
 
 int main() {
 	//Define and initialize a 2D array
@@ -35,7 +35,12 @@ int main() {
 		{271.83, 321.55, 321.67, 641.69}
 	};
 	//print header
-	header();
+	cout << "Corporation Sales Report" << endl;
+    	cout << "DIV" << "\t\t\t" << "Q1\t\t\tQ2\t\t\tQ3\t\t\tQ4\n";
+
+	//print sales data
+	printSalesData(matrix, ROWS);
+
 	return 0;
 }
 
@@ -55,11 +60,20 @@ int main() {
 //*
 //************************************************************************
 
-void header(void) {
-    // prints the header to the screen
-    cout << "Corporation Sales Report" << endl;
-    cout << "DIV" << "\t\t\t" << "Q1\t\t\tQ2\t\t\tQ3\t\t\tQ4\n";
-};
+void	printSalesData(double arr[][COLS], int rows) {
+	for (int row = 0; row < rows; row++) {
+		// Print the row
+		cout << row << " ";
+		for (int col = 0; col < COLS; col++) {
+			cout << arr[row][col];
+			cout << " ";
+		}
+		cout << '\n';
+	}
+}
+
+
+
 
 /*
  Copy output of this program below this line.
