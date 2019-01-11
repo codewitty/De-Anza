@@ -63,10 +63,9 @@ int main() {
 void	printSalesData(double arr[][COLS], int rows) {
 	for (int row = 0; row < rows; row++) {
 		// Print the row
-		cout << "  " << row << " ";
+		cout << "   " << row << " ";
 		for (int col = 0; col < COLS; col++) {
-			cout << arr[row][col];
-			cout << " ";
+			cout << "   " << arr[row][col];
 		}
 		cout << '\n';
 	}
