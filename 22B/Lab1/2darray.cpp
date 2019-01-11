@@ -65,11 +65,13 @@ int main() {
 
 void	printSalesData(double arr[][COLS], int rows) {
 	for (int row = 0; row < rows; row++) {
-		// Print the row
+		// Print the row beginning with row number
 		cout << "   " << row << " ";
+		// Print each element of the report
 		for (int col = 0; col < COLS; col++) {
 			cout << "   " << arr[row][col];
 		}
+		// Move to a new line after each row
 		cout << '\n';
 	}
 }
@@ -81,4 +83,11 @@ void	printSalesData(double arr[][COLS], int rows) {
  Copy output of this program below this line.
  --------------------------------------------
  
+Corporation Sales Report
+ DIV        Q1       Q2       Q3       Q4
+   0    201.24   150.91   270.83   421.51
+   1    312.43   422.14   251.85   732.53
+   2    271.83   321.55   321.67   641.69
+
+
  */
