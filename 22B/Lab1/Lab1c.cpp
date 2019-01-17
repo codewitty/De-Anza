@@ -4,13 +4,13 @@
 // 		to the screen.
 //
 // What's on your mind about this lab? 
-// This exercise helps me understand the basic concepts 
-// of using 2D arrays, how to initialise them, 
+// This exercise helps me understand the C- String variables 
+// how to initialise them, 
 // pass them to functions and print them to the screen.
 //
 // Author: Joshua Nelson Gomes 
 //
-// Date: 01/11/2019
+// Date: 01/17/2019
 //
 // IDE Used: Vim/Terminal
 //
