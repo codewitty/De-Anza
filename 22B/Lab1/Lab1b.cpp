@@ -25,6 +25,7 @@ using namespace std;
 int main() {
 	//define int constant
 	const int NUM_EXPENSES = 7;
+	
 	//define and initialise variables, pointer and array
 	double sum = 0;
 	double average;
@@ -41,11 +42,14 @@ int main() {
 
 	//use the total to find the average of the expenses
 	average = sum / NUM_EXPENSES;
-	cout << sum << endl << average << endl << endl; 
+	
+	//reset ptr variable
 	ptr = expenses;
-	/* This block of code prints the report header first. It then uses 
-	 * the pointer variable to iterate through the expenses array to 
-	 * print the expenses. Finally it prints the total and the average.
+
+	/* This block of code prints the report header first. It then uses
+	 * the pointer variable to iterate through the expenses array to
+	 * print the expenses.
+	 * Finally it prints the total and the average.
 	*/
 
 	//print header
