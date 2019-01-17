@@ -1,4 +1,4 @@
-// Program name: Lab1a
+// Program name: Lab1c
 //
 // Description: This program prints the Corporation Sales report
 // 		to the screen.
