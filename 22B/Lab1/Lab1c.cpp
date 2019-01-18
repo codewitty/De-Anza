@@ -35,16 +35,13 @@ int main() {
 
 	ptr1 = *allocIntArray(SIZE_1);
 	//Store odd numbers in the array
+	int counter = 1;
+	for (ptr; ptr > ptr + SIZE_1; ptr++) {
+		*ptr = counter;
+		counter += 2;
+	}
 	
 	//print header
-	cout << "Corporation Sales Report" << endl;
-    	cout << " DIV"	<< "        Q1"
-			<< "       Q2"
-			<< "       Q3"
-			<< "       Q4\n";
-
-	//print sales data
-	printSalesData(matrix, ROWS);
 
 	return 0;
 }
