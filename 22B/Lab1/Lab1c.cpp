@@ -33,16 +33,31 @@ int main() {
 	int *ptr1 = nullptr;
 	int *ptr2 = nullptr;
 
-	ptr1 = *allocIntArray(SIZE_1);
+	ptr1 = allocIntArray(SIZE_1);
+	cout << "checkflag2\n";
 	//Store odd numbers in the array
 	int counter = 1;
-	for (ptr; ptr > ptr + SIZE_1; ptr++) {
-		*ptr = counter;
+	for (int i = 0; i < SIZE_1; i++) {
+		ptr1[i] = counter;
 		counter += 2;
 	}
-	
-	//print header
 
+	counter = 2;
+	ptr2 = allocIntArray(SIZE_2);
+	//Store even numbers in the array
+	for (int i = 0; i < SIZE_2; i++) {
+		ptr2[i] = counter;
+		counter += 2;
+	}
+	//print partial arrays
+	cout 	<< *ptr1 << " " << *(ptr1 +1) << " " << *(ptr1 + 2)
+		<< "..." << *(ptr1 + 97) << " " << *(ptr1 + 98) << " " << *(ptr1 + 99) << endl;
+	cout	<< *ptr2 << " " << *(ptr2 +1) << " " << *(ptr2 + 2)
+		<< "..." << *(ptr2 + 997) << " " << *(ptr2 + 998) << " " << *(ptr2 + 999) << endl;
+
+	delete [] ptr1;
+	delete [] ptr2;
+	
 	
 	return 0;
 }
@@ -64,11 +79,7 @@ int main() {
 //************************************************************************
 
 int	*allocIntArray(int nbr_values) {
-	int *ptr_temp;
-	for (ptr_temp; ptr_temp < ptr_temp + nbr_values; ptr_temp++) {
-		// allocate int values and assign them to ptr
-		ptr_temp = new int;
-	}
+	int *ptr_temp = new int[nbr_values];
 	return ptr_temp;
 }
 
