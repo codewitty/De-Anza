@@ -67,12 +67,13 @@ int main() {
 //*
 //************************************************************************
 
-void	allocIntArray(int nbr_values) {
+int	*allocIntArray(int nbr_values) {
 	int *ptr_temp;
-	for (ptr; size < ptr + nbr_values; ptr++) {
-		// Print the row beginning with row number
+	for (ptr_temp; ptr_temp < ptr_temp + nbr_values; ptr_temp++) {
+		// allocate int values and assign them to ptr
 		*ptr_temp = new int;
 	}
+	return ptr_temp;
 }
 
 
