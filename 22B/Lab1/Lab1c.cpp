@@ -63,7 +63,7 @@ int main() {
 //*
 //************************************************************************
 
-void	fn(double arr[][COLS], int rows) {
+void	allocIntArray(int values) {
 	for (int row = 0; row < rows; row++) {
 		// Print the row beginning with row number
 		cout << "   " << row << " ";
