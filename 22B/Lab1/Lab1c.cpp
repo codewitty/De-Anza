@@ -27,8 +27,9 @@ void	printSalesData(double arr[][COLS], int rows);
 
 
 int main() {
-	//Define and initialize a 2D array
-	const int ROWS = 3;
+	//Define and initialize pointers named ptr1 and ptr2,
+	//for pointing to an int value.
+	nst int ROWS = 3;
 	double matrix[ROWS][COLS] = {
 		{201.24, 150.91, 270.83, 421.51},
 		{312.43, 422.14, 251.85, 732.53},
