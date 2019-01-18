@@ -67,16 +67,11 @@ int main() {
 //*
 //************************************************************************
 
-void	allocIntArray(int values) {
-	for (int row = 0; row < rows; row++) {
+void	allocIntArray(int nbr_values) {
+	int *ptr_temp;
+	for (ptr; size < ptr + nbr_values; ptr++) {
 		// Print the row beginning with row number
-		cout << "   " << row << " ";
-		// Print each element of the report
-		for (int col = 0; col < COLS; col++) {
-			cout << "   " << arr[row][col];
-		}
-		// Move to a new line after each row
-		cout << '\n';
+		*ptr_temp = new int;
 	}
 }
 
