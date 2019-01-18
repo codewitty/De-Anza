@@ -33,11 +33,9 @@ int main() {
 	int *ptr1 = nullptr;
 	int *ptr2 = nullptr;
 
-	double matrix[ROWS][COLS] = {
-		{201.24, 150.91, 270.83, 421.51},
-		{312.43, 422.14, 251.85, 732.53},
-		{271.83, 321.55, 321.67, 641.69}
-	};
+	ptr1 = *allocIntArray(SIZE_1);
+	//Store odd numbers in the array
+	
 	//print header
 	cout << "Corporation Sales Report" << endl;
     	cout << " DIV"	<< "        Q1"
