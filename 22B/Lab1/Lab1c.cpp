@@ -22,7 +22,8 @@
 using namespace std;
 
 //global constant declaration and function prototypes
-const int COLS = 4;
+const int SIZE_1 = 100;
+const int SIZE_2 = 1000;
 void	printSalesData(double arr[][COLS], int rows);
 
 
