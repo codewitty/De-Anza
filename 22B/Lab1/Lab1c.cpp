@@ -1,12 +1,15 @@
 // Program name: Lab1c
 //
-// Description: This program prints the Corporation Sales report
-// 		to the screen.
+// Description: This program uses pointers to mainipulate arrays
+// 		by dynamically allocating an array of integers to
+// 		the array and storing values in the array using 
+// 		pointers. It then prints the partial contents of 
+// 		the arrays to the screen.
 //
 // What's on your mind about this lab? 
-// This exercise helps me understand the C- String variables 
-// how to initialise them, 
-// pass them to functions and print them to the screen.
+// This exercise helps me understand dynamic memory allocation 
+// how to use it to initialise an array,
+// pass them to functions and print the contents to the screen.
 //
 // Author: Joshua Nelson Gomes 
 //
@@ -24,7 +27,7 @@ using namespace std;
 //global constant declaration and function prototypes
 const int SIZE_1 = 100;
 const int SIZE_2 = 1000;
-int	*allocIntArray(int nbr_values);
+int	*allocIntArray(int sizeOfArray);
 
 
 int main() {
@@ -33,28 +36,49 @@ int main() {
 	int *ptr1 = nullptr;
 	int *ptr2 = nullptr;
 
+	//Allocate an array that can contain 100 int values 
+	//by calling allocIntArray, 
+	//and assign the returned pointer to ptr1
 	ptr1 = allocIntArray(SIZE_1);
-	cout << "checkflag2\n";
-	//Store odd numbers in the array
-	int counter = 1;
-	for (int i = 0; i < SIZE_1; i++) {
-		ptr1[i] = counter;
-		counter += 2;
+	
+	//Store odd numbers in the array starting from 1
+	int value = 1;
+	for (int arrayCtr = 0; arrayCtr < SIZE_1; arrayCtr++) {
+		*(ptr1 + arrayCtr) = value;
+		value += 2;
 	}
 
-	counter = 2;
+	//Allocate an array that can contain 1000 int values 
+	//by calling allocIntArray 
+	//and assign the returned pointer to ptr1
 	ptr2 = allocIntArray(SIZE_2);
-	//Store even numbers in the array
-	for (int i = 0; i < SIZE_2; i++) {
-		ptr2[i] = counter;
-		counter += 2;
+	
+	//Store even numbers in the array starting from 2
+	value = 2;
+	for (int arrayCtr = 0; arrayCtr  < SIZE_2; arrayCtr++) {
+		*(ptr2 + arrayCtr) = value;
+		value += 2;
 	}
-	//print partial arrays
-	cout 	<< *ptr1 << " " << *(ptr1 +1) << " " << *(ptr1 + 2)
-		<< "..." << *(ptr1 + 97) << " " << *(ptr1 + 98) << " " << *(ptr1 + 99) << endl;
-	cout	<< *ptr2 << " " << *(ptr2 +1) << " " << *(ptr2 + 2)
-		<< "..." << *(ptr2 + 997) << " " << *(ptr2 + 998) << " " << *(ptr2 + 999) << endl;
 
+	//print partial arrays to the screen
+	for (int arrayCtr = 0; arrayCtr < 3; arrayCtr++) {
+		cout << *(ptr1 + arrayCtr) << " ";
+	}
+	cout << "...";
+	for (int arrayCtr = (SIZE_1 - 3); arrayCtr < (SIZE_1); arrayCtr++) {
+		cout << " " << *(ptr1 + arrayCtr);
+	}
+	cout << "\n";
+	for (int arrayCtr = 0; arrayCtr < 3; arrayCtr++) {
+		cout << *(ptr2 + arrayCtr) << " ";
+	}
+	cout << "...";
+	for (int arrayCtr = (SIZE_2 - 3); arrayCtr < (SIZE_2); arrayCtr++) {
+		cout << " " << *(ptr2 + arrayCtr);
+	}
+	cout << "\n";
+	
+	//free allocated memory from both pointers
 	delete [] ptr1;
 	delete [] ptr2;
 	
@@ -63,38 +87,31 @@ int main() {
 }
 
 //************************************************************************
-//* Function name: printSalesData
+//* Function name: allocIntArray
 //*
-//* This function prints the matrix portion of the report in the specified
-//* format.
+//* This function allocates memory for an int array according to
+//* the size specified in the input parameter.
 //*
 //* Parameters:
-//*	arr  -  This is a 2d Array of doubles.
-//*	rows -  This is an int variable that tells us how many rows the
-//*	        array is made up of.
+//*	nbr_values  -  This is the size of the array to be allocated.
 //* Returns:
-//*		Function does not return anything
+//*		Function returns a pointer to the allocated array.
 //*
 //*
 //************************************************************************
 
-int	*allocIntArray(int nbr_values) {
-	int *ptr_temp = new int[nbr_values];
-	return ptr_temp;
+int	*allocIntArray(int sizeOfArray) {
+	int *ptrTemp = new int[sizeOfArray];
+	return ptrTemp;
 }
-
 
 
 
 /*
  Copy output of this program below this line.
  --------------------------------------------
- 
-Corporation Sales Report
- DIV        Q1       Q2       Q3       Q4
-   0    201.24   150.91   270.83   421.51
-   1    312.43   422.14   251.85   732.53
-   2    271.83   321.55   321.67   641.69
 
+1 3 5 ... 195 197 199
+2 4 6 ... 1996 1998 2000
 
- */
+*/
