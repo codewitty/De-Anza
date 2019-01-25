@@ -31,9 +31,9 @@ void	sentenceCapitalizer(char *pointer);
 int main() {
 	//Define and initialize pointers named ptr1 and ptr2,
 	//for pointing to an int value.
-	string userString ("no, not tonight.  it's a very popular place \
+	char userString [] = "no, not tonight.  it's a very popular place \
 and you have to make reservations in advance. besides,\
-it's expensive, and I don't have any money.");
+it's expensive, and I don't have any money.";
 
 	//Print unmodified string
 	cout << userString << "\n";
@@ -41,7 +41,9 @@ it's expensive, and I don't have any money.");
 
 	ptr1 = userString;
 	
-	sentenceCapitalizer(ptr1)
+	sentenceCapitalizer(ptr1);
+	
+	cout << userString << endl;
 	return 0;
 
 }
@@ -65,9 +67,18 @@ void	sentenceCapitalizer(char *ptr)
 	if (*ptr >= 97 || *ptr <= 122) {
 			*ptr -= 32;
 		}
-	//for (*(ptr +1)
-
-
+	while (*ptr) {
+		if (*ptr == '.') {
+			ptr++;
+			while (*ptr == ' ') {
+				ptr++;
+				if (*ptr >= 97 && *ptr <= 122) {
+					*ptr -= 32;
+				}
+			}
+		ptr++;
+	}
+	}
 }
 
 
