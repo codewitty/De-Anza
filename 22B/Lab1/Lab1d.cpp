@@ -40,50 +40,16 @@ int main() {
 	//Allocate an array that can contain 100 int values 
 	//by calling allocIntArray, 
 	//and assign the returned pointer to ptr1
-	ptr1 = allocIntArray(SIZE_1);
 	
 	//Store odd numbers in the array starting from 1
-	int value = 1;
-	for (int arrayCtr = 0; arrayCtr < SIZE_1; arrayCtr++) {
-		*(ptr1 + arrayCtr) = value;
-		value += 2;
-	}
 
 	//Allocate an array that can contain 1000 int values 
 	//by calling allocIntArray 
 	//and assign the returned pointer to ptr1
-	ptr2 = allocIntArray(SIZE_2);
 	
 	//Store even numbers in the array starting from 2
-	value = 2;
-	for (int arrayCtr = 0; arrayCtr  < SIZE_2; arrayCtr++) {
-		*(ptr2 + arrayCtr) = value;
-		value += 2;
-	}
 
 	//print partial arrays to the screen
-	for (int arrayCtr = 0; arrayCtr < 3; arrayCtr++) {
-		cout << *(ptr1 + arrayCtr) << " ";
-	}
-	cout << "...";
-	for (int arrayCtr = (SIZE_1 - 3); arrayCtr < (SIZE_1); arrayCtr++) {
-		cout << " " << *(ptr1 + arrayCtr);
-	}
-	cout << "\n";
-	for (int arrayCtr = 0; arrayCtr < 3; arrayCtr++) {
-		cout << *(ptr2 + arrayCtr) << " ";
-	}
-	cout << "...";
-	for (int arrayCtr = (SIZE_2 - 3); arrayCtr < (SIZE_2); arrayCtr++) {
-		cout << " " << *(ptr2 + arrayCtr);
-	}
-	cout << "\n";
-	
-	//free allocated memory from both pointers
-	delete [] ptr1;
-	delete [] ptr2;
-	
-	
 	return 0;
 }
 
