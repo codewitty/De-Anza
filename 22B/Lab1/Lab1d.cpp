@@ -39,7 +39,7 @@ it's expensive, and I don't have any money.");
 	cout << userString << "\n";
 	char *ptr1 = nullptr;
 
-	ptr = userString;
+	ptr1 = userString;
 	
 	sentenceCapitalizer(ptr1)
 	return 0;
