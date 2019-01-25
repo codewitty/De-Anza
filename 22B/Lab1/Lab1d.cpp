@@ -37,20 +37,13 @@ it's expensive, and I don't have any money.");
 
 	//Print unmodified string
 	cout << userString << "\n";
-	//Allocate an array that can contain 100 int values 
-	//by calling allocIntArray, 
-	//and assign the returned pointer to ptr1
-	
-	//Store odd numbers in the array starting from 1
+	char *ptr1 = nullptr;
 
-	//Allocate an array that can contain 1000 int values 
-	//by calling allocIntArray 
-	//and assign the returned pointer to ptr1
+	ptr = userString;
 	
-	//Store even numbers in the array starting from 2
-
-	//print partial arrays to the screen
+	sentenceCapitalizer(ptr1)
 	return 0;
+
 }
 
 //************************************************************************
@@ -67,9 +60,14 @@ it's expensive, and I don't have any money.");
 //*
 //************************************************************************
 
-int	*allocIntArray(int sizeOfArray) {
-	int *ptrTemp = new int[sizeOfArray];
-	return ptrTemp;
+void	sentenceCapitalizer(char *ptr)
+{
+	if (*ptr >= 97 || *ptr <= 122) {
+			*ptr -= 32;
+		}
+	//for (*(ptr +1)
+
+
 }
 
 
