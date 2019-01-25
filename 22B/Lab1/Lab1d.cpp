@@ -1,6 +1,6 @@
-// Program name: Lab1c
+// Program name: Lab1d
 //
-// Description: This program uses pointers to mainipulate arrays
+// Description: This program uses 
 // 		by dynamically allocating an array of integers to
 // 		the array and storing values in the array using 
 // 		pointers. It then prints the partial contents of 
@@ -13,7 +13,7 @@
 //
 // Author: Joshua Nelson Gomes 
 //
-// Date: 01/17/2019
+// Date: 01/24/2019
 //
 // IDE Used: Vim/Terminal
 //
@@ -25,15 +25,12 @@
 using namespace std;
 
 //global constant declaration and function prototypes
-const int SIZE_1 = 100;
-const int SIZE_2 = 1000;
-int	*allocIntArray(int sizeOfArray);
+void	sentenceCapitalizer(char *pointer);
 
 
 int main() {
 	//Define and initialize pointers named ptr1 and ptr2,
 	//for pointing to an int value.
-	int *ptr1 = nullptr;
 	int *ptr2 = nullptr;
 
 	//Allocate an array that can contain 100 int values 
