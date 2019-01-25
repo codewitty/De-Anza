@@ -31,8 +31,12 @@ void	sentenceCapitalizer(char *pointer);
 int main() {
 	//Define and initialize pointers named ptr1 and ptr2,
 	//for pointing to an int value.
-	int *ptr2 = nullptr;
+	userString[] = "no, not tonight.  it's a very popular place \
+			and you have to make reservations in advance. besides,\
+			it's expensive, and I don't have any money.";
 
+	//Print unmodified string
+	cout << userString << "\n";
 	//Allocate an array that can contain 100 int values 
 	//by calling allocIntArray, 
 	//and assign the returned pointer to ptr1
