@@ -67,10 +67,17 @@ void	sentenceCapitalizer(char *ptr)
 	if (*ptr >= 97 || *ptr <= 122) {
 			*ptr -= 32;
 		}
-	while (*ptr) {
-		if (*ptr == '.') {
-			ptr++;
-			while (*ptr == ' ') {
+	while (*ptr && *ptr != '.') {
+		ptr++;
+	}
+	while (*(ptr + 1) == ' ') {
+		ptr++;
+	}
+	if (*(ptr + 1) >= 97 || *(ptr + 1) <= 122) {
+			* (ptr + 1) -= 32;
+		}
+
+	/*		while (*ptr == ' ') {
 				ptr++;
 				if (*ptr >= 97 && *ptr <= 122) {
 					*ptr -= 32;
@@ -78,7 +85,7 @@ void	sentenceCapitalizer(char *ptr)
 			}
 		ptr++;
 	}
-	}
+	}*/
 }
 
 
