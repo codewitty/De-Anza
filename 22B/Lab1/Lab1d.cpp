@@ -64,27 +64,37 @@ it's expensive, and I don't have any money.";
 
 void	sentenceCapitalizer(char *ptr)
 {
+	bool flag = false;
 	if (*ptr >= 97 || *ptr <= 122) {
 			*ptr -= 32;
 		}
-	while (*ptr && *ptr != '.') {
-		ptr++;
-	}
-	while (*(ptr + 1) == ' ') {
-		ptr++;
-	}
-	if (*(ptr + 1) >= 97 || *(ptr + 1) <= 122) {
-			* (ptr + 1) -= 32;
+	while (*ptr) {
+		if (*ptr == '.') {
+			flag = true;
 		}
+		if (((*ptr >= 97 && * ptr <= 122) || (*ptr >= 65 && *ptr <= 90)) && (flag == true)) {
+			if ( *ptr >= 97 && *ptr <= 122) {
+				*ptr -= 32;
+			}
+			flag = false;
+		}
+		ptr++;
+	}
 
-	/*		while (*ptr == ' ') {
-				ptr++;
-				if (*ptr >= 97 && *ptr <= 122) {
-					*ptr -= 32;
-				}
+	
+	
+	
+	/*while (*ptr) {
+		while (*ptr && *ptr != '.') {
+			ptr++;
+		}
+		while (*(ptr + 1) == ' ') {
+			ptr++;
+			}
+		if (*(ptr + 1) >= 97 || *(ptr + 1) <= 122) {
+				* (ptr + 1) -= 32;
 			}
 		ptr++;
-	}
 	}*/
 }
 
