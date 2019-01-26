@@ -24,26 +24,31 @@
 
 using namespace std;
 
-//global constant declaration and function prototypes
+//Function prototypes
 void	sentenceCapitalizer(char *pointer);
 
 
 int main() {
-	//Define and initialize pointers named ptr1 and ptr2,
-	//for pointing to an int value.
+	//Define and initialize a char array named userString
+	//with the given string literal
 	char userString [] = "no, not tonight.  it's a very popular place \
 and you have to make reservations in advance. besides,\
 it's expensive, and I don't have any money.";
 
 	//Print unmodified string
 	cout << userString << "\n";
+	//intialise a pointer
 	char *ptr1 = nullptr;
 
+	//set the pointer to point to the array
 	ptr1 = userString;
 	
+	//use the function to capitalise the sentence
 	sentenceCapitalizer(ptr1);
 	
+	//Print the modified string
 	cout << userString << endl;
+
 	return 0;
 
 }
@@ -72,7 +77,7 @@ void	sentenceCapitalizer(char *ptr)
 		if (*ptr == '.') {
 			flag = true;
 		}
-		if (((*ptr >= 97 && * ptr <= 122) || (*ptr >= 65 && *ptr <= 90)) && (flag == true)) {
+		if (((islower(*ptr)) || (*ptr >= 65 && *ptr <= 90)) && (flag == true)) {
 			if ( *ptr >= 97 && *ptr <= 122) {
 				*ptr -= 32;
 			}
@@ -80,10 +85,6 @@ void	sentenceCapitalizer(char *ptr)
 		}
 		ptr++;
 	}
-
-	
-	
-	
 }
 
 
@@ -92,7 +93,9 @@ void	sentenceCapitalizer(char *ptr)
  Copy output of this program below this line.
  --------------------------------------------
 
-1 3 5 ... 195 197 199
-2 4 6 ... 1996 1998 2000
+no, not tonight.  it's a very popular place and you have to make reservations
+in advance. besides,it's expensive, and I don't have any money.
+No, not tonight.  It's a very popular place and you have to make reservations
+in advance. Besides,it's expensive, and I don't have any money.
 
 */
