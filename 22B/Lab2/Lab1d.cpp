@@ -1,4 +1,4 @@
-// Program name: Lab1d
+// Program name: Lab2a
 //
 // Description: This program capitalises the first letter of  
 // 		each sentence by iterating through a given
