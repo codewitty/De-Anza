@@ -27,26 +27,17 @@ void	sentenceCapitalizer(char *pointer);
 
 
 int main() {
-	//Define and initialize a char array named userString
-	//with the given string literal
-	char userString [] = "no, not tonight.  it's a very popular place \
-and you have to make reservations in advance. besides,\
-it's expensive, and I don't have any money.";
-
-	//Print unmodified string
-	cout << userString << "\n";
-	//intialise a pointer
-	char *ptr1 = nullptr;
-
-	//set the pointer to point to the array
-	ptr1 = userString;
+	struct Sale{
+		string itemName;
+		int quantity;
+		double unitPrice;
+		double salePrice;
+	};
 	
-	//use the function to capitalise the sentence
-	sentenceCapitalizer(ptr1);
+	//Define an int constant named SALES_SIZE and initialize it to 5
+	int const SALES_SIZE = 5;
 	
-	//Print the modified string
-	cout << userString << endl;
-
+	salesData[SALES_SIZE];
 	return 0;
 
 }
