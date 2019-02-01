@@ -87,6 +87,21 @@ void	loadData(Sale item, int sizeOfSale)
 //************************************************************************
 
 
+//************************************************************************
+//* Function name: sentenceCapitalizer 
+//*
+//* This function uses a pointer to iterate through a given string
+//* it then capitalises the first letter of every sentence.
+//*
+//* Parameters:
+//*	ptr  -  This is a pointer of type char which points to the 
+//		array that needs to be modified.
+//* Returns:
+//*	There is no returned value.
+//*
+//*
+//************************************************************************
+
 
 /*
  Copy output of this program below this line.
