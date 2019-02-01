@@ -23,21 +23,29 @@
 using namespace std;
 
 //Function prototypes
-void	sentenceCapitalizer(char *pointer);
+struct Sale{
+	string itemName;
+	int quantity;
+	double unitPrice;
+	double salePrice;
+};
 
+int const SALES_SIZE = 5;
+
+void	printData(Sale item, int sizeOfSale);
+double	processData(Sale item, int sizeOfSale); 
+void	loadData(Sale item, int sizeOfSale);
 
 int main() {
-	struct Sale{
-		string itemName;
-		int quantity;
-		double unitPrice;
-		double salePrice;
-	};
 	
 	//Define an int constant named SALES_SIZE and initialize it to 5
-	int const SALES_SIZE = 5;
 	
 	Sale salesData[SALES_SIZE];
+	
+	loadData(salesData, SALES_SIZE);
+
+	printData(salesData, SALES_SIZE);
+
 	return 0;
 
 }
