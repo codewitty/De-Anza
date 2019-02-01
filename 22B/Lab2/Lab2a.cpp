@@ -57,32 +57,8 @@ int main() {
 //*
 //************************************************************************
 
-void	sentenceCapitalizer(char *ptr)
+void	loadData(char *Sale, int sizeOfSale)
 {
-	//initialise a bool flag to check for characters
-	bool flag = false;
-
-	//capitalise the first letter of the sentence
-	if (islower(*ptr)) {
-		*ptr = toupper(*ptr);
-		}
-	
-	//iterate through the string until a period is found
-	while (*ptr) {
-		if (*ptr == '.') {
-			flag = true;	//set the flag to true and check for
-					//characters
-		}
-		//when the first character after a period is found, 
-		//check case and then capitalise if needed
-		if (((islower(*ptr)) || (isupper(*ptr))) && (flag == true)) {
-			if ( islower(*ptr)) {
-				*ptr = toupper(*ptr);
-			}
-			flag = false;	//reset flag to false to continue
-					//iteration.
-		}
-		ptr++;
 	}
 }
 
