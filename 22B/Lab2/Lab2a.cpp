@@ -37,7 +37,7 @@ int main() {
 	//Define an int constant named SALES_SIZE and initialize it to 5
 	int const SALES_SIZE = 5;
 	
-	salesData[SALES_SIZE];
+	Sale salesData[SALES_SIZE];
 	return 0;
 
 }
@@ -57,10 +57,34 @@ int main() {
 //*
 //************************************************************************
 
-void	loadData(char *Sale, int sizeOfSale)
+void	loadData(Sale item, int sizeOfSale)
 {
+	for (int ctr = 0; ctr < sizeOfSale; ++ctr){
+		item[ctr] = {
+				{ "Milk", 1, 5.85 },
+				{ "Whole Wheat Bread", 3, 3.75},
+				{ "Napkin", 3, 2.35},
+				{ "Paper Towel", 3, 2.95},
+				{ "Soap", 1, 1.95}
+			};
+
 	}
 }
+
+//************************************************************************
+//* Function name: sentenceCapitalizer 
+//*
+//* This function uses a pointer to iterate through a given string
+//* it then capitalises the first letter of every sentence.
+//*
+//* Parameters:
+//*	ptr  -  This is a pointer of type char which points to the 
+//		array that needs to be modified.
+//* Returns:
+//*	There is no returned value.
+//*
+//*
+//************************************************************************
 
 
 
