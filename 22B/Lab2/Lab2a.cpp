@@ -34,16 +34,16 @@ int const SALES_SIZE = 5;
 
 void	printData(Sale salesData [], int sizeOfSale);
 double	processData(Sale salesData [], int sizeOfSale); 
-void	loadData(Sale & , int sizeOfSale);
+void	loadData(Sale [] , int sizeOfSale);
 
 int main() {
 	
 	//Define an int constant named SALES_SIZE and initialize it to 5
 	
-	Sale salesData[SALES_SIZE];
+	Sale salesData[SALES_SIZE]; 
+		
+	loadData (salesData, SALES_SIZE);
 	
-	loadData(salesData&, SALES_SIZE);
-
 	printData(salesData, SALES_SIZE);
 
 	return 0;
@@ -65,7 +65,20 @@ int main() {
 //*
 //************************************************************************
 
-void	loadData(Sale &salesData , int sizeOfSale)
+/*void	loadData(Sale salesData[],int array_size)
+{
+	salesData[0].itemName = "Milk";
+	salesData[1].itemName = "Bread";
+	salesData[2].itemName = "Napking";
+	salesData[0].quantity = 1;
+	salesData[1].quantity = 3;
+	salesData[2].quantity = 3;
+	salesData[0].unitPrice = 2.5;
+	salesData[1].unitPrice = 5.5;
+	salesData[2].unitPrice = 7,5;
+}
+*/
+void	loadData(Sale salesData[] , int sizeOfSale)
 {
 	for (int ctr = 0; ctr < sizeOfSale; ++ctr){
 		Sale salesData[ctr] = {
