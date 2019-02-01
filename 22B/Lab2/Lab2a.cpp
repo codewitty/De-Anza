@@ -97,8 +97,8 @@ void	loadData(Sale &salesData , int sizeOfSale)
 double	processData(Sale salesData[], int sizeOfSale) {
 	int totalPrice;
 	for (int ctr = 0; ctr < sizeOfSale; ++ctr) {
-		salesData.salePrice[ctr] = salesData.quantity[ctr] * salesData.unitprice[ctr];
-		totalPrice += salesData.salePrice[ctr];
+		salesData[ctr].salePrice = salesData[ctr].quantity * salesData[ctr].unitPrice;
+		totalPrice += salesData[ctr].salePrice;
 	}
 	return totalPrice;
 }
