@@ -86,6 +86,15 @@ void	loadData(Sale item, int sizeOfSale)
 //*
 //************************************************************************
 
+double	processData(Sale item, int sizeOfSale) {
+	int totalPrice;
+	for (int ctr = 0; ctr < sizeOfSale; ++ctr) {
+		item.salePrice[ctr] = item.quantity[ctr] * item.unitprice[ctr];
+		totalPrice += item.salePrice[ctr];
+	}
+	return totalPrice;
+}
+
 
 //************************************************************************
 //* Function name: sentenceCapitalizer 
@@ -102,7 +111,7 @@ void	loadData(Sale item, int sizeOfSale)
 //*
 //************************************************************************
 
-
+void	printData(Sale item, int sizeOfSale)
 /*
  Copy output of this program below this line.
  --------------------------------------------
