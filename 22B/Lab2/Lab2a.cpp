@@ -32,9 +32,9 @@ struct Sale{
 
 int const SALES_SIZE = 5;
 
-void	printData(Sale item, int sizeOfSale);
-double	processData(Sale item, int sizeOfSale); 
-void	loadData(Sale item, int sizeOfSale);
+void	printData(Sale salesData [], int sizeOfSale);
+double	processData(Sale salesData [], int sizeOfSale); 
+void	loadData(Sale & , int sizeOfSale);
 
 int main() {
 	
@@ -42,7 +42,7 @@ int main() {
 	
 	Sale salesData[SALES_SIZE];
 	
-	loadData(salesData, SALES_SIZE);
+	loadData(salesData&, SALES_SIZE);
 
 	printData(salesData, SALES_SIZE);
 
@@ -65,10 +65,10 @@ int main() {
 //*
 //************************************************************************
 
-void	loadData(Sale item, int sizeOfSale)
+void	loadData(Sale &salesData , int sizeOfSale)
 {
 	for (int ctr = 0; ctr < sizeOfSale; ++ctr){
-		item[ctr] = {
+		Sale salesData[ctr] = {
 				{ "Milk", 1, 5.85 },
 				{ "Whole Wheat Bread", 3, 3.75},
 				{ "Napkin", 3, 2.35},
@@ -94,11 +94,11 @@ void	loadData(Sale item, int sizeOfSale)
 //*
 //************************************************************************
 
-double	processData(Sale item, int sizeOfSale) {
+double	processData(Sale salesData[], int sizeOfSale) {
 	int totalPrice;
 	for (int ctr = 0; ctr < sizeOfSale; ++ctr) {
-		item.salePrice[ctr] = item.quantity[ctr] * item.unitprice[ctr];
-		totalPrice += item.salePrice[ctr];
+		salesData.salePrice[ctr] = salesData.quantity[ctr] * salesData.unitprice[ctr];
+		totalPrice += salesData.salePrice[ctr];
 	}
 	return totalPrice;
 }
@@ -119,23 +119,23 @@ double	processData(Sale item, int sizeOfSale) {
 //*
 //************************************************************************
 
-void	printData(Sale item, int sizeOfSale){
-	double totalPrice = processData(item, sizeOfSale);
+void	printData(Sale salesData[], int sizeOfSale){
+	double totalPrice = processData(salesData, sizeOfSale);
 
 	cout 	<< "Sales" << endl;
 
-	cout 	<< "Item" << setw 10 << "Qty" << setw 5 << "Unit"
-		<< setw 5 << "Amt" << endl;
+	cout 	<< "Item" << setw(10) << "Qty" << setw (5) << "Unit"
+		<< setw (5) << "Amt" << endl;
 	cout	<< "================================================\n";
 
 	for (int ctr = 0; ctr < sizeOfSale; ++ctr) {
-		cout	<< item[ctr].itemName << setw 15
-			<< itrm[ctr].quantity << setw 5
-			<< itrm[ctr].unitPrice << setw 5
-			<< itrm[ctr].salePrice << setw 5 << endl;
+		cout	<< salesData[ctr].itemName << setw (15)
+			<< salesData[ctr].quantity << setw (5)
+			<< salesData[ctr].unitPrice << setw (5)
+			<< salesData[ctr].salePrice << setw (5) << endl;
 	}
 	
-	cout << endl << "Total" << setw 25 << totalPrice;
+	cout << endl << "Total" << setw (25) << totalPrice;
 }
 /*
  Copy output of this program below this line.
