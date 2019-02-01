@@ -111,7 +111,24 @@ double	processData(Sale item, int sizeOfSale) {
 //*
 //************************************************************************
 
-void	printData(Sale item, int sizeOfSale)
+void	printData(Sale item, int sizeOfSale){
+	double totalPrice = processData(item, sizeOfSale);
+
+	cout 	<< "Sales" << endl;
+
+	cout 	<< "Item" << setw 10 << "Qty" << setw 5 << "Unit"
+		<< setw 5 << "Amt" << endl;
+	cout	<< "================================================\n";
+
+	for (int ctr = 0; ctr < sizeOfSale; ++ctr) {
+		cout	<< item[ctr].itemName << setw 15
+			<< itrm[ctr].quantity << setw 5
+			<< itrm[ctr].unitPrice << setw 5
+			<< itrm[ctr].salePrice << setw 5 << endl;
+	}
+	
+	cout << endl << "Total" << setw 25 << totalPrice;
+}
 /*
  Copy output of this program below this line.
  --------------------------------------------
