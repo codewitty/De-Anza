@@ -1,19 +1,19 @@
 // Program name: Lab2a
 //
-// Description: This program capitalises the first letter of  
-// 		each sentence by iterating through a given
-// 		char array using a pointer.
+// Description: This program uses an array of structs to  
+// 		store data of varoius types and then
+// 		print the stored data to the screen
 //
 // What's on your mind about this lab? 
-// This exercise helps me understand how to use C library functions
-// to manipulate char arrays and also how to pass pointers to 
-// functions and use them to iterate through a C string.
+// This exercise helps me understand what are structs and
+// how to use them to store data. I also learned how to 
+// pass structs to functions. 
 //
 // Author: Joshua Nelson Gomes 
 //
-// Date: 01/28/2019
+// Date: 01/31/2019
 //
-// IDE Used: Vim/Terminal
+// IDE Used: Vim/g++
 //
 
 #include <iostream>
@@ -22,7 +22,7 @@
 
 using namespace std;
 
-//Function prototypes
+//struct definition
 struct Sale{
 	string itemName;
 	int quantity;
@@ -30,20 +30,23 @@ struct Sale{
 	double salePrice;
 };
 
-int const SALES_SIZE = 5;
-
+//Function prototypes
 void	printData(Sale salesData [], int sizeOfSale);
 double	processData(Sale salesData [], int sizeOfSale); 
-void	loadData(Sale [] , int sizeOfSale);
+void	loadData(Sale s[], int size);
 
 int main() {
 	
 	//Define an int constant named SALES_SIZE and initialize it to 5
+	int const SALES_SIZE = 5;
 	
+	//define an array of struct of type Sale with constant size variable
 	Sale salesData[SALES_SIZE]; 
-		
-	loadData (salesData, SALES_SIZE);
 	
+	//Call loadData to pass values to the struct
+	loadData(salesData, SALES_SIZE);
+	
+	//Call printData to calculate total sale price and print the output
 	printData(salesData, SALES_SIZE);
 
 	return 0;
@@ -51,81 +54,83 @@ int main() {
 }
 
 //************************************************************************
-//* Function name: sentenceCapitalizer 
+//* Function name: loadData
 //*
-//* This function uses a pointer to iterate through a given string
-//* it then capitalises the first letter of every sentence.
+//* This function loads data into the struct array passed as a parameter
+//* 
 //*
 //* Parameters:
-//*	ptr  -  This is a pointer of type char which points to the 
-//		array that needs to be modified.
+//*	Sale sale[] - The array of structs of type Sale.
+//	int size - the size of the struct array.
 //* Returns:
 //*	There is no returned value.
 //*
 //*
 //************************************************************************
 
-/*void	loadData(Sale salesData[],int array_size)
-{
-	salesData[0].itemName = "Milk";
-	salesData[1].itemName = "Bread";
-	salesData[2].itemName = "Napking";
-	salesData[0].quantity = 1;
-	salesData[1].quantity = 3;
-	salesData[2].quantity = 3;
-	salesData[0].unitPrice = 2.5;
-	salesData[1].unitPrice = 5.5;
-	salesData[2].unitPrice = 7,5;
-}
-*/
-void	loadData(Sale salesData[] , int sizeOfSale)
-{
-	for (int ctr = 0; ctr < sizeOfSale; ++ctr){
-		Sale salesData[ctr] = {
-				{ "Milk", 1, 5.85 },
-				{ "Whole Wheat Bread", 3, 3.75},
-				{ "Napkin", 3, 2.35},
-				{ "Paper Towel", 3, 2.95},
-				{ "Soap", 1, 1.95}
-			};
+void loadData(Sale sale[], int size) {
 
+	//use arrays to store the data to be passed to the struct
+	string itemname[] = {"Milk", "Whole Wheat Bread", "Napkin", 
+				"Paper Towel", "Soap"};
+	int nos[] = {1, 2, 3, 3, 1};
+	double price[] = {5.85, 3.75, 2.35, 2.95, 1.95};
+
+	//use a loop to iterate through the struct array
+	//and pass values from the above arrays to the
+	//struct members.
+	for (int index = 0; index < size; ++index) {
+		sale->itemName = itemname[index];
+		sale->quantity = nos[index];
+		sale->unitPrice = price[index];
+		++sale;
 	}
 }
 
+
+
 //************************************************************************
-//* Function name: sentenceCapitalizer 
+//* Function name: processData 
 //*
-//* This function uses a pointer to iterate through a given string
-//* it then capitalises the first letter of every sentence.
+//*	This function iterates through the struct parameter using a counter
+//* 	index. It then calculates and fills in the sales price 
+//	field of the struct by multiplying quantity and unit price 
 //*
 //* Parameters:
-//*	ptr  -  This is a pointer of type char which points to the 
+//*	Sale sale[] - The array of structs of type Sale.
+//	int sizeOfSale - the size of the struct array.
+
+//ptr  -  This is a pointer of type char which points to the 
 //		array that needs to be modified.
 //* Returns:
-//*	There is no returned value.
+//*	totalPrice - 	A double variable that holds the calculated total
+//			sale value	
 //*
 //*
 //************************************************************************
 
-double	processData(Sale salesData[], int sizeOfSale) {
-	int totalPrice;
+double	processData(Sale sale[], int sizeOfSale) {
+	double totalPrice;
+	
+	//Calculate totalPrice using quantity and unitPrice
 	for (int ctr = 0; ctr < sizeOfSale; ++ctr) {
-		salesData[ctr].salePrice = salesData[ctr].quantity * salesData[ctr].unitPrice;
-		totalPrice += salesData[ctr].salePrice;
+		sale[ctr].salePrice = sale[ctr].quantity * sale[ctr].unitPrice;
+		totalPrice += sale[ctr].salePrice;
 	}
 	return totalPrice;
 }
 
 
 //************************************************************************
-//* Function name: sentenceCapitalizer 
+//* Function name: printData
 //*
-//* This function uses a pointer to iterate through a given string
-//* it then capitalises the first letter of every sentence.
+//* 	Prints out the data contained in the struct parameter
+//	
 //*
 //* Parameters:
-//*	ptr  -  This is a pointer of type char which points to the 
-//		array that needs to be modified.
+//*	Sale salesData[] - The array of structs of type Sale.
+//	int sizeOfSale - the size of the struct array.
+// 
 //* Returns:
 //*	There is no returned value.
 //*
@@ -137,26 +142,37 @@ void	printData(Sale salesData[], int sizeOfSale){
 
 	cout 	<< "Sales" << endl;
 
-	cout 	<< "Item" << setw(10) << "Qty" << setw (5) << "Unit"
-		<< setw (5) << "Amt" << endl;
-	cout	<< "================================================\n";
+	cout 	<< "Item" << setw(20) << "Qty" << setw (10) << "Unit"
+		<< setw (10) << "Amt" << endl;
+	cout	<< "============================================\n";
 
 	for (int ctr = 0; ctr < sizeOfSale; ++ctr) {
-		cout	<< salesData[ctr].itemName << setw (15)
-			<< salesData[ctr].quantity << setw (5)
-			<< salesData[ctr].unitPrice << setw (5)
-			<< salesData[ctr].salePrice << setw (5) << endl;
+		cout	<< fixed << showpoint << setprecision(2)
+			<< setw (20) << left 
+			<< salesData[ctr].itemName 
+			<< setw (10) << left 
+			<< salesData[ctr].quantity
+			<< setw (10) << left 
+			<< salesData[ctr].unitPrice
+			<< setw (10) << left 
+			<< salesData[ctr].salePrice << endl;
 	}
 	
-	cout << endl << "Total" << setw (25) << totalPrice;
+	cout 	<< endl << setw(39) << left << "Total" 
+		<< left << setw (10) << totalPrice << endl;
 }
 /*
  Copy output of this program below this line.
  --------------------------------------------
 
-no, not tonight.  it's a very popular place and you have to make reservations
-in advance. besides,it's expensive, and I don't have any money.
-No, not tonight.  It's a very popular place and you have to make reservations
-in advance. Besides,it's expensive, and I don't have any money.
+Sales
+Item                 Qty      Unit       Amt
+============================================
+Milk                1         5.85      5.85      
+Whole Wheat Bread   2         3.75      7.50      
+Napkin              3         2.35      7.05      
+Paper Towel         3         2.95      8.85      
+Soap                1         1.95      1.95      
 
+Total                                  31.20 
 */
