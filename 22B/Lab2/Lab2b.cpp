@@ -56,7 +56,7 @@ int main() {
 	    return 0;
 	}
 	
-	NutritionData data = { {Apples raw, 110, 50.6, 1.2, 1.0},
+	NutritionData data[] = { {Apples raw, 110, 50.6, 1.2, 1.0},
 	                       {Bananas, 225, 186, 6.2, 8.2},
 	                       {Bread pita whole wheat, 64, 134, 14, 22.6},
 	                       {Broccoli raw, 91, 21.9, 2.8, 6.3},
