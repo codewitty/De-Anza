@@ -43,6 +43,25 @@ int main() {
 	//Define an int constant named SALES_SIZE and initialize it to 5
 	string const FILE_NAME = "nutri.dat";
 	
+	fstream file;
+	file.open(FILE_NAME, ios::in);
+	
+	if (file.fail()) {
+	    file.open(FILE_NAME, ios::out);
+	}
+	else {
+	    file.close();
+	    cout    <<  "The file nutri.dat is an existing file. You can either 
+	            <<  "delete the file or move it to another location and then run the program again.\n";
+	    return 0;
+	}
+	
+	NutritionData data = { {Apples raw, 110, 50.6, 1.2, 1.0},
+	                       {Bananas, 225, 186, 6.2, 8.2},
+	                       {Bread pita whole wheat, 64, 134, 14, 22.6},
+	                       {Broccoli raw, 91, 21.9, 2.8, 6.3},
+	                       {Carrots raw, 128, 46.6, 2.6, 3.3},
+	};
 	//define an array of struct of type Sale with constant size variable
 	Sale salesData[SALES_SIZE]; 
 	
