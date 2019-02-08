@@ -24,6 +24,7 @@
 using namespace std;
 
 const int NAME_SIZE = 40;
+const int DATA_SIZE = 5;
 
 //struct definition
 struct NutritionData{
@@ -36,7 +37,7 @@ struct NutritionData{
 };
 
 //Function prototypes
-void	loadData(Sale s[], int size);
+//void	loadData(Sale s[], int size);
 
 int main() {
 	
@@ -55,79 +56,60 @@ int main() {
 	            <<  "delete the file or move it to another location and then run the program again.\n";
 	    return 0;
 	}
-	
-	NutritionData data[] = { {Apples raw, 110, 50.6, 1.2, 1.0},
-	                       {Bananas, 225, 186, 6.2, 8.2},
-	                       {Bread pita whole wheat, 64, 134, 14, 22.6},
-	                       {Broccoli raw, 91, 21.9, 2.8, 6.3},
-	                       {Carrots raw, 128, 46.6, 2.6, 3.3},
+
+/*	
+	NutritionData data[DATA_SIZE] = { {"Apples raw", 110, 50.6, 1.2, 1.0},
+	                       {"Bananas", 225, 186, 6.2, 8.2},
+	                       {"Bread pita whole wheat", 64, 134, 14, 22.6},
+	                       {"Broccoli raw", 91, 21.9, 2.8, 6.3},
+	                       {"Carrots raw", 128, 46.6, 2.6, 3.3},
 	};
-
-	file.write(data, sizeof(data));
-	//define an array of struct of type Sale with constant size variable
-	Sale salesData[SALES_SIZE]; 
 	
-	//Call loadData to pass values to the struct
-	loadData(salesData, SALES_SIZE);
-	
-	//Call printData to calculate total sale price and print the output
-	printData(salesData, SALES_SIZE);
+	*/
+	for(int ctr = 0; ctr < DATA_SIZE; ++ctr) {
+		file.write(reinterpret_cast<char >(data[ctr]), sizeof(data));
+	}
 
+	file.close();
+
+
+	file.open("nutri.dat", ios::in | ios::binary);
+
+	if (!file) {
+		cout << "Error opening file. Program aborting.\n";
+		return 0;
+	}
+
+	cout << "Now reading\n";
+
+	file.read(reinterpret_cast<char *>(&data), sizeof(data));
+
+	while (!file.eof()) {
+
+		cout << "Food Name: ";
+		cout << data.foodName << endl;
+		cout << "Serving Size: ";
+		cout << data.servingSize << endl;
+		cout << "Calories Per Serving:\n ";
+		//cout << data.totalCalories << endl;
+		cout << "Calories From Carb: ";
+		cout << data.calFromCarb << endl;
+		cout << "Calories From Fat: ";
+		cout << data.calFromFat << endl;
+		cout << "Calories From Protein: ";
+		cout << data.calFromProtein << endl;
+
+		
+		file.read(reinterpret_cast<char *>(&data), sizeof(data));
+	}
+
+
+
+	file.close();
+	
 	return 0;
-
 }
 
-//************************************************************************
-//* Function name: loadData
-//*
-//* This function loads data into the struct array passed as a parameter
-//* 
-//*
-//* Parameters:
-//*	Sale sale[] - The array of structs of type Sale.
-//	int size - the size of the struct array.
-//* Returns:
-//*	There is no returned value.
-//*
-//*
-//************************************************************************
-
-void loadData(Sale sale[], int size) {
-
-	//use arrays to store the data to be passed to the struct
-	string itemname[] = {"Milk", "Whole Wheat Bread", "Napkin", 
-				"Paper Towel", "Soap"};
-	int nos[] = {1, 2, 3, 3, 1};
-	double price[] = {5.85, 3.75, 2.35, 2.95, 1.95};
-
-	//use a loop to iterate through the struct array
-	//and pass values from the above arrays to the
-	//struct members.
-	for (int index = 0; index < size; ++index) {
-		sale->itemName = itemname[index];
-		sale->quantity = nos[index];
-		sale->unitPrice = price[index];
-		++sale;
-	}
-}
-		<< setw (10) << "Amt" << endl;
-	cout	<< "============================================\n";
-
-	for (int ctr = 0; ctr < sizeOfSale; ++ctr) {
-		cout	<< fixed << showpoint << setprecision(2)
-			<< setw (20) << left 
-			<< salesData[ctr].itemName 
-			<< setw (10) << left 
-			<< salesData[ctr].quantity
-			<< setw (10) << left 
-			<< salesData[ctr].unitPrice
-			<< setw (10) << left 
-			<< salesData[ctr].salePrice << endl;
-	}
-	
-	cout 	<< endl << setw(39) << left << "Total" 
-		<< left << setw (10) << totalPrice << endl;
-}
 /*
  Copy output of this program below this line.
  --------------------------------------------
