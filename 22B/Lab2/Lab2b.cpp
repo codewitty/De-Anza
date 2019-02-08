@@ -23,9 +23,11 @@
 
 using namespace std;
 
+const int NAME_SIZE = 40;
+
 //struct definition
 struct NutritionData{
-	char foodName[40];
+	char foodName[NAME_SIZE];
 	double servingSize;
     double calFromCarb;
     double calFromFat;
@@ -34,8 +36,6 @@ struct NutritionData{
 };
 
 //Function prototypes
-void	printData(Sale salesData [], int sizeOfSale);
-double	processData(Sale salesData [], int sizeOfSale); 
 void	loadData(Sale s[], int size);
 
 int main() {
@@ -47,11 +47,11 @@ int main() {
 	file.open(FILE_NAME, ios::in);
 	
 	if (file.fail()) {
-	    file.open(FILE_NAME, ios::out);
+	    file.open(FILE_NAME, ios::out | ios::binary);
 	}
 	else {
 	    file.close();
-	    cout    <<  "The file nutri.dat is an existing file. You can either 
+	    cout    <<  "The file nutri.dat is an existing file. You can either " 
 	            <<  "delete the file or move it to another location and then run the program again.\n";
 	    return 0;
 	}
@@ -62,6 +62,8 @@ int main() {
 	                       {Broccoli raw, 91, 21.9, 2.8, 6.3},
 	                       {Carrots raw, 128, 46.6, 2.6, 3.3},
 	};
+
+	file.write(data, sizeof(data));
 	//define an array of struct of type Sale with constant size variable
 	Sale salesData[SALES_SIZE]; 
 	
