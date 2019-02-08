@@ -108,63 +108,6 @@ void loadData(Sale sale[], int size) {
 		++sale;
 	}
 }
-
-
-
-//************************************************************************
-//* Function name: processData 
-//*
-//*	This function iterates through the struct parameter using a counter
-//* 	index. It then calculates and fills in the sales price 
-//	field of the struct by multiplying quantity and unit price 
-//*
-//* Parameters:
-//*	Sale sale[] - The array of structs of type Sale.
-//	int sizeOfSale - the size of the struct array.
-
-//ptr  -  This is a pointer of type char which points to the 
-//		array that needs to be modified.
-//* Returns:
-//*	totalPrice - 	A double variable that holds the calculated total
-//			sale value	
-//*
-//*
-//************************************************************************
-
-double	processData(Sale sale[], int sizeOfSale) {
-	double totalPrice;
-	
-	//Calculate totalPrice using quantity and unitPrice
-	for (int ctr = 0; ctr < sizeOfSale; ++ctr) {
-		sale[ctr].salePrice = sale[ctr].quantity * sale[ctr].unitPrice;
-		totalPrice += sale[ctr].salePrice;
-	}
-	return totalPrice;
-}
-
-
-//************************************************************************
-//* Function name: printData
-//*
-//* 	Prints out the data contained in the struct parameter
-//	
-//*
-//* Parameters:
-//*	Sale salesData[] - The array of structs of type Sale.
-//	int sizeOfSale - the size of the struct array.
-// 
-//* Returns:
-//*	There is no returned value.
-//*
-//*
-//************************************************************************
-
-void	printData(Sale salesData[], int sizeOfSale){
-	double totalPrice = processData(salesData, sizeOfSale);
-
-	cout 	<< "Sales" << endl;
-
-	cout 	<< "Item" << setw(20) << "Qty" << setw (10) << "Unit"
 		<< setw (10) << "Amt" << endl;
 	cout	<< "============================================\n";
 
