@@ -1,13 +1,17 @@
 // Program name: Lab2b
 //
 // Description: This program uses an array of structs to  
-// 		store data of varoius types and then
-// 		print the stored data to the screen
+// 		create records. It then writes these
+//		records to the specified file. Later
+//		the same file is opened and the data
+//		of a particular record is read and then
+// 		printed to the screen 
+
 //
 // What's on your mind about this lab? 
-// This exercise helps me understand what are structs and
-// how to use them to store data. I also learned how to 
-// pass structs to functions. 
+// This exercise helps me understand how to use 
+// structs and file objects
+// to read and write data to file
 //
 // Author: Joshua Nelson Gomes 
 //
@@ -23,87 +27,97 @@
 
 using namespace std;
 
+//declare a constant size for food name
 const int NAME_SIZE = 40;
-const int DATA_SIZE = 5;
 
 //struct definition
 struct NutritionData{
 	char foodName[NAME_SIZE];
 	double servingSize;
-    double calFromCarb;
-    double calFromFat;
-    double calFromProtein;
-    double totalCalories;
+	double calFromCarb;
+	double calFromFat;
+    	double calFromProtein;
+    	double totalCalories;
 };
-
-//Function prototypes
-//void	loadData(Sale s[], int size);
 
 int main() {
 	
-	//Define an int constant named SALES_SIZE and initialize it to 5
+	//Define an string constant for file name
 	string const FILE_NAME = "nutri.dat";
 	
+	//open file to read and write
 	fstream file;
+
+	//check if file already exists
 	file.open(FILE_NAME, ios::in);
 	
+	//if file does not exist open to write data
+	//else display error messages and exit program
+ 
 	if (file.fail()) {
 	    file.open(FILE_NAME, ios::out | ios::binary);
 	}
 	else {
 	    file.close();
-	    cout    <<  "The file nutri.dat is an existing file. You can either " 
-	            <<  "delete the file or move it to another location and then run the program again.\n";
+	    cout    	<<  "The file nutri.dat is an existing file. You can either " 
+			<<  "delete the file or move it to another "
+			<<  "location and then run the program again.\n";
 	    return 0;
 	}
-
-/*	
-	NutritionData data[DATA_SIZE] = { {"Apples raw", 110, 50.6, 1.2, 1.0},
-	                       {"Bananas", 225, 186, 6.2, 8.2},
-	                       {"Bread pita whole wheat", 64, 134, 14, 22.6},
-	                       {"Broccoli raw", 91, 21.9, 2.8, 6.3},
-	                       {"Carrots raw", 128, 46.6, 2.6, 3.3},
-	};
 	
-	*/
-	for(int ctr = 0; ctr < DATA_SIZE; ++ctr) {
-		file.write(reinterpret_cast<char >(data[ctr]), sizeof(data));
-	}
+	//create 5 records to store data
+	NutritionData data1 =	{"Apples raw", 110, 50.6, 1.2, 1.0};
+	NutritionData data2 =	{"Bananas", 225, 186, 6.2, 8.2};
+	NutritionData data3 =	{"Bread pita whole wheat", 64, 134, 14, 22.6};
+	NutritionData data4 =	{"Broccoli raw", 91, 21.9, 2.8, 6.3};
+	NutritionData data5 =	{"Carrots raw", 128, 46.6, 2.6, 3.3};
+
+
+	//write records to file
+	file.write(reinterpret_cast<char *> (&data1), sizeof(data1));
+	file.write(reinterpret_cast<char *> (&data2), sizeof(data2));
+	file.write(reinterpret_cast<char *> (&data3), sizeof(data3));
+	file.write(reinterpret_cast<char *> (&data4), sizeof(data4));
+	file.write(reinterpret_cast<char *> (&data5), sizeof(data5));
+
 
 	file.close();
 
+	//open file to read data
+	file.open (FILE_NAME, ios::in | ios::binary);
 
-	file.open("nutri.dat", ios::in | ios::binary);
-
+	//test to check file opens correctly
 	if (!file) {
 		cout << "Error opening file. Program aborting.\n";
-		return 0;
 	}
+	
+	//create a struct to read data from file into it
+	NutritionData dataOut;
 
-	cout << "Now reading\n";
+	//use seekg function to read tht 3rd record from file
+	file.seekg (sizeof(NutritionData) * 2, ios::beg);
 
-	file.read(reinterpret_cast<char *>(&data), sizeof(data));
+	//read the data into the struct
+	file.read((char *) &dataOut, sizeof(dataOut));
 
-	while (!file.eof()) {
+	//Calculate the totalCalories field using the data
+	dataOut.totalCalories = dataOut.calFromCarb + dataOut.calFromFat 
+				+ dataOut.calFromProtein;
 
-		cout << "Food Name: ";
-		cout << data.foodName << endl;
-		cout << "Serving Size: ";
-		cout << data.servingSize << endl;
-		cout << "Calories Per Serving:\n ";
-		//cout << data.totalCalories << endl;
-		cout << "Calories From Carb: ";
-		cout << data.calFromCarb << endl;
-		cout << "Calories From Fat: ";
-		cout << data.calFromFat << endl;
-		cout << "Calories From Protein: ";
-		cout << data.calFromProtein << endl;
-
-		
-		file.read(reinterpret_cast<char *>(&data), sizeof(data));
-	}
-
-
+	//Print data from the 3rd record onto the screen
+	cout << showpoint << fixed << setprecision(1);
+	cout << "Food Name: ";
+	cout << dataOut.foodName << endl;
+	cout << "Serving Size: ";
+	cout << dataOut.servingSize << " grams" << endl;
+	cout << "Calories Per Serving: ";
+	cout << dataOut.totalCalories << endl;
+	cout << "Calories From Carb: ";
+	cout << dataOut.calFromCarb << endl;
+	cout << "Calories From Fat: ";
+	cout << dataOut.calFromFat << endl;
+	cout << "Calories From Protein: ";
+	cout << dataOut.calFromProtein << endl;
 
 	file.close();
 	
@@ -111,15 +125,13 @@ int main() {
 }
 
 /*
- Copy output of this program below this line.
- --------------------------------------------
-Sales
-Item                 Qty      Unit       Amt
-============================================
-Milk                1         5.85      5.85      
-Whole Wheat Bread   2         3.75      7.50      
-Napkin              3         2.35      7.05      
-Paper Towel         3         2.95      8.85      
-Soap                1         1.95      1.95      
-Total                                  31.20 
+Copy output of this program below this line.
+
+Food Name: Bread pita whole wheat
+Serving Size: 64.0 grams
+Calories Per Serving: 170.6
+Calories From Carb: 134.0
+Calories From Fat: 14.0
+Calories From Protein: 22.6
+
 */
