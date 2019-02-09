@@ -13,7 +13,7 @@
 // structs and file objects
 // to read and write data to file
 //
-// Author: Joshua Gomes 
+// Author: Joshua N  Gomes 
 //
 // Date: 02/06/2019
 //
