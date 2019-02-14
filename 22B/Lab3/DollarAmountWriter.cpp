@@ -61,10 +61,11 @@ string DollarAmount::getDollarAmountString() const {
         //Get the number of thousands
         int thousands = amount / 1000;
         result += numbers[thousands] + " " + "Thousand";
+        int remainder = amount % 1000;
         //Get the number of hundreds
-        int hundreds = thousands / 100;
+        int hundreds = remainder / 100;
         result += " " + numbers[hundreds] + " " + "Hundred";
-        int remainder = remainder % 100
+        remainder = remainder % 100;
         if (remainder < 20) {
             result += " " + numbers[remainder];
         }
@@ -72,7 +73,7 @@ string DollarAmount::getDollarAmountString() const {
             int tens = remainder / 10;
             result += " " + tensString[tens];
             remainder = remainder % 10;
-            result += " " + numbers[reminder];
+            result += " " + numbers[remainder];
         }
     }
     else {
