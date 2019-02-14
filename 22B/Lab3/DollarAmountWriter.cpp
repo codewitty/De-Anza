@@ -6,7 +6,7 @@
 // opportunity to get used to various activities needed to write
 // a successful C++ program.
 //
-// Author: John Doe
+// Author: Joshua Gomes
 //
 // Date: mm/dd/yyyy
 //
