@@ -6,7 +6,7 @@
 // opportunity to get used to various activities needed to write
 // a successful C++ program.
 //
-// Author: Joshua Gomes
+// Author: John Doe
 //
 // Date: mm/dd/yyyy
 //
@@ -41,21 +41,54 @@ DollarAmount::DollarAmount(int amt) {
 }
 
 // The accessor function getAmount
-int DollarAmount::getAmount() const}{
+int DollarAmount::getAmount() const{
     return amount;
 }
 
 // The accessor function getAmountString
 string DollarAmount::getDollarAmountString() const {
+    // The string that holds the translated amount
+    string result { "" };
+    string numbers[20] = {
+        "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve",
+        "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
 
+    string tensString[10] = {
+        "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"
+    };
 
+    if (amount > 0 && amount < 10000) {
+        //Get the number of thousands
+        int thousands = amount / 1000;
+        result += numbers[thousands] + " " + "Thousand";
+        //Get the number of hundreds
+        int hundreds = thousands / 100;
+        result += " " + numbers[hundreds] + " " + "Hundred";
+        int remainder = remainder % 100
+        if (remainder < 20) {
+            result += " " + numbers[remainder];
+        }
+        else {
+            int tens = remainder / 10;
+            result += " " + tensString[tens];
+            remainder = remainder % 10;
+            result += " " + numbers[reminder];
+        }
+    }
+    else {
+        result = "Invalid amount";
+    }
+    return result;
 }
 
-// Remove the following line if the definition foo is removed.
-int foo (int *ptr, int size);
+
 
 int main() {
-    cout << "Hello, C++!" << endl;
+    DollarAmount testAmount(312);
+    cout << testAmount.getDollarAmountString() << endl;
+    DollarAmount TestData[] {
+    3012, 3100, 4500
+    };
     return 0;
 }
 
