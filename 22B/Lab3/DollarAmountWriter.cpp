@@ -75,11 +75,6 @@ int main() {
 //*
 //************************************************************************
 
-int foo (int *ptr, int size) {
-    // Write the code for the function foo here . . .
-    return 0;
-}
-
 /*
  Copy output of this program below this line.
  --------------------------------------------
