@@ -1,4 +1,4 @@
-// Program name: Lab2b
+// Program name: Lab3a
 //
 // Description: This program uses an array of structs to  
 // 		create records. It then writes these
