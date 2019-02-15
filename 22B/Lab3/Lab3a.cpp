@@ -9,7 +9,7 @@
 
 //
 // What's on your mind about this lab? 
-// This exercise helps me understand how to use 
+// This exercise helps understand how to use 
 // structs and file objects
 // to read and write data to file
 //
