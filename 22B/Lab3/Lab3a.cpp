@@ -31,15 +31,29 @@ using namespace std;
 const int NAME_SIZE = 40;
 
 //struct definition
-struct NutritionData{
-	char foodName[NAME_SIZE];
-	double servingSize;
-	double calFromCarb;
-	double calFromFat;
-    	double calFromProtein;
-    	double totalCalories;
+class	NutritionData{
+	private:
+		string foodName;	
+		int servingSize;
+		double calFromCarb;
+		double calFromFat;
+    		double calFromProtein;
+    		double totalCalories;
+	public:
+		NutritionData(); //Default Constructor
+		void	setFoodName(string);
+		void	setServingSize(int);
+		void	setCalFromCarb(double);
+		void	setCalFromFat(double);
+		void	setCalFromProtein(double);
+
+
+
+
+
 };
 
+//This program processes data with a class
 int main() {
 	
 	//Define an string constant for file name
