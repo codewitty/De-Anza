@@ -1,6 +1,6 @@
 // Program name: Lab3a
 //
-// Description: This program uses an array of structs to  
+// Description: This program uses classes an array of structs to  
 // 		create records. It then writes these
 //		records to the specified file. Later
 //		the same file is opened and the data
