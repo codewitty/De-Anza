@@ -124,14 +124,16 @@ int main() {
 	Pita.setCalFromFat(14);
 	Pita.setCalFromProtein(22.6);
 
-	//Print the nutrition data of pita on the screen using cout and the accessor functions.	
+	//Print the nutrition data of pita on the screen 
+	//using cout and the accessor functions.	
 	cout << showpoint << fixed << setprecision(1);
 	cout << "Food Name: ";
 	cout << Pita.getFoodName() << endl;
 	cout << "Serving Size: ";
 	cout << Pita.getServingSize() << " grams" << endl;
 	cout << "Calories Per Serving: ";
-	cout << (Pita.getCalFromCarb() + Pita.getCalFromFat() + Pita.getCalFromProtein()) << endl;
+	cout <<	(Pita.getCalFromCarb() + Pita.getCalFromFat()
+		+ Pita.getCalFromProtein()) << endl;
 	cout << "Calories From Carb: ";
 	cout << Pita.getCalFromCarb() << endl;
 	cout << "Calories From Fat: ";
