@@ -46,11 +46,12 @@ class	NutritionData{
 		void	setCalFromCarb(double);
 		void	setCalFromFat(double);
 		void	setCalFromProtein(double);
-		int 	servingSize() const;
-		double 	calFromCarb() const;
-		double 	calFromFat() const;
-    		double 	calFromProtein() const;
-    		double 	totalCalories() const;
+		string	getFoodName() const;
+		int 	getServingSize() const;
+		double 	getCalFromCarb() const;
+		double 	getCalFromFat() const;
+    		double 	getCalFromProtein() const;
+    		double 	getTotalCalories() const;
 
 };
 
@@ -64,8 +65,35 @@ NutritionData::NutritionData() {
 	totalCalories = 0.0;
 }
 
+// The accessor function getFoodName
+string	NutritionData::getFoodName() const{
+    return foodName;
+}
 
+// The accessor function getServingSize
+int 	NutritionData::getServingSize() const{
+    return servingSize;
+}
 
+// The accessor function getCalFromCarb
+double 	NutritionData::getCalFromCarb() const{
+    return calFromCarb;
+}
+
+// The accessor function getCalFromFat
+double	NutritionData::getCalFromFat() const{
+    return calFromFat;
+}
+
+// The accessor function getCalFromProtein
+double	NutritionData::getCalFromProtein() const{
+    return calFromProtein;
+}
+
+// The accessor function getTotalCalories
+double	NutritionData::getTotalCalories() const{
+    return totalCalories;
+}
 //This program processes data with a class
 int main() {
 	
