@@ -1,17 +1,11 @@
 // Program name: Lab3a
 //
-// Description: This program uses classes an array of structs to  
-// 		create records. It then writes these
-//		records to the specified file. Later
-//		the same file is opened and the data
-//		of a particular record is read and then
-// 		printed to the screen 
-
+// Description: This program uses classes to process data 
+// 		and print the data on to the screen
 //
 // What's on your mind about this lab? 
-// This exercise helps understand how to use 
-// structs and file objects
-// to read and write data to file
+// This exercise helps understand how to create classes 
+// and to use mutators and accessors to process data
 //
 // Author: Joshua N  Gomes 
 //
@@ -23,14 +17,11 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <fstream>
 
 using namespace std;
 
-//declare a constant size for food name
-const int NAME_SIZE = 40;
 
-//struct definition
+//class definition
 class	NutritionData{
 	private:
 		string foodName;	
@@ -40,12 +31,15 @@ class	NutritionData{
     		double calFromProtein;
     		double totalCalories;
 	public:
-		NutritionData(); //Default Constructor
+		// Default Constructor
+		NutritionData();
+		// Mutator Functions
 		void	setFoodName(string);
 		void	setServingSize(int);
 		void	setCalFromCarb(double);
 		void	setCalFromFat(double);
 		void	setCalFromProtein(double);
+		// Accessor Functions
 		string	getFoodName() const;
 		int 	getServingSize() const;
 		double 	getCalFromCarb() const;
@@ -55,6 +49,7 @@ class	NutritionData{
 
 };
 
+// Defining the default constructor and initializing it to given values
 NutritionData::NutritionData() {
 
 	foodName = "";
@@ -65,79 +60,78 @@ NutritionData::NutritionData() {
 	totalCalories = 0.0;
 }
 
-// The mutator function setFoodName
+//Defining member functions
+// The mutator function sets the value of the setFoodName variable
 void	NutritionData::setFoodName(string name) {
     foodName = name;
 }
 
-// The mutator function setServingSize
+// The mutator function sets the value of the setServingSize variable
 void	NutritionData::setServingSize(int serving) {
     servingSize = serving;
 }
 
-// The mutator function setCalFromCarb
+// The mutator function sets the value of the setCalFromCarb variable
 void	NutritionData::setCalFromCarb(double carb) {
     calFromCarb = carb;
 }
 
-// The mutator function setCalFromFat
+// The mutator function sets the value of the setCalFromFat variable
 void	NutritionData::setCalFromFat(double fat) {
     calFromFat = fat;
 }
 
-// The mutator function setCalFromProtein
+// The mutator function  sets the value of the setCalFromProtein variable
 void	NutritionData::setCalFromProtein(double protein) {
     calFromProtein = protein;
 }
 
 
-// The accessor function getFoodName
+// This accessor function gets the value of getFoodName variable
 string	NutritionData::getFoodName() const{
     return foodName;
 }
 
-// The accessor function getServingSize
+// This accessor function gets the value of getServingSize variable
 int 	NutritionData::getServingSize() const{
     return servingSize;
 }
 
-// The accessor function getCalFromCarb
+// This accessor function gets the value of getCalFromCarb  variable
 double 	NutritionData::getCalFromCarb() const{
     return calFromCarb;
 }
 
-// The accessor function getCalFromFat
+// This accessor function gets the value of getCalFromFat variable
 double	NutritionData::getCalFromFat() const{
     return calFromFat;
 }
 
-// The accessor function getCalFromProtein
+// This accessor function gets the value of getCalFromProtein variable
 double	NutritionData::getCalFromProtein() const{
     return calFromProtein;
 }
 
-// The accessor function getTotalCalories
-double	NutritionData::getTotalCalories() const{
-    return totalCalories;
-}
 
 //This program processes data with a class
 int main() {
-	
+	//Define an instance of the class NutritionData named pita.
 	NutritionData Pita;
+	//Use the mutator functions to set the nutrition data for pita. 
 	Pita.setFoodName("Bread pita whole wheat");
 	Pita.setServingSize(64);
 	Pita.setCalFromCarb(134);
 	Pita.setCalFromFat(14);
 	Pita.setCalFromProtein(22.6);
 
-
-	//Print data from onto the screen
+	//Print the nutrition data of pita on the screen using cout and the accessor functions.	
 	cout << showpoint << fixed << setprecision(1);
 	cout << "Food Name: ";
 	cout << Pita.getFoodName() << endl;
 	cout << "Serving Size: ";
 	cout << Pita.getServingSize() << " grams" << endl;
+	cout << "Calories Per Serving: ";
+	cout << (Pita.getCalFromCarb() + Pita.getCalFromFat() + Pita.getCalFromProtein()) << endl;
 	cout << "Calories From Carb: ";
 	cout << Pita.getCalFromCarb() << endl;
 	cout << "Calories From Fat: ";
