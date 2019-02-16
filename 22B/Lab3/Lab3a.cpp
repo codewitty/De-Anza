@@ -46,12 +46,25 @@ class	NutritionData{
 		void	setCalFromCarb(double);
 		void	setCalFromFat(double);
 		void	setCalFromProtein(double);
-
-
-
-
+		int 	servingSize() const;
+		double 	calFromCarb() const;
+		double 	calFromFat() const;
+    		double 	calFromProtein() const;
+    		double 	totalCalories() const;
 
 };
+
+NutritionData::NutritionData() {
+
+	foodName = "";
+	servingSize = 0;
+	calFromCarb = 0.0;
+	calFromFat = 0.0;
+	calFromProtein = 0.0;
+	totalCalories = 0.0;
+}
+
+
 
 //This program processes data with a class
 int main() {
