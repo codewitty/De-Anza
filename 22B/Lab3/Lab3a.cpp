@@ -65,6 +65,32 @@ NutritionData::NutritionData() {
 	totalCalories = 0.0;
 }
 
+// The mutator function setFoodName
+void	NutritionData::setFoodName(string name) {
+    foodName = name;
+}
+
+// The mutator function setServingSize
+void	NutritionData::setServingSize(int serving) {
+    servingSize = serving;
+}
+
+// The mutator function setCalFromCarb
+void	NutritionData::setCalFromCarb(double carb) {
+    calFromCarb = carb;
+}
+
+// The mutator function setCalFromFat
+void	NutritionData::setCalFromFat(double fat) {
+    calFromFat = fat;
+}
+
+// The mutator function setCalFromProtein
+void	NutritionData::setCalFromProtein(double protein) {
+    calFromProtein = protein;
+}
+
+
 // The accessor function getFoodName
 string	NutritionData::getFoodName() const{
     return foodName;
@@ -94,88 +120,31 @@ double	NutritionData::getCalFromProtein() const{
 double	NutritionData::getTotalCalories() const{
     return totalCalories;
 }
+
 //This program processes data with a class
 int main() {
 	
-	//Define an string constant for file name
-	string const FILE_NAME = "nutri.dat";
-	
-	//open file to read and write
-	fstream file;
-
-	//check if file already exists
-	file.open(FILE_NAME, ios::in);
-	
-	//if file does not exist open to write data
-	//else display error messages and exit program
- 
-	if (file.fail()) {
-	    file.open(FILE_NAME, ios::out | ios::binary);
-	}
-	else {
-	    file.close();
-	    cout    	<<  "The file nutri.dat is an existing file. You can either " 
-			<<  "delete the file or move it to another "
-			<<  "location and then run the program again.\n";
-	    return 0;
-	}
-	
-	//create 5 records to store data
-	NutritionData data1 =	{"Apples raw", 110, 50.6, 1.2, 1.0};
-	NutritionData data2 =	{"Bananas", 225, 186, 6.2, 8.2};
-	NutritionData data3 =	{"Bread pita whole wheat", 64, 134, 14, 22.6};
-	NutritionData data4 =	{"Broccoli raw", 91, 21.9, 2.8, 6.3};
-	NutritionData data5 =	{"Carrots raw", 128, 46.6, 2.6, 3.3};
+	NutritionData Pita;
+	Pita.setFoodName("Bread pita whole wheat");
+	Pita.setServingSize(64);
+	Pita.setCalFromCarb(134);
+	Pita.setCalFromFat(14);
+	Pita.setCalFromProtein(22.6);
 
 
-	//write records to file
-	file.write(reinterpret_cast<char *> (&data1), sizeof(data1));
-	file.write(reinterpret_cast<char *> (&data2), sizeof(data2));
-	file.write(reinterpret_cast<char *> (&data3), sizeof(data3));
-	file.write(reinterpret_cast<char *> (&data4), sizeof(data4));
-	file.write(reinterpret_cast<char *> (&data5), sizeof(data5));
-
-
-	file.close();
-
-	//open file to read data
-	file.open (FILE_NAME, ios::in | ios::binary);
-
-	//test to check file opens correctly
-	if (!file) {
-		cout << "Error opening file. Program aborting.\n";
-	}
-	
-	//create a struct to read data from file into it
-	NutritionData dataOut;
-
-	//use seekg function to read tht 3rd record from file
-	file.seekg (sizeof(NutritionData) * 2, ios::beg);
-
-	//read the data into the struct
-	file.read((char *) &dataOut, sizeof(dataOut));
-
-	//Calculate the totalCalories field using the data
-	dataOut.totalCalories = dataOut.calFromCarb + dataOut.calFromFat 
-				+ dataOut.calFromProtein;
-
-	//Print data from the 3rd record onto the screen
+	//Print data from onto the screen
 	cout << showpoint << fixed << setprecision(1);
 	cout << "Food Name: ";
-	cout << dataOut.foodName << endl;
+	cout << Pita.getFoodName() << endl;
 	cout << "Serving Size: ";
-	cout << dataOut.servingSize << " grams" << endl;
-	cout << "Calories Per Serving: ";
-	cout << dataOut.totalCalories << endl;
+	cout << Pita.getServingSize() << " grams" << endl;
 	cout << "Calories From Carb: ";
-	cout << dataOut.calFromCarb << endl;
+	cout << Pita.getCalFromCarb() << endl;
 	cout << "Calories From Fat: ";
-	cout << dataOut.calFromFat << endl;
+	cout << Pita.getCalFromFat() << endl;
 	cout << "Calories From Protein: ";
-	cout << dataOut.calFromProtein << endl;
+	cout << Pita.getCalFromProtein() << endl;
 
-	file.close();
-	
 	return 0;
 }
 
