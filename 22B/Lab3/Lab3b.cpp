@@ -1,4 +1,4 @@
-// Program name: Lab3a
+// Program name: Lab3b 
 //
 // Description: This program uses classes to process data 
 // 		and print the data on to the screen
