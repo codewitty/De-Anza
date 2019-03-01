@@ -80,8 +80,8 @@ NutritionData::NutritionData(string food, int size, double carb, double fat,
 	calFromCarb = carb;
 	calFromFat = fat;
 	calFromProtein = protein;
-	totalCalories = (carb + fat + protein)
-
+	totalCalories = (carb + fat + protein);
+}
 
 //Defining member functions
 // The mutator function sets the value of the setFoodName variable
