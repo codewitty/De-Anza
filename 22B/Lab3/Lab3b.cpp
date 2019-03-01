@@ -40,6 +40,9 @@ class	NutritionData{
 	public:
 		// Default Constructor
 		NutritionData();
+		// Constructor that accepts data
+		NutritionData(string, int, double, double, double);	
+		
 		// Mutator Functions
 		void	setFoodName(string);
 		void	setServingSize(int);
