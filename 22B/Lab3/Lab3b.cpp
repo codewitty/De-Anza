@@ -29,7 +29,9 @@ class	NutritionData{
 		string foodName;
 		//variable to store Serving Size	
 		int servingSize;
+
 		double calFromCarb;
+
 		double calFromFat;
     		double calFromProtein;
     		double totalCalories;
