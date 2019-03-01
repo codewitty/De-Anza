@@ -25,16 +25,18 @@ using namespace std;
 //class definition
 class	NutritionData{
 	private:
-		//variable to store Food Name	
+		// Variable to store Food Name	
 		string foodName;
-		//variable to store Serving Size	
+		// Variable to store Serving Size	
 		int servingSize;
-
+		// Variable to store Calories from Carbohydrates	
 		double calFromCarb;
-
+		// Variable to store Calories from Fat
 		double calFromFat;
-    		double calFromProtein;
-    		double totalCalories;
+   		// Variable to store Calories from Protein 
+		double calFromProtein;
+   		// Variable to store Total Calories 
+		double totalCalories;
 	public:
 		// Default Constructor
 		NutritionData();
