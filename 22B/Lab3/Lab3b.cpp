@@ -142,7 +142,13 @@ double	NutritionData::getTotalCalories() const{
 //This program processes data with a class
 int main() {
 	//Define an instance of the class NutritionData named pita.
-	NutritionData Pita;
+	NutritionData nutritionData[] {
+	{"Apples raw", 110, 50.6, 1.2, 1.0},
+	{"Bananas", 225, 186, 6.2, 8.2},
+	{"Bread pita whole wheat", 64, 134, 14, 22.6},
+	{"Broccoli raw", 91, 21.9, 2.8, 6.3},
+	{"Carrots raw", 128, 46.6, 2.6, 3.3}
+};
 	//Use the mutator functions to set the nutrition data for pita. 
 	Pita.setFoodName("Bread pita whole wheat");
 	Pita.setServingSize(64);
