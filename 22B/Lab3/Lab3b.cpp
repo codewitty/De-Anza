@@ -135,7 +135,10 @@ double	NutritionData::getCalFromProtein() const{
     return calFromProtein;
 }
 
-
+// This accessor function gets the value of getCalFromProtein variable
+double	NutritionData::getTotalCalories() const{
+    return (calFromCarb + calFromFat + calFromProtein);
+}
 //This program processes data with a class
 int main() {
 	//Define an instance of the class NutritionData named pita.
