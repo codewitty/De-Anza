@@ -70,6 +70,19 @@ NutritionData::NutritionData() {
 	totalCalories = 0.0;
 }
 
+// Definig the other constructor that accepts data
+
+NutritionData::NutritionData(string food, int size, double carb, double fat,
+				double protein, double total) {
+
+	foodName = s;
+	servingSize = size;
+	calFromCarb = carb;
+	calFromFat = fat;
+	calFromProtein = protein;
+	totalCalories = (carb + fat + protein)
+
+
 //Defining member functions
 // The mutator function sets the value of the setFoodName variable
 void	NutritionData::setFoodName(string name) {
