@@ -73,14 +73,13 @@ NutritionData::NutritionData() {
 // Definig the other constructor that accepts data
 
 NutritionData::NutritionData(string food, int size, double carb, double fat,
-				double protein, double total) {
+				double protein) {
 
-	foodName = s;
+	foodName = food;
 	servingSize = size;
 	calFromCarb = carb;
 	calFromFat = fat;
 	calFromProtein = protein;
-	totalCalories = (carb + fat + protein);
 }
 
 //Defining member functions
@@ -142,7 +141,7 @@ double	NutritionData::getTotalCalories() const{
 //This program processes data with a class
 int main() {
 	// Define and initialize an array named nutritionData using given data	
-	NutritionData nutritionData[] {
+	NutritionData nutritionData[5] = {
 	{"Apples raw", 110, 50.6, 1.2, 1.0},
 	{"Bananas", 225, 186, 6.2, 8.2},
 	{"Bread pita whole wheat", 64, 134, 14, 22.6},
@@ -156,9 +155,9 @@ int main() {
 
 	cout << showpoint << fixed << setprecision(1);
 	cout << "Food Name: ";
-	cout << Pita.getFoodName() << endl;
+	cout << nutritionData.getFoodName() << endl;
 	cout << "Serving Size: ";
-	cout << Pita.getServingSize() << " grams" << endl;
+	cout << nutritionData.getServingSize() << " grams" << endl;
 	cout << "Calories Per Serving: ";
 	cout << nutritionData.getTotalCalories() << endl;
 	cout << "Calories From Carb: ";
