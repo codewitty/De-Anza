@@ -1,7 +1,8 @@
 // Program name: Lab3b 
 //
-// Description: This program uses classes to process data 
-// 		and print the data on to the screen
+// Description: This program instantiates and uses instances of a class 
+//		with non-default constructors. 
+// 	
 //
 // What's on your mind about this lab? 
 // This exercise helps understand how to create classes 
@@ -9,7 +10,7 @@
 //
 // Author: Joshua N  Gomes 
 //
-// Date: 02/14/2019
+// Date: 02/28/2019
 //
 // IDE Used: Vim/g++
 //
