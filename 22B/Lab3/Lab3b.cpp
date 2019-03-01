@@ -141,7 +141,7 @@ double	NutritionData::getTotalCalories() const{
 }
 //This program processes data with a class
 int main() {
-	//Define an instance of the class NutritionData named pita.
+	// Define and initialize an array named nutritionData using given data	
 	NutritionData nutritionData[] {
 	{"Apples raw", 110, 50.6, 1.2, 1.0},
 	{"Bananas", 225, 186, 6.2, 8.2},
@@ -149,29 +149,24 @@ int main() {
 	{"Broccoli raw", 91, 21.9, 2.8, 6.3},
 	{"Carrots raw", 128, 46.6, 2.6, 3.3}
 };
-	//Use the mutator functions to set the nutrition data for pita. 
-	Pita.setFoodName("Bread pita whole wheat");
-	Pita.setServingSize(64);
-	Pita.setCalFromCarb(134);
-	Pita.setCalFromFat(14);
-	Pita.setCalFromProtein(22.6);
+	// Use a range-based for loop to print the nutrition data for all
+	// foods to the screen using the accessor functions.
 
-	//Print the nutrition data of pita on the screen 
-	//using cout and the accessor functions.	
+	
+
 	cout << showpoint << fixed << setprecision(1);
 	cout << "Food Name: ";
 	cout << Pita.getFoodName() << endl;
 	cout << "Serving Size: ";
 	cout << Pita.getServingSize() << " grams" << endl;
 	cout << "Calories Per Serving: ";
-	cout <<	(Pita.getCalFromCarb() + Pita.getCalFromFat()
-		+ Pita.getCalFromProtein()) << endl;
+	cout << nutritionData.getTotalCalories() << endl;
 	cout << "Calories From Carb: ";
-	cout << Pita.getCalFromCarb() << endl;
+	cout << nutritionData.getCalFromCarb() << endl;
 	cout << "Calories From Fat: ";
-	cout << Pita.getCalFromFat() << endl;
+	cout << nutritionData.getCalFromFat() << endl;
 	cout << "Calories From Protein: ";
-	cout << Pita.getCalFromProtein() << endl;
+	cout << nutritionData.getCalFromProtein() << endl;
 
 	return 0;
 }
