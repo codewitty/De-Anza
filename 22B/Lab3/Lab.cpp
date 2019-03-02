@@ -5,8 +5,8 @@
 // 	
 //
 // What's on your mind about this lab? 
-// This exercise helps understand how to use an array of class objects 
-// and to use a range based for loop 
+// This exercise helps understand how to create classes 
+// and to use mutators and accessors to process data
 //
 // Author: Joshua N  Gomes 
 //
@@ -149,23 +149,9 @@ int main() {
 	NutritionData ("Carrots raw", 128, 46.6, 2.6, 3.3)
 };
 
-	// Use a range-based for loop to print the nutrition data for all
+	// Use a for loop to print the nutrition data for all
 	// foods to the screen using the accessor functions.
 
-	for (const auto nutrition : nutritionData) {
-		cout << showpoint << fixed << setprecision(1);
-		cout << "Food Name: ";
-		cout << nutrition.getFoodName() << endl;
-		cout << "Serving Size: ";
-		cout << nutrition.getServingSize() << " g" << endl;
-		cout << "Calories Per Serving: ";
-		cout << nutrition.getTotalCalories() << endl;
-		cout << "Calories From Carb: ";
-		cout << nutrition.getCalFromCarb() << endl;
-		cout << "Calories From Fat: ";
-		cout << nutrition.getCalFromFat() << endl;
-		cout << "Calories From Protein: ";
-		cout << nutrition.getCalFromProtein() << endl << endl;
 
 
 }
