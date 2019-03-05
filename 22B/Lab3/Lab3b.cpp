@@ -54,7 +54,7 @@ class NutritionData{
 		int 	getServingSize() const;
 		double 	getCalFromCarb() const;
 		double 	getCalFromFat() const;
-    		double 	getCalFromProtein() const;
+		double 	getCalFromProtein() const;
     		double 	getTotalCalories() const;
 
 };
@@ -98,6 +98,7 @@ void	NutritionData::setCalFromCarb(double carb) {
 	// Variable to hold initial value of calFromCarb
 	double initialValueCarb = calFromCarb; 
 	calFromCarb = carb;
+	// Set the value of totalCalories	
 	totalCalories = (totalCalories - initialValueCarb) + calFromCarb;
 }
 
@@ -106,6 +107,7 @@ void	NutritionData::setCalFromFat(double fat) {
  // Variable to hold initial value of calFromFat
 	double initialValueFat = calFromFat; 
 	calFromFat = fat;
+	// Set the value of totalCalories
 	totalCalories = (totalCalories - initialValueFat) + calFromFat;
 }
   
@@ -114,6 +116,7 @@ void	NutritionData::setCalFromProtein(double protein) {
  // Variable to hold initial value of calFromFat
 	double initialValueProtein = calFromProtein; 
 	calFromProtein = protein;
+	// Set the value of totalCalories
 	totalCalories = (totalCalories - initialValueProtein) + calFromProtein;
 }
 
