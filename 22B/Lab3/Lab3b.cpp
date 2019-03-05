@@ -94,20 +94,28 @@ void	NutritionData::setServingSize(int serving) {
 }
 
 // The mutator function sets the value of the setCalFromCarb variable
-void	NutritionData::setCalFromCarb(double carb) {
-    calFromCarb = carb;
+void	NutritionData::setCalFromCarb(double carb) {	
+	// Variable to hold initial value of calFromCarb
+	double initialValueCarb = calFromCarb; 
+	calFromCarb = carb;
+	totalCalories = (totalCalories - initialValueCarb) + calFromCarb;
 }
 
 // The mutator function sets the value of the setCalFromFat variable
 void	NutritionData::setCalFromFat(double fat) {
-    calFromFat = fat;
+ // Variable to hold initial value of calFromFat
+	double initialValueFat = calFromFat; 
+	calFromFat = fat;
+	totalCalories = (totalCalories - initialValueFat) + calFromFat;
 }
-
+  
 // The mutator function  sets the value of the setCalFromProtein variable
 void	NutritionData::setCalFromProtein(double protein) {
-    calFromProtein = protein;
+ // Variable to hold initial value of calFromFat
+	double initialValueProtein = calFromProtein; 
+	calFromProtein = protein;
+	totalCalories = (totalCalories - initialValueProtein) + calFromProtein;
 }
-
 
 // This accessor function gets the value of getFoodName variable
 string	NutritionData::getFoodName() const{
@@ -134,7 +142,9 @@ double	NutritionData::getCalFromProtein() const{
     return calFromProtein;
 }
 
-// This accessor function gets the value of getCalFromProtein variable
+// This accessor function gets the total value of calories from all calorie
+// variables
+ 
 double	NutritionData::getTotalCalories() const{
     return (calFromCarb + calFromFat + calFromProtein);
 }
@@ -149,25 +159,22 @@ int main() {
 	NutritionData ("Carrots raw", 128, 46.6, 2.6, 3.3)
 };
 
-	// Use a range-based for loop to print the nutrition data for all
-	// foods to the screen using the accessor functions.
+// Use a range-based for loop to print the nutrition data for all
+// foods to the screen using the accessor functions.
 
-	for (const auto nutrition : nutritionData) {
-		cout << showpoint << fixed << setprecision(1);
-		cout << "Food Name: ";
-		cout << nutrition.getFoodName() << endl;
-		cout << "Serving Size: ";
-		cout << nutrition.getServingSize() << " g" << endl;
-		cout << "Calories Per Serving: ";
-		cout << nutrition.getTotalCalories() << endl;
-		cout << "Calories From Carb: ";
-		cout << nutrition.getCalFromCarb() << endl;
-		cout << "Calories From Fat: ";
-		cout << nutrition.getCalFromFat() << endl;
-		cout << "Calories From Protein: ";
-		cout << nutrition.getCalFromProtein() << endl << endl;
-
-
+for (const auto nutrition : nutritionData) {
+	cout << "Food Name: ";
+	cout << nutrition.getFoodName() << endl;
+	cout << "Serving Size: ";
+	cout << nutrition.getServingSize() << " g" << endl;
+	cout << "Calories Per Serving: ";
+	cout << nutrition.getTotalCalories() << endl;
+	cout << "Calories From Carb: ";
+	cout << nutrition.getCalFromCarb() << endl;
+	cout << "Calories From Fat: ";
+	cout << nutrition.getCalFromFat() << endl;
+	cout << "Calories From Protein: ";
+	cout << nutrition.getCalFromProtein() << endl << endl;
 }
 	return 0;
 }
@@ -175,11 +182,39 @@ int main() {
 /*
 Copy output of this program below this line.
 
+Food Name: Apples raw
+Serving Size: 110 g
+Calories Per Serving: 52.8
+Calories From Carb: 50.6
+Calories From Fat: 1.2
+Calories From Protein: 1
+
+Food Name: Bananas
+Serving Size: 225 g
+Calories Per Serving: 200.4
+Calories From Carb: 186
+Calories From Fat: 6.2
+Calories From Protein: 8.2
+
 Food Name: Bread pita whole wheat
-Serving Size: 64.0 grams
+Serving Size: 64 g
 Calories Per Serving: 170.6
-Calories From Carb: 134.0
-Calories From Fat: 14.0
+Calories From Carb: 134
+Calories From Fat: 14
 Calories From Protein: 22.6
+
+Food Name: Broccoli raw
+Serving Size: 91 g
+Calories Per Serving: 31
+Calories From Carb: 21.9
+Calories From Fat: 2.8
+Calories From Protein: 6.3
+
+Food Name: Carrots raw
+Serving Size: 128 g
+Calories Per Serving: 52.5
+Calories From Carb: 46.6
+Calories From Fat: 2.6
+Calories From Protein: 3.3
 
 */
