@@ -215,39 +215,5 @@ for (const auto nutrition : nutritionData) {
 /*
 Copy output of this program below this line.
 
-Food Name: Apples raw
-Serving Size: 110 g
-Calories Per Serving: 52.8
-Calories From Carb: 50.6
-Calories From Fat: 1.2
-Calories From Protein: 1
-
-Food Name: Bananas
-Serving Size: 225 g
-Calories Per Serving: 200.4
-Calories From Carb: 186
-Calories From Fat: 6.2
-Calories From Protein: 8.2
-
-Food Name: Bread pita whole wheat
-Serving Size: 64 g
-Calories Per Serving: 170.6
-Calories From Carb: 134
-Calories From Fat: 14
-Calories From Protein: 22.6
-
-Food Name: Broccoli raw
-Serving Size: 91 g
-Calories Per Serving: 31
-Calories From Carb: 21.9
-Calories From Fat: 2.8
-Calories From Protein: 6.3
-
-Food Name: Carrots raw
-Serving Size: 128 g
-Calories Per Serving: 52.5
-Calories From Carb: 46.6
-Calories From Fat: 2.6
-Calories From Protein: 3.3
 
 */
