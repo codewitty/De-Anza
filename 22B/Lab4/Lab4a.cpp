@@ -149,6 +149,48 @@ displayApartmentInfo(myApartment);
 return 0;
 }
 
+//************************************************************************
+//* Function name: displayPropertyInfo 
+//*
+//* This function uses a pointer to iterate through a given string
+//* it then capitalises the first letter of every sentence.
+//*
+//* Parameters:
+//*	ptr  -  This is a pointer of type char which points to the 
+//		array that needs to be modified.
+//* Returns:
+//*	There is no returned value.
+//*
+//*
+//************************************************************************
+
+void	displayPropertyInfo(RealProperty &property) {
+
+	cout << "Property is located at: " << property.getStreetAddress() << endl;
+	cout << "Square footage: " << property.getSquareFootage() << endl;
+	cout << "Taxes: " << property.getTaxes() << endl << endl;
+}
+
+
+
+
+
+
+//************************************************************************
+//* Function name: displayPropertyInfo 
+//*
+//* This function uses a pointer to iterate through a given string
+//* it then capitalises the first letter of every sentence.
+//*
+//* Parameters:
+//*	ptr  -  This is a pointer of type char which points to the 
+//		array that needs to be modified.
+//* Returns:
+//*	There is no returned value.
+//*
+//*
+//************************************************************************
+
 
 // Use a range-based for loop to print the nutrition data for all
 // foods to the screen using the accessor functions.
