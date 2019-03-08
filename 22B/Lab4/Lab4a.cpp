@@ -39,12 +39,12 @@ class RealProperty{
 		RealProperty(string, int, double);	
 		
 		// mutator functions
-		void	setStreetaddress(string);
-		void	setSquarefootage(int);
+		void	setStreetAddress(string);
+		void	setSquareFootage(int);
 		void	setTaxes(double);
 		// accessor functions
-		string	getStreetaddress() const;
-		int 	getSquarefootage() const;
+		string	getStreetAddress() const;
+		int 	getSquareFootage() const;
 		double 	getTaxes() const;
 
 };
@@ -102,24 +102,27 @@ class Apartment : public RealProperty {
 	private:
 		double monthlyRent;
 	public:
-		Apartment();
-		Apartment(double rent); 
-		// mutator functions
-		void	setMonthlyRent(string);
-		// accessor functions
-		string	getMonthlyRent() const;
-
-// Defining the default constructor and initializing it to given values
-Apartment::RealProperty() {
-	monthlyRent = 0.0;
-
-}
-
-// Defining the other constructor that accepts data
-
-Address::Address(string address, int sqFtg, double tax, double rent) : RealProperty(address, sqFtg, tax) {
+		//Apartment();
+		Apartment() : RealProperty() {
+			monthlyRent = 0.0;
+		}
+		//Apartment(string, double, double, double rent); 
+		Apartment(string address, int sqFtg, double tax, double rent) : RealProperty(address, sqFtg, tax) {
 	monthlyRent = rent;
 }
+
+	
+		// mutator functions
+		void	setMonthlyRent(double);
+		// accessor functions
+		double	getMonthlyRent() const;
+
+};
+
+// Defining the default constructor and initializing it to given values
+
+
+// Defining the other constructor that accepts data
 
 //Defining member functions
 // The mutator function sets the value of the setStreetAddress variable
@@ -172,12 +175,8 @@ void	displayPropertyInfo(RealProperty &property) {
 }
 
 
-
-
-
-
 //************************************************************************
-//* Function name: displayPropertyInfo 
+//* Function name: displayApartmentInfo 
 //*
 //* This function uses a pointer to iterate through a given string
 //* it then capitalises the first letter of every sentence.
@@ -191,26 +190,14 @@ void	displayPropertyInfo(RealProperty &property) {
 //*
 //************************************************************************
 
+void	displayApartmentInfo(Apartment &property) {
 
-// Use a range-based for loop to print the nutrition data for all
-// foods to the screen using the accessor functions.
+	cout << "Apartment is located at: " << property.getStreetAddress() << endl;
+	cout << "Square footage: " << property.getSquareFootage() << endl;
+	cout << "Taxes: " << property.getTaxes() << endl;
+	cout << "Monthly rent: " << property.getMonthlyRent() << endl;
+}
 
-for (const auto nutrition : nutritionData) {
-	cout << "Food Name: ";
-	cout << nutrition.getFoodName() << endl;
-	cout << "Serving Size: ";
-	cout << nutrition.getServingSize() << " g" << endl;
-	cout << "Calories Per Serving: ";
-	cout << nutrition.getTotalCalories() << endl;
-	cout << "Calories From Carb: ";
-	cout << nutrition.getCalFromCarb() << endl;
-	cout << "Calories From Fat: ";
-	cout << nutrition.getCalFromFat() << endl;
-	cout << "Calories From Protein: ";
-	cout << nutrition.getCalFromProtein() << endl << endl;
-}
-	return 0;
-}
 
 /*
 Copy output of this program below this line.
