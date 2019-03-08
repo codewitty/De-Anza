@@ -117,33 +117,21 @@ Apartment::RealProperty() {
 
 // Defining the other constructor that accepts data
 
-RealProperty::RealProperty(string address, int sqFtg, double tax) {
-	streetAddress = address;
-	squareFootage =	sqFtg;
-	taxes = tax;
+Address::Address(string address, int sqFtg, double tax, double rent) : RealProperty(address, sqFtg, tax) {
+	monthlyRent = rent;
 }
 
 //Defining member functions
 // The mutator function sets the value of the setStreetAddress variable
-void	RealProperty::setStreetAddress(string name) {
-    streetAddress = name;
+void	Apartment::setMonthlyRent(double rent) {
+    monthlyRent = rent;
 }
-
-// The mutator function sets the value of the setServingSize variable
-void	RealProperty::setSquareFootage(int sqft) {
-    squareFootage = sqft;
-}
-
-// The mutator function sets the value of the setCalFromCarb variable
-void	RealProperty::setTaxes(double taxx) {	
-	double taxes = taxx; 
-}
-
 
 // This accessor function gets the value of getFoodName variable
-string	RealProperty::getStreetAddress() const{
-    return streetAddress;
+double	Apartment::getMonthlyRent() const{
+    return monthlyRent;
 }
+
 void	displayPropertyInfo(RealProperty &);
 
 void	displayApartmentInfo(Apartment &);
@@ -151,14 +139,16 @@ void	displayApartmentInfo(Apartment &);
 
 //This program processes data with a class
 int main() {
-	// Define and initialize an array named nutritionData using given data	
-	RealProperty nutritionData [] = {
-	RealProperty ("Apples raw", 110, 50.6, 1.2, 1.0),
-	RealProperty ("Bananas", 225, 186, 6.2, 8.2),
-	RealProperty ("Bread pita whole wheat", 64, 134, 14, 22.6),
-	RealProperty ("Broccoli raw", 91, 21.9, 2.8, 6.3),
-	RealProperty ("Carrots raw", 128, 46.6, 2.6, 3.3)
-};
+
+Apartment myApartment("Cupertino", 1200, 200, 2550.0);
+
+displayPropertyInfo(myApartment);
+
+displayApartmentInfo(myApartment);
+
+return 0;
+}
+
 
 // Use a range-based for loop to print the nutrition data for all
 // foods to the screen using the accessor functions.
