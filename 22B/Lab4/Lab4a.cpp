@@ -109,7 +109,41 @@ class Apartment : public RealProperty {
 		// accessor functions
 		string	getMonthlyRent() const;
 
+// Defining the default constructor and initializing it to given values
+Apartment::RealProperty() {
+	monthlyRent = 0.0;
 
+}
+
+// Defining the other constructor that accepts data
+
+RealProperty::RealProperty(string address, int sqFtg, double tax) {
+	streetAddress = address;
+	squareFootage =	sqFtg;
+	taxes = tax;
+}
+
+//Defining member functions
+// The mutator function sets the value of the setStreetAddress variable
+void	RealProperty::setStreetAddress(string name) {
+    streetAddress = name;
+}
+
+// The mutator function sets the value of the setServingSize variable
+void	RealProperty::setSquareFootage(int sqft) {
+    squareFootage = sqft;
+}
+
+// The mutator function sets the value of the setCalFromCarb variable
+void	RealProperty::setTaxes(double taxx) {	
+	double taxes = taxx; 
+}
+
+
+// This accessor function gets the value of getFoodName variable
+string	RealProperty::getStreetAddress() const{
+    return streetAddress;
+}
 void	displayPropertyInfo(RealProperty &);
 
 void	displayApartmentInfo(Apartment &);
