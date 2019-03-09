@@ -2,16 +2,16 @@
 //
 // Description: 
 //		The program instantiates and uses instances 
-//	of a derived class with default and non-default constructors.	
+//		of a derived class with default and non-default constructors.	
 // 	
 //
 // What's on your mind about this lab? 
-// This exercise helps understand how to use an array of class objects 
-// and to use a range based for loop 
+// This exercise helps understand how to use classes and inheritance to  
+// process data
 //
 // Author: Joshua N  Gomes 
 //
-// Date: 02/28/2019
+// Date: 03/08/2019
 //
 // IDE Used: Vim/g++
 //
@@ -26,11 +26,11 @@ using namespace std;
 //class definition
 class RealProperty{
 	private:
-		// Variable to store Food Name	
+		// Variable to store Street Address	
 		string streetAddress;
-		// Variable to store Serving Size	
+		// Variable to store Square Footage	
 		int squareFootage;
-		// Variable to store Calories from Carbohydrate
+		// Variable to store Taxes
 		double taxes;
 	public:
 		// Default Constructor
@@ -71,41 +71,44 @@ void	RealProperty::setStreetAddress(string name) {
     streetAddress = name;
 }
 
-// The mutator function sets the value of the setServingSize variable
+// The mutator function sets the value of the setSquareFootage variable
 void	RealProperty::setSquareFootage(int sqft) {
     squareFootage = sqft;
 }
 
-// The mutator function sets the value of the setCalFromCarb variable
+// The mutator function sets the value of the setTaxes variable
 void	RealProperty::setTaxes(double taxx) {	
 	double taxes = taxx; 
 }
 
 
-// This accessor function gets the value of getFoodName variable
+// This accessor function gets the value of getStreetAddress variable
 string	RealProperty::getStreetAddress() const{
     return streetAddress;
 }
 
-// This accessor function gets the value of getServingSize variable
+// This accessor function gets the value of getSquareFootage variable
 int 	RealProperty::getSquareFootage() const{
     return squareFootage;
 }
 
-// This accessor function gets the value of getCalFromCarb  variable
+// This accessor function gets the value of getTaxes  variable
 double 	RealProperty::getTaxes() const{
     return taxes;
 }
 
-
+// Derived class
 class Apartment : public RealProperty {
 	private:
+		// Variable to hold monthly rent	
 		double monthlyRent;
 	public:
-		//Apartment();
+		// Default Constructor;
 		Apartment() : RealProperty() {
 			monthlyRent = 0.0;
 		}
+	
+		// Other Constructor which accepts parameters	
 		//Apartment(string, double, double, double rent); 
 		Apartment(string address, int sqFtg, double tax, double rent) : RealProperty(address, sqFtg, tax) {
 	monthlyRent = rent;
@@ -125,24 +128,27 @@ class Apartment : public RealProperty {
 // Defining the other constructor that accepts data
 
 //Defining member functions
-// The mutator function sets the value of the setStreetAddress variable
+// The mutator function sets the value of the monthly rent variable
 void	Apartment::setMonthlyRent(double rent) {
     monthlyRent = rent;
 }
 
-// This accessor function gets the value of getFoodName variable
+// This accessor function gets the value of monthly rentvariable
 double	Apartment::getMonthlyRent() const{
     return monthlyRent;
 }
 
+// Function to display Property Information
 void	displayPropertyInfo(RealProperty &);
 
+// Function to display Property Information
 void	displayApartmentInfo(Apartment &);
 
 
-//This program processes data with a class
+//This program processes data using a derived class 
 int main() {
 
+// Apartment variable
 Apartment myApartment("Cupertino", 1200, 200, 2550.0);
 
 displayPropertyInfo(myApartment);
@@ -155,12 +161,12 @@ return 0;
 //************************************************************************
 //* Function name: displayPropertyInfo 
 //*
-//* This function uses a pointer to iterate through a given string
-//* it then capitalises the first letter of every sentence.
+//* This function uses accessor functions from the base class 
+//* to display data to the screen 
 //*
 //* Parameters:
-//*	ptr  -  This is a pointer of type char which points to the 
-//		array that needs to be modified.
+//*	ptr  -  This is a reference variable of type RealProperty 
+//		that contains the data to be displayed
 //* Returns:
 //*	There is no returned value.
 //*
@@ -169,21 +175,23 @@ return 0;
 
 void	displayPropertyInfo(RealProperty &property) {
 
-	cout << "Property is located at: " << property.getStreetAddress() << endl;
-	cout << "Square footage: " << property.getSquareFootage() << endl;
-	cout << "Taxes: " << property.getTaxes() << endl << endl;
+	cout	<< "Property is located at: " << property.getStreetAddress()
+		<< endl;
+	cout	<< "Square footage: " << property.getSquareFootage() << endl;
+	cout	<< "Taxes: " << property.getTaxes() << endl << endl;
 }
 
 
 //************************************************************************
 //* Function name: displayApartmentInfo 
 //*
-//* This function uses a pointer to iterate through a given string
-//* it then capitalises the first letter of every sentence.
+//* 
+//* This function uses accessor functions from the derived class 
+//* to display data to the screen 
 //*
 //* Parameters:
-//*	ptr  -  This is a pointer of type char which points to the 
-//		array that needs to be modified.
+//*	  Apartment &property - This is a reference variable of type Apartment
+//				that contains the data to be displayed
 //* Returns:
 //*	There is no returned value.
 //*
@@ -192,10 +200,11 @@ void	displayPropertyInfo(RealProperty &property) {
 
 void	displayApartmentInfo(Apartment &property) {
 
-	cout << "Apartment is located at: " << property.getStreetAddress() << endl;
-	cout << "Square footage: " << property.getSquareFootage() << endl;
-	cout << "Taxes: " << property.getTaxes() << endl;
-	cout << "Monthly rent: " << property.getMonthlyRent() << endl;
+	cout	<< "Apartment is located at: " << property.getStreetAddress()
+		<< endl;
+	cout	<< "Square footage: " << property.getSquareFootage() << endl;
+	cout 	<< "Taxes: " << property.getTaxes() << endl;
+	cout	<< "Monthly rent: " << property.getMonthlyRent() << endl;
 }
 
 
