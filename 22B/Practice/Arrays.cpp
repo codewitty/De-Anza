@@ -10,29 +10,44 @@ Write a function that can find the k-th smallest element in an array which is un
 
 using namespace std;
 
-int	main() {
+int    ft_strlen(int arr[])
+{
+    int i;
 
-int	array[5] = {6, 3, 5, 2, 8};
-
-int n = 0;
-
-while(array[n]) {
-	n++;
+    i = 0;
+    while (arr[i])
+        i++;
+    return (i);
 }
 
-if (i < (n - 1)) {
-	for (int i = 0; i < n; i++) {
+int    main() {
 
-		int mindex = i;
-		int j = i + 1;
-		
-		if (j < n) {
-			if (array[j] < array[mindex]) {
-				mindex = j;
-				j++;
-			}
-		int temp = array[i];
-		array[i] = mindex;
-		mindex = temp;
-		i++;
-}		
+int    array[5] = {6, 3, 5, 2, 8};
+
+int n = sizeof(array)/sizeof(array[0]);
+
+int i = 0;
+
+if (i < (n - 1)) {
+    for (int i = 0; i < n; i++) {
+
+        int mindex = i;
+        
+        for (int j = i + 1; j < n; j++) {
+            if (array[j] < array[mindex]) {
+                mindex = j;
+            }
+        }
+        int temp = array[i];
+        array[i] = mindex;
+        mindex = temp;
+        i++;
+}
+}
+
+for (int p = 0; p < n; p++) {
+	cout << array[p] << " ";
+}
+return 0;
+
+}
