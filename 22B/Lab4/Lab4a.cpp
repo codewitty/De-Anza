@@ -104,17 +104,11 @@ class Apartment : public RealProperty {
 		double monthlyRent;
 	public:
 		// Default Constructor;
-		Apartment() : RealProperty() {
-			monthlyRent = 0.0;
-		}
-	
+		Apartment();		
+		
 		// Other Constructor which accepts parameters	
-		//Apartment(string, double, double, double rent); 
-		Apartment(string address, int sqFtg, double tax, double rent) : RealProperty(address, sqFtg, tax) {
-	monthlyRent = rent;
-}
-
-	
+		Apartment(string, int, double, double); 
+		
 		// mutator functions
 		void	setMonthlyRent(double);
 		// accessor functions
@@ -123,10 +117,15 @@ class Apartment : public RealProperty {
 };
 
 // Defining the default constructor and initializing it to given values
-
+Apartment::Apartment() : RealProperty() {
+			monthlyRent = 0.0;
+		}
 
 // Defining the other constructor that accepts data
-
+Apartment::Apartment(string address, int sqFtg, double tax, double rent)
+		 : RealProperty(address, sqFtg, tax) {
+	monthlyRent = rent;
+}
 //Defining member functions
 // The mutator function sets the value of the monthly rent variable
 void	Apartment::setMonthlyRent(double rent) {
@@ -204,12 +203,20 @@ void	displayApartmentInfo(Apartment &property) {
 		<< endl;
 	cout	<< "Square footage: " << property.getSquareFootage() << endl;
 	cout 	<< "Taxes: " << property.getTaxes() << endl;
-	cout	<< "Monthly rent: " << property.getMonthlyRent() << endl;
+	cout	<< "Monthly rent: " << showpoint << fixed << setprecision(2) 
+		<< property.getMonthlyRent() << endl;
 }
 
 
 /*
 Copy output of this program below this line.
 
+Property is located at: Cupertino
+Square footage: 1200
+Taxes: 200
 
+Apartment is located at: Cupertino
+Square footage: 1200
+Taxes: 200
+Monthly rent: 2550.00
 */
