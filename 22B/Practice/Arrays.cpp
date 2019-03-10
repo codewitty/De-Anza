@@ -51,3 +51,7 @@ for (int p = 0; p < n; p++) {
 return 0;
 
 }
+
+
+void	sort_array(int arr[], int size) {
+
