@@ -26,6 +26,17 @@ int    array[5] = {6, 3, 5, 2, 8};
 
 int n = sizeof(array)/sizeof(array[0]);
 
+
+
+for (int p = 0; p < n; p++) {
+	cout << array[p] << " ";
+}
+return 0;
+
+}
+
+
+void	sort_array(int arr[], int size) {
 int i = 0;
 
 if (i < (n - 1)) {
@@ -44,14 +55,3 @@ if (i < (n - 1)) {
         i++;
 }
 }
-
-for (int p = 0; p < n; p++) {
-	cout << array[p] << " ";
-}
-return 0;
-
-}
-
-
-void	sort_array(int arr[], int size) {
-
