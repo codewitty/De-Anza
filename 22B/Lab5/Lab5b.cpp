@@ -24,9 +24,6 @@
 using namespace std;
 
 
-// Defining the other constructor that accepts data
-
-RealProperty::RealProperty(string address, int sqFtg, double tax) {
 	streetAddress = address;
 	squareFootage =	sqFtg;
 	taxes = tax;
