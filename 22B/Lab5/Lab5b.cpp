@@ -24,151 +24,23 @@
 using namespace std;
 
 
-	streetAddress = address;
-	squareFootage =	sqFtg;
-	taxes = tax;
-}
-
-//Defining member functions
-// The mutator function sets the value of the setStreetAddress variable
-void	RealProperty::setStreetAddress(string name) {
-    streetAddress = name;
-}
-
-// The mutator function sets the value of the setSquareFootage variable
-void	RealProperty::setSquareFootage(int sqft) {
-    squareFootage = sqft;
-}
-
-// The mutator function sets the value of the setTaxes variable
-void	RealProperty::setTaxes(double taxx) {	
-	double taxes = taxx; 
-}
-
-
-// This accessor function gets the value of getStreetAddress variable
-string	RealProperty::getStreetAddress() const{
-    return streetAddress;
-}
-
-// This accessor function gets the value of getSquareFootage variable
-int 	RealProperty::getSquareFootage() const{
-    return squareFootage;
-}
-
-// This accessor function gets the value of getTaxes  variable
-double 	RealProperty::getTaxes() const{
-    return taxes;
-}
-
-// Derived class
-class Apartment : public RealProperty {
-	private:
-		// Variable to hold monthly rent	
-		double monthlyRent;
-	public:
-		// Default Constructor;
-		Apartment();		
-		
-		// Other Constructor which accepts parameters	
-		Apartment(string, int, double, double); 
-		
-		// mutator functions
-		void	setMonthlyRent(double);
-		// accessor functions
-		double	getMonthlyRent() const;
-
-};
-
-// Defining the default constructor and initializing it to given values
-Apartment::Apartment() : RealProperty() {
-			monthlyRent = 0.0;
-		}
-
-// Defining the other constructor that accepts data
-Apartment::Apartment(string address, int sqFtg, double tax, double rent)
-		 : RealProperty(address, sqFtg, tax) {
-	monthlyRent = rent;
-}
-//Defining member functions
-// The mutator function sets the value of the monthly rent variable
-void	Apartment::setMonthlyRent(double rent) {
-    monthlyRent = rent;
-}
-
-// This accessor function gets the value of monthly rentvariable
-double	Apartment::getMonthlyRent() const{
-    return monthlyRent;
-}
-
-// Function to display Property Information
-void	displayPropertyInfo(RealProperty &);
-
-// Function to display Property Information
-void	displayApartmentInfo(Apartment &);
-
-
 //This program processes data using a derived class 
 int main() {
 
 // Apartment variable
-Apartment myApartment("Cupertino", 1200, 200, 2550.0);
+NumberList myList;
 
-displayPropertyInfo(myApartment);
+myList.appendNode(75.2);
+myList.appendNode(108.3);
+myList.appendNode(38.45);
+myList.appendNode(45.83);
+myList.appendNode(173.45);
+myList.appendNode(163.52);
+myList.appendNode(106.94);
 
-displayApartmentInfo(myApartment);
+myList.displayList();
 
 return 0;
-}
-
-//************************************************************************
-//* Function name: displayPropertyInfo 
-//*
-//* This function uses accessor functions from the base class 
-//* to display data to the screen 
-//*
-//* Parameters:
-//*	ptr  -  This is a reference variable of type RealProperty 
-//		that contains the data to be displayed
-//* Returns:
-//*	There is no returned value.
-//*
-//*
-//************************************************************************
-
-void	displayPropertyInfo(RealProperty &property) {
-
-	cout	<< "Property is located at: " << property.getStreetAddress()
-		<< endl;
-	cout	<< "Square footage: " << property.getSquareFootage() << endl;
-	cout	<< "Taxes: " << property.getTaxes() << endl << endl;
-}
-
-
-//************************************************************************
-//* Function name: displayApartmentInfo 
-//*
-//* 
-//* This function uses accessor functions from the derived class 
-//* to display data to the screen 
-//*
-//* Parameters:
-//*	  Apartment &property - This is a reference variable of type Apartment
-//				that contains the data to be displayed
-//* Returns:
-//*	There is no returned value.
-//*
-//*
-//************************************************************************
-
-void	displayApartmentInfo(Apartment &property) {
-
-	cout	<< "Apartment is located at: " << property.getStreetAddress()
-		<< endl;
-	cout	<< "Square footage: " << property.getSquareFootage() << endl;
-	cout 	<< "Taxes: " << property.getTaxes() << endl;
-	cout	<< "Monthly rent: " << showpoint << fixed << setprecision(2) 
-		<< property.getMonthlyRent() << endl;
 }
 
 
