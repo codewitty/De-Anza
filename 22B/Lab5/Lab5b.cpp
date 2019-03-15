@@ -46,8 +46,9 @@ myList.displayList();
 myList.deleteNode(45.83);
 myList.deleteNode(173.45);
 
-cout << "Displaying list after inserting numbers" << endl;
+cout << "Displaying list after deleting numbers" << endl;
 myList.displayList();
+
 return 0;
 }
 
@@ -55,12 +56,4 @@ return 0;
 /*
 Copy output of this program below this line.
 
-Property is located at: Cupertino
-Square footage: 1200
-Taxes: 200
-
-Apartment is located at: Cupertino
-Square footage: 1200
-Taxes: 200
-Monthly rent: 2550.00
 */
