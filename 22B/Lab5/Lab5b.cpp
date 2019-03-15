@@ -30,16 +30,24 @@ int main() {
 // Apartment variable
 NumberList myList;
 
-myList.appendNode(75.2);
-myList.appendNode(108.3);
+
+
 myList.appendNode(38.45);
 myList.appendNode(45.83);
-myList.appendNode(173.45);
-myList.appendNode(163.52);
+myList.appendNode(75.2);
 myList.appendNode(106.94);
+myList.appendNode(108.3);
+myList.appendNode(163.52);
+myList.appendNode(173.45);
 
+cout << "Displaying list after inserting numbers" << endl;
 myList.displayList();
 
+myList.deleteNode(45.83);
+myList.deleteNode(173.45);
+
+cout << "Displaying list after inserting numbers" << endl;
+myList.displayList();
 return 0;
 }
 
