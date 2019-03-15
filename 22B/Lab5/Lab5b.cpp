@@ -1,12 +1,11 @@
 // Program name: Lab5b 
 //
 // Description: 
-//		The program instantiates and uses instances 
-//		of a derived class with default and non-default constructors.	
-// 	
+// 		The program uses a linked list to manipulate a 
+//		sequence of numbers.	
 //
 // What's on your mind about this lab? 
-// This exercise helps understand how to use classes and inheritance to  
+// This exercise helps understand how to use linked lists to 
 // process data
 //
 // Author: Joshua N  Gomes 
@@ -24,14 +23,13 @@
 using namespace std;
 
 
-//This program processes data using a derived class 
+//This program processes data using a linked list 
 int main() {
 
-// Apartment variable
+// instance variable of NumberList
 NumberList myList;
 
-
-
+// Inserting numbers into list
 myList.appendNode(38.45);
 myList.appendNode(45.83);
 myList.appendNode(75.2);
@@ -40,12 +38,15 @@ myList.appendNode(108.3);
 myList.appendNode(163.52);
 myList.appendNode(173.45);
 
+// Displaying list
 cout << "Displaying list after inserting numbers" << endl;
 myList.displayList();
 
+// Deleting numbers from list
 myList.deleteNode(45.83);
 myList.deleteNode(173.45);
 
+// Displaying list after deleting numbers
 cout << "Displaying list after deleting numbers" << endl;
 myList.displayList();
 
