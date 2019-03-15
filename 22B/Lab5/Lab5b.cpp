@@ -11,7 +11,7 @@
 //
 // Author: Joshua N  Gomes 
 //
-// Date: 03/08/2019
+// Date: 03/13/2019
 //
 // IDE Used: Vim/g++
 //
@@ -19,43 +19,10 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include "NumberList.h"
 
 using namespace std;
 
-
-//class definition
-class RealProperty{
-	private:
-		// Variable to store Street Address	
-		string streetAddress;
-		// Variable to store Square Footage	
-		int squareFootage;
-		// Variable to store Taxes
-		double taxes;
-	public:
-		// Default Constructor
-		RealProperty();
-		// Constructor that accepts data
-		RealProperty(string, int, double);	
-		
-		// mutator functions
-		void	setStreetAddress(string);
-		void	setSquareFootage(int);
-		void	setTaxes(double);
-		// accessor functions
-		string	getStreetAddress() const;
-		int 	getSquareFootage() const;
-		double 	getTaxes() const;
-
-};
-
-// Defining the default constructor and initializing it to given values
-RealProperty::RealProperty() {
-
-	streetAddress = "";
-	squareFootage = 0;
-	taxes = 0.0;
-}
 
 // Defining the other constructor that accepts data
 
