@@ -56,4 +56,19 @@ return 0;
 /*
 Copy output of this program below this line.
 
+Displaying list after inserting numbers
+38.45
+45.83
+75.2
+106.94
+108.3
+163.52
+173.45
+Displaying list after deleting numbers
+38.45
+75.2
+106.94
+108.3
+163.52
+
 */
