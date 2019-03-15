@@ -1,4 +1,4 @@
-// Program name: Lab4a 
+// Program name: Lab5b 
 //
 // Description: 
 //		The program instantiates and uses instances 
