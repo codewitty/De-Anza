@@ -30,13 +30,14 @@ int main() {
 NumberList myList;
 
 // Inserting numbers into list
-myList.appendNode(38.45);
-myList.appendNode(45.83);
-myList.appendNode(75.2);
-myList.appendNode(106.94);
-myList.appendNode(108.3);
-myList.appendNode(163.52);
-myList.appendNode(173.45);
+
+myList.insertNode(75.2);
+myList.insertNode(108.3);
+myList.insertNode(38.45);
+myList.insertNode(45.83);
+myList.insertNode(173.45);
+myList.insertNode(163.52);
+myList.insertNode(106.94);
 
 // Displaying list
 cout << "Displaying list after inserting numbers" << endl;
