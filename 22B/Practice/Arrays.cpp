@@ -10,14 +10,6 @@ Write a function that can find the k-th smallest element in an array which is un
 
 using namespace std;
 
-    int i;
-
-    i = 0;
-    while (arr[i])
-        i++;
-    return (i);
-}
-
 int    main() {
 
 int    array[5] = {6, 3, 5, 2, 8};
