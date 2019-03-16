@@ -10,8 +10,6 @@ Write a function that can find the k-th smallest element in an array which is un
 
 using namespace std;
 
-int    ft_strlen(int arr[])
-{
     int i;
 
     i = 0;
