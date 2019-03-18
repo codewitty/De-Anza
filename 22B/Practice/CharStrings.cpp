@@ -15,7 +15,7 @@ char	maxOccuringChar(char []);
 
 int    main() {
 
-char	arr[11] = {'a', 'a', 'b', 'c', 'a', 'b', 'a', 'c', 'a', 'b', 'a'};
+char	arr[] = {'a', 'a', 'b', 'c', 'a', 'b', 'a', 'c', 'a', 'b', 'a'};
 
 char n = maxOccuringChar(arr);
 cout << "The Max occuring character is: " << n << endl;
@@ -24,11 +24,17 @@ return 0;
 
 }
 
-char	maxOccuringChar(array[]) {
+char	maxOccuringChar(char array[]) {
 
 int maxindex = 0;
 int length;
-strlen(array) = length;
+//strlen(array) = length;
+int i = 0; 
+    while (array[i] != '\0') 
+    { 
+        ++i; 
+    } 
+length = i;
 
 char max[(length +1)];
 
