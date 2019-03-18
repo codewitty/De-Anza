@@ -25,23 +25,14 @@ return 0;
 
 }
 
+char	maxOccuringChar(char &array) {
 
-void	sort_array(int arr[], int size) {
-int i = 0;
+int length;
+strlen(array) = length;
 
-if (i < (n - 1)) {
-    for (int i = 0; i < n; i++) {
+char max[(length +1)];
 
-        int mindex = i;
-        
-        for (int j = i + 1; j < n; j++) {
-            if (array[j] < array[mindex]) {
-                mindex = j;
-            }
-        }
-        int temp = array[i];
-        array[i] = mindex;
-        mindex = temp;
-        i++;
-}
-}
+for (int i = 0; i >= length; ++i) {
+	int count = 1;
+	char check = array[i];
+	for (
