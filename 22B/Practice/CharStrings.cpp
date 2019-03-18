@@ -15,10 +15,13 @@ char	maxOccuringChar(char []);
 
 int    main() {
 
-char	arr[] = {'a', 'a', 'b', 'c', 'a', 'b', 'a', 'c', 'a', 'b', 'a'};
+char	arr[] = {'a','o','v', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'a', 'g', 'c', 'a', 'b', 'a', 'c', 'a', 'b', 'a', 'z', 'z'};
+char	arr1[] = {'a', 'b', 'c', 'c', 'g'};
 
-char n = maxOccuringChar(arr);
+char m = maxOccuringChar(arr);
+char n = maxOccuringChar(arr1);
 cout << "The Max occuring character is: " << n << endl;
+cout << "The Max occuring character is: " << m << endl;
 
 return 0;
 
@@ -28,17 +31,18 @@ char	maxOccuringChar(char array[]) {
 
 int maxindex = 0;
 int length;
-//strlen(array) = length;
+
 int i = 0; 
     while (array[i] != '\0') 
     { 
         ++i; 
     } 
+cout << "The length of the string is: " << i << endl;
 length = i;
 
 char max[(length +1)];
 
-for (int i = 0; i <= length; ++i) {
+for (int i = 0; i < length; ++i) {
 	int count = 1;
 	char check = array[i];
 	for (int m = i + 1; m <= length; ++m) {
@@ -49,7 +53,7 @@ for (int i = 0; i <= length; ++i) {
 	max[i] = count;
 }
 
-for (int k = 0; k <= length; ++k) {
+for (int k = 0; k < length; ++k) {
 	int maxx = 0;
 	if ( maxx < max[k]) {
 		maxx = max[k];
