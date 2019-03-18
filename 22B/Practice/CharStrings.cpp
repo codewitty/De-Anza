@@ -11,21 +11,22 @@ Test the function using 3 test C-strings of lengths 11, 13 and 31
 
 using namespace std;
 
-char	maxOccuringChar(char &);
+char	maxOccuringChar(char []);
 
 int    main() {
 
 char	arr[11] = {'a', 'a', 'b', 'c', 'a', 'b', 'a', 'c', 'a', 'b', 'a'};
 
-char n = maxOccuringChar(&arr);
+char n = maxOccuringChar(arr);
 cout << "The Max occuring character is: " << n << endl;
 
 return 0;
 
 }
 
-char	maxOccuringChar(char &array) {
+char	maxOccuringChar(array[]) {
 
+int maxindex = 0;
 int length;
 strlen(array) = length;
 
@@ -44,7 +45,6 @@ for (int i = 0; i <= length; ++i) {
 
 for (int k = 0; k <= length; ++k) {
 	int maxx = 0;
-	int maxindex = 0;
 	if ( maxx < max[k]) {
 		maxx = max[k];
 		maxindex = max[k];
