@@ -2,7 +2,8 @@
 
 Last Line 
 
-Write a program that displays the last line of the file. If the file doesn't exist, display a message that the file cannot be opened. If the line is empty, display a message that the file is empty.
+Write a program that displays the last line of the file. 
+If the file doesn't exist, display a message that the file cannot be opened. If the line is empty, display a message that the file is empty.
 
 Each line in the file ends with '\n'.
 
