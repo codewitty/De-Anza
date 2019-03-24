@@ -35,5 +35,10 @@ int	main() {
 
 void	displayLastLine(fstream &file, string name) {
 
+file.open(name, ios::in);
 
+if (file.fail()) {
+	cout	<< "The file cannot be opened." 
+		<< "Please check the file name and try again." << endl;	    
+}
 
