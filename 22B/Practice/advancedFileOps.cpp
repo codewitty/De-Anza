@@ -29,4 +29,11 @@ Chapter 12 Advanced File Operations Programming Challenges #8
 
 void	displayLastLine(fstream &file, string name);
 
-int	main()
+int	main() {
+
+}
+
+void	displayLastLine(fstream &file, string name) {
+
+
+
