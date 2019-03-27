@@ -5,7 +5,7 @@
 //		sequence of numbers.	
 //
 // What's on your mind about this lab? 
-// This exercise helps understand how to use linked lists to 
+// This exercise helps me understand how to use linked lists to 
 // process data
 //
 // Author: Joshua N  Gomes 
