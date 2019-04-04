@@ -15,7 +15,8 @@ char	maxOccuringChar(char []);
 
 int    main() {
 
-char	arr[] = {'a','o','v', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'a', 'g', 'c', 'a', 'b', 'a', 'c', 'a', 'b', 'a', 'z', 'z'};
+char	arr[] = {'a','o','v', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 
+			'z', 'z', 'a', 'g', 'c', 'a', 'b', 'a', 'c', 'a', 'b', 'a', 'z', 'z'};
 char	arr1[] = {'a', 'b', 'c', 'c', 'g'};
 
 char m = maxOccuringChar(arr);
