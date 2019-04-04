@@ -21,6 +21,7 @@ char	arr1[] = {'a', 'b', 'c', 'c', 'g'};
 
 char m = maxOccuringChar(arr);
 char n = maxOccuringChar(arr1);
+
 cout << "The Max occuring character is: " << n << endl;
 cout << "The Max occuring character is: " << m << endl;
 
