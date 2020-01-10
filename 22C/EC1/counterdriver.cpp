@@ -5,15 +5,22 @@ using namespace std;
 
 int main()
 {
-	Counter myCounter(12, 13);
-	myCounter.increment();
-	myCounter.increment();
-	myCounter.decrement();
-	myCounter.increment();
+	//Set values for counter and limit var
+	Counter myCounter(12, 13);		
 	
+	// Call increment function
+	myCounter.increment();			
 
-	cout <<	myCounter.getValue() << endl;
-	cout << myCounter.getNCounters() << endl;
+	//display values of counter
+	cout <<	"Counter = " << myCounter.getValue() << endl;	
+	// Call decrement function
+	myCounter.decrement();
+
+	// Display values of counter 
+	cout <<	"Counter = " << myCounter.getValue() << endl;
+
+	// Display value of nCounter	
+	cout << "nCounter = " << myCounter.getNCounters() << endl;
 
 	return 0;
 }

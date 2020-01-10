@@ -5,8 +5,10 @@
 int counter;
 int limit;
 
-int Counter::nCounters = 0;
+int Counter::nCounters = 0;		//initialize nCounters to 0
 
+
+/* Set values for the constructor */
 Counter::Counter(int a, int b)
 {
     counter = a;
@@ -14,6 +16,8 @@ Counter::Counter(int a, int b)
     nCounters++;
 }
 
+
+// Increment function definition
 void Counter::increment()
 {
     if (counter < limit) {
@@ -21,6 +25,8 @@ void Counter::increment()
     }
 }
 
+
+// Decrement function definition
 void Counter::decrement()
 {
     if(counter > 0){
@@ -28,12 +34,17 @@ void Counter::decrement()
     }
 }
 
+
+// getValue function definition
 int Counter::getValue()
 {
     return counter;
 }
 
+
+// getNCounters function definition
 int Counter::getNCounters()
 {
     return nCounters;
 }
+//end of class definition file

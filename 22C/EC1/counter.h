@@ -5,9 +5,9 @@ class Counter
         int limit;
         static int nCounters;
     public:
-        Counter(int ba, int ab);
-        void increment();
-        void decrement();
-        int getValue();
-        static int getNCounters();
+        Counter(int ba, int ab);	//Constructor
+        void increment();		//Increment function
+        void decrement();		//Decrement function
+        int getValue();			//Get Value function
+        static int getNCounters();	//Get nCounters function
 };
