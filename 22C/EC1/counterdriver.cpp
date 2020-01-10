@@ -22,5 +22,7 @@ int main()
 	// Display value of nCounter	
 	cout << "nCounter = " << myCounter.getNCounters() << endl;
 
+	system("pause");
+
 	return 0;
 }
