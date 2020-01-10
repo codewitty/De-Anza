@@ -1,11 +1,11 @@
-#include "Counter.h"
+#include "counter.h"
 
 
 
 int counter;
 int limit;
 
-int Counter::nCounters=0;
+int Counter::nCounters = 0;
 
 Counter::Counter(int a, int b)
 {
@@ -14,22 +14,26 @@ Counter::Counter(int a, int b)
     nCounters++;
 }
 
-void Counter::increment(){
+void Counter::increment()
+{
     if (counter < limit) {
         counter++;
     }
 }
 
-void Counter::decrement(){
+void Counter::decrement()
+{
     if(counter > 0){
         counter--;
     }
 }
 
-int Counter::getValue(){
+int Counter::getValue()
+{
     return counter;
 }
 
-int Counter::getNCounters(){
+int Counter::getNCounters()
+{
     return nCounters;
 }
