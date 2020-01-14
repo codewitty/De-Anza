@@ -6,9 +6,9 @@ int main() {
 
 	Wallet myWallet;
 	
-	int select == 0;
+	bool select = true;
 	
-	while (select == 0){
+	while (select){
 		int choice;
 			
 		cout 	<< "What would you like to do with your wallet today?"
@@ -38,7 +38,7 @@ int main() {
            			break;
 
        			case 5:
-           			loop = true;
+           			select = false;
            			break;
 
        			default:
@@ -49,4 +49,43 @@ int main() {
 		return 0;
 }
 
+void	addMoney(Wallet &myWallet)
+{
+	bool loop = true;
+	
+	while(loop)
+	{
+		int choice = 0;
+		int wcurrency = 0;
+		int p_currency = 0;
+		
+		cout 	<< "What currency would you like to add today?"
+			<< endl
+			<< "1: Dollars" << endl;
+       			<< "2: Pounds" << endl;
+       			<< "3: Yen" << endl;
+       			<< "4: Rupee" << endl;
+			<< "5: Yuan" << endl;
+       			<< "6: EXIT" << endl;
+       			<< "Enter your Selection" << endl;
+		cin << choice;
+		switch (choice)
+		{
+			case 1:
+				cout	<< "How many dollars would you like to add?"
+					<< endl;
+				cin 	>> wcurrency;	 
+				cout	<< "How many cents would you like to add?"
+					<< " (Between 1-99)" << endl;
+				cin	>> p_currency;
+				while (p_currency < 0 || p_currency > 99)
+				{
+					cout	<< "please enter a valid value"
+						<< "between 1-99" << endl;
+					cin >> p_currency;
+				}
+				
+				myWallet.addMoney(Wallet::DOLLAR, currency);
 
+           			cout 	<< "Added " << currency<< " in dollars to wallet\n" << endl;
+           break;
