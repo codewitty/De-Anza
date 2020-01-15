@@ -86,6 +86,70 @@ void	addMoney(Wallet &myWallet)
 				}
 				
 				myWallet.addMoney(Wallet::DOLLAR, currency);
+           			break;
+			case 2:
+				cout	<< "How many pounds would you like to add?"
+					<< endl;
+				cin 	>> wcurrency;	 
+				cout	<< "How many pence would you like to add?"
+					<< " (Between 1-99)" << endl;
+				cin	>> p_currency;
+				while (p_currency < 0 || p_currency > 99)
+				{
+					cout	<< "please enter a valid value"
+						<< "between 1-99" << endl;
+					cin >> p_currency;
+				}
+				
+				myWallet.addMoney(Wallet::POUND, currency);
+           			break;
+			case 3:
+				cout	<< "How many Yen would you like to add?"
+					<< endl;
+				cin 	>> wcurrency;	 
+				cout	<< "How many sen would you like to add?"
+					<< " (Between 1-99)" << endl;
+				cin	>> p_currency;
+				while (p_currency < 0 || p_currency > 99)
+				{
+					cout	<< "please enter a valid value"
+						<< "between 1-99" << endl;
+					cin >> p_currency;
+				}
+				
+				myWallet.addMoney(Wallet::YEN, currency);
+           			break;
+		
+			case 4:
+				cout	<< "How many Rupees would you like to add?"
+					<< endl;
+				cin 	>> wcurrency;	 
+				cout	<< "How many paise would you like to add?"
+					<< " (Between 1-99)" << endl;
+				cin	>> p_currency;
+				while (p_currency < 0 || p_currency > 99)
+				{
+					cout	<< "please enter a valid value"
+						<< "between 1-99" << endl;
+					cin >> p_currency;
+				}
+				
+				myWallet.addMoney(Wallet::RUPEE, currency);
+           			break;
 
-           			cout 	<< "Added " << currency<< " in dollars to wallet\n" << endl;
-           break;
+			case 5:
+				cout	<< "How many Yuan would you like to add?"
+					<< endl;
+				cin 	>> wcurrency;	 
+				cout	<< "How many fen would you like to add?"
+					<< " (Between 1-99)" << endl;
+				cin	>> p_currency;
+				while (p_currency < 0 || p_currency > 99)
+				{
+					cout	<< "please enter a valid value"
+						<< "between 1-99" << endl;
+					cin >> p_currency;
+				}
+				
+				myWallet.addMoney(Wallet::YUAN, currency);
+           			break;
