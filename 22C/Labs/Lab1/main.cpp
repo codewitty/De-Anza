@@ -286,12 +286,12 @@ void	removeMoney(Wallet &myWallet)
 //Get values from wallet class and display them on screen
 void viewWallet(Wallet &myWallet)
 {
-   cout << endl << "   ***Viewing Wallet***" << endl << endl
-       << "   1: Dollars: " << fixed << setprecision(2) << myWallet.getMoney(Wallet::DOLLAR) << "\n"
-       << "   2: Dinars: "<< fixed << setprecision(2) << myWallet.getMoney(Wallet::DINAR) << "\n"
-       << "   3: Euro: "<< fixed << setprecision(2) << myWallet.getMoney(Wallet::EURO) << "\n"
-       << "   4: Peso: "<< fixed << setprecision(2) << myWallet.getMoney(Wallet::PESO) << "\n"
-       << "   5: Pound: "<< fixed << setprecision(2) << myWallet.getMoney(Wallet::POUND) << "\n"
+	cout << endl << "Your Wallet contains: " << endl << endl
+       << "---> Dollars: " << fixed << setprecision(2) << myWallet.getMoney(Wallet::DOLLAR) << "\n"
+       << "---> Pound: "<< fixed << setprecision(2) << myWallet.getMoney(Wallet::POUND) << "\n"
+       << "---> Yen: "<< fixed << setprecision(2) << myWallet.getMoney(Wallet::YEN) << "\n"
+       << "---> Rupees: "<< fixed << setprecision(2) << myWallet.getMoney(Wallet::RUPEE) << "\n"
+       << "---> Yuan: "<< fixed << setprecision(2) << myWallet.getMoney(Wallet::YUAN) << "\n"
        << endl << endl;
 
    system("pause");
