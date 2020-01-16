@@ -3,6 +3,11 @@
 
 using namespace std;
 
+void	addMoney(Wallet&);
+void	removeMoney(Wallet&);
+void	viewWallet(Wallet&);
+void	emptyWallet(Wallet&);
+
 int main() {
 
 	Wallet myWallet;
@@ -14,13 +19,13 @@ int main() {
 			
 		cout 	<< "What would you like to do with your wallet today?"
 			<< endl
-			<< "1: Add Money" << endl;
-       			<< "2: Remove Money" << endl;
-       			<< "3: View Wallet" << endl;
-       			<< "4: Empty Wallet" << endl;
-       			<< "5: EXIT" << endl << endl;
+			<< "1: Add Money" << endl
+       			<< "2: Remove Money" << endl
+       			<< "3: View Wallet" << endl
+       			<< "4: Empty Wallet" << endl
+       			<< "5: EXIT" << endl << endl
        			<< "Enter your Selection" << endl;
-		cin << choice;
+		cin >> choice;
 
 		switch (choice) {
 			case 1:
@@ -50,7 +55,7 @@ int main() {
 		return 0;
 }
 
-void	addMoney(Wallet &myWallet)
+void	addMoney(Wallet&)
 {
 	bool loop = true;
 	
@@ -328,4 +333,5 @@ void emptyWallet(Wallet &myWallet)
    cout << endl << "   ***Wallet Emptied***" << endl;
 
    system("pause");
+}
 }
