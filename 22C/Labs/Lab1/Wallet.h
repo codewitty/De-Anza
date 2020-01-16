@@ -18,12 +18,12 @@ class Wallet
 private:
    // Currency Pointer for each currency type   
 
-Currency *cPtr[5];
+Currency *currency[5];
   
 public:
 
    //enumerator to hold currency types
-   enum currencyFlag
+   enum currencyType
    {
        DOLLAR,
        POUND,
@@ -31,19 +31,19 @@ public:
        RUPEE,
        YUAN
    };
-static currencyFlag x;
+static currencyType x;
    //default constructor
    Wallet();
 
    //default destructor
    ~Wallet();
 
-	 operator[] (std::string flag);
+	Wallet * operator[] (std::string flag);
    	int numOfCurrencies() const;
-   	bool checkExisting(currencyFlag);
-   	void addMoney(currencyFlag, const int, const int);
-   	void removeMoney(currencyFlag, const int, const int);
-   	int getMoney(currencyFlag);
+   	bool checkExisting(currencyType);
+   	void addMoney(currencyType, const int, const int);
+   	void removeMoney(currencyType, const int, const int);
+   	int getMoney(currencyType);
    	void emptyWallet();
    	bool checkIfEmpty();
 
