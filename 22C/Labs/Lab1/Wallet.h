@@ -16,7 +16,7 @@
 class Wallet
 {
 private:
-   // Currency Pointer for each currency type   
+   // Currency Pointer for each currency types
 
 Currency *currency[5];
   
