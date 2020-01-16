@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Wallet.h"
 
 using namespace std;
 
@@ -74,86 +75,112 @@ void	addMoney(Wallet &myWallet)
 			case 1:
 				cout	<< "How many dollars would you like to add?"
 					<< endl;
-				cin 	>> wcurrency;	 
+				cin 	>> wcurrency;
+				while (w_currency < 0)
+				{
+					cout	<< "please enter a valid value"
+						<< " greater than 0" << endl;
+					cin >> w_currency;
+				}
 				cout	<< "How many cents would you like to add?"
 					<< " (Between 1-99)" << endl;
 				cin	>> p_currency;
 				while (p_currency < 0 || p_currency > 99)
 				{
-					cout	<< "please enter a valid value"
+					cout	<< "please enter a valid value "
 						<< "between 1-99" << endl;
 					cin >> p_currency;
 				}
 				
-				myWallet.addMoney(Wallet::DOLLAR, currency);
            			break;
 			case 2:
 				cout	<< "How many pounds would you like to add?"
 					<< endl;
-				cin 	>> wcurrency;	 
+				cin 	>> wcurrency;
+				while (w_currency < 0)
+				{
+					cout	<< "please enter a valid value"
+						<< " greater than 0" << endl;
+					cin >> w_currency;
+				}
 				cout	<< "How many pence would you like to add?"
 					<< " (Between 1-99)" << endl;
 				cin	>> p_currency;
 				while (p_currency < 0 || p_currency > 99)
 				{
-					cout	<< "please enter a valid value"
+					cout	<< "please enter a valid value "
 						<< "between 1-99" << endl;
 					cin >> p_currency;
 				}
 				
-				myWallet.addMoney(Wallet::POUND, currency);
+				myWallet.addMoney(Wallet::POUNDS, wcurrency, pcurrency);
            			break;
 			case 3:
-				cout	<< "How many Yen would you like to add?"
+				cout	<< "How many yen would you like to add?"
 					<< endl;
-				cin 	>> wcurrency;	 
+				cin 	>> wcurrency;
+				while (w_currency < 0)
+				{
+					cout	<< "please enter a valid value"
+						<< " greater than 0" << endl;
+					cin >> w_currency;
+				}
 				cout	<< "How many sen would you like to add?"
 					<< " (Between 1-99)" << endl;
 				cin	>> p_currency;
 				while (p_currency < 0 || p_currency > 99)
 				{
-					cout	<< "please enter a valid value"
+					cout	<< "please enter a valid value "
 						<< "between 1-99" << endl;
 					cin >> p_currency;
 				}
 				
-				myWallet.addMoney(Wallet::YEN, currency);
+				myWallet.addMoney(Wallet::YEN, wcurrency, pcurrency);
            			break;
-		
 			case 4:
-				cout	<< "How many Rupees would you like to add?"
+				cout	<< "How many rupees would you like to add?"
 					<< endl;
-				cin 	>> wcurrency;	 
+				cin 	>> wcurrency;
+				while (w_currency < 0)
+				{
+					cout	<< "please enter a valid value"
+						<< " greater than 0" << endl;
+					cin >> w_currency;
+				}
 				cout	<< "How many paise would you like to add?"
 					<< " (Between 1-99)" << endl;
 				cin	>> p_currency;
 				while (p_currency < 0 || p_currency > 99)
 				{
-					cout	<< "please enter a valid value"
+					cout	<< "please enter a valid value "
 						<< "between 1-99" << endl;
 					cin >> p_currency;
 				}
 				
-				myWallet.addMoney(Wallet::RUPEE, currency);
+				myWallet.addMoney(Wallet::RUPEE, wcurrency, pcurrency);
            			break;
-
 			case 5:
-				cout	<< "How many Yuan would you like to add?"
+				cout	<< "How many yuan would you like to add?"
 					<< endl;
-				cin 	>> wcurrency;	 
+				cin 	>> wcurrency;
+				while (w_currency < 0)
+				{
+					cout	<< "please enter a valid value"
+						<< " greater than 0" << endl;
+					cin >> w_currency;
+				}
 				cout	<< "How many fen would you like to add?"
 					<< " (Between 1-99)" << endl;
 				cin	>> p_currency;
 				while (p_currency < 0 || p_currency > 99)
 				{
-					cout	<< "please enter a valid value"
+					cout	<< "please enter a valid value "
 						<< "between 1-99" << endl;
 					cin >> p_currency;
 				}
 				
-				myWallet.addMoney(Wallet::YUAN, currency);
+				myWallet.addMoney(Wallet::YUAN, wcurrency, pcurrency);
            			break;
-	
 			case 6:
 				loop = false;
 				break;

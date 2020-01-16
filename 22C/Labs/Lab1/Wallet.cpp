@@ -2,27 +2,16 @@
 
 Wallet::Wallet()
 {
-   std::random_device rd;
-
-   cPtr[DOLLAR] = new Dollar;
-   cPtr[DOLLAR]->setFractVal(rd() % 100);
-   cPtr[DOLLAR]->setWholeVal(rd() % 100);
+   	cPtr[DOLLAR] = new Dollar;
+   
+	cPtr[POUND] = new Pound;
   
-   cPtr[RUPEE] = new Rupee;
-   cPtr[RUPEE]->setFractVal(rd() % 100);
-   cPtr[RUPEE]->setWholeVal(rd() % 100);
+   	cPtr[RUPEE] = new Rupee;
 
-   cPtr[YEN] = new Yen;
-   cPtr[YEN]->setFractVal(rd() % 100);
-   cPtr[YEN]->setWholeVal(rd() % 100);
+   	cPtr[YEN] = new Yen;
 
-   cPtr[YUAN] = new Yuan;
-   cPtr[YUAN]->setFractVal(rd() % 100);
-   cPtr[YUAN]->setWholeVal(rd() % 100);
+   	cPtr[YUAN] = new Yuan;
 
-   cPtr[POUND] = new Pound;
-   cPtr[POUND]->setFractVal(rd() % 100);
-   cPtr[POUND]->setWholeVal(rd() % 100);
 }
 
 Wallet::~Wallet()
@@ -30,7 +19,10 @@ Wallet::~Wallet()
    delete cPtr;
 }
 
-
+ Stupid::operator[] (std::string index)
+{
+	std::cout << index;
+}
 int Wallet::numOfCurrencies() const
 {
    unsigned currencyCount = 0;
@@ -44,7 +36,7 @@ int Wallet::numOfCurrencies() const
    return currencyCount;
 }
 
-bool Wallet::checkExisting(Wallet::currencyFlag flag)
+bool Wallet::checkExisting(Wallet::currencyType flag)
 {
    if (cPtr[flag]->isZero())
        return true;
@@ -52,41 +44,40 @@ bool Wallet::checkExisting(Wallet::currencyFlag flag)
        return false;
 
 }
-void Wallet::addMoney(Wallet::currencyFlag flag, const double x)
+void Wallet::addMoney(Wallet::currencyType cType, const int wpart, const int fpart)
 {
-   double fract, whole;
+   int fractionalPart, wholePart;
+
+   switch(cType) 
+	{
+	case DOLLAR:
+		
 
    // Whole part
-   cPtr[flag]->setWholeVal(cPtr[flag]->getWholeVal() + static_cast<unsigned>(whole));
 
    // Fractional part
-   cPtr[flag]->setFractVal(cPtr[flag]->getFractVal() + static_cast<unsigned>(fract));
+   cPtr[flag]->setFractVal(cPtr[flag]->getFractVal() + static_cast<unsigned>(fractionalPart));
 
    // Update currency values
    cPtr[flag]->updateCurrencyVal();
 }
-void Wallet::removeMoney(Wallet::currencyFlag flag, const double x)
+void Wallet::removeMoney(Wallet::currencyType flag, const int x)
 {
-   double fract, whole;
-
-   // Extract whole and fractional parts
-   fract = modf(x, &whole);
-   fract *= 100;
-   fract = round(fract);
+   int fractionalPart, wholePart;
 
    // Whole part
-   cPtr[flag]->setWholeVal(cPtr[flag]->getWholeVal() - static_cast<unsigned>(whole));
+   cPtr[flag]->setWholeVal(cPtr[flag]->getWholeVal() - static_cast<unsigned>(wholePart));
 
    // Fractional part
-   cPtr[flag]->setFractVal(cPtr[flag]->getFractVal() - static_cast<unsigned>(fract));
+   cPtr[flag]->setFractVal(cPtr[flag]->getFractVal() - static_cast<unsigned>(fractionalPart));
 
    // Update currency values
    cPtr[flag]->updateCurrencyVal();
 }
 
-double Wallet::getMoney(Wallet::currencyFlag flag)
+int Wallet::getMoney(Wallet::currencyType flag)
 {
-   double currencyValue = cPtr[flag]->getWholeVal() + (cPtr[flag]->getFractVal() / 100);
+   int currencyValue = cPtr[flag]->getWholeVal() + (cPtr[flag]->getFractVal() / 100);
    return currencyValue;
 }
 

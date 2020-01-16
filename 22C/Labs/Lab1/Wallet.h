@@ -38,13 +38,14 @@ static currencyFlag x;
    //default destructor
    ~Wallet();
 
-   int numOfCurrencies() const;
-   bool checkExisting(currencyFlag);
-   void addMoney(currencyFlag, const int, const int);
-   void removeMoney(currencyFlag, const int, const int);
-   int getMoney(currencyFlag);
-   void emptyWallet();
-   bool checkIfEmpty();
+	 operator[] (std::string flag);
+   	int numOfCurrencies() const;
+   	bool checkExisting(currencyFlag);
+   	void addMoney(currencyFlag, const int, const int);
+   	void removeMoney(currencyFlag, const int, const int);
+   	int getMoney(currencyFlag);
+   	void emptyWallet();
+   	bool checkIfEmpty();
 
 };
 
