@@ -22,7 +22,7 @@ Currency *currency[5];
   
 public:
 
-   //enumerator to hold currency types
+   //enumerator to hold currency type
    enum currencyType
    {
        DOLLAR,
