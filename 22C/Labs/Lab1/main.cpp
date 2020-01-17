@@ -3,6 +3,12 @@
 
 using namespace std;
 
+//forward declarations
+void	addMoney(Wallet &); 
+void	removeMoney(Wallet &); 
+void	viewWallet(Wallet &); 
+void	emptyWallet(Wallet &); 
+
 int main() {
 
 	Wallet myWallet;
@@ -14,11 +20,11 @@ int main() {
 			
 		cout 	<< "What would you like to do with your wallet today?"
 			<< endl
-			<< "1: Add Money" << endl;
-       			<< "2: Remove Money" << endl;
-       			<< "3: View Wallet" << endl;
-       			<< "4: Empty Wallet" << endl;
-       			<< "5: EXIT" << endl << endl;
+			<< "1: Add Money" << endl
+       			<< "2: Remove Money" << endl
+       			<< "3: View Wallet" << endl
+       			<< "4: Empty Wallet" << endl
+       			<< "5: EXIT" << endl << endl
        			<< "Enter your Selection" << endl;
 		cin >> choice;
 
@@ -27,7 +33,7 @@ int main() {
 				addMoney(myWallet);
 				break;
 			case 2:
-           			removeMoney(myWallet);
+				removeMoney(myWallet);
            			break;
 
        			case 3:
@@ -49,6 +55,7 @@ int main() {
 
 		return 0;
 }
+}
 
 void	addMoney(Wallet &myWallet)
 {
@@ -57,25 +64,26 @@ void	addMoney(Wallet &myWallet)
 	while(loop)
 	{
 		int choice = 0;
-		int wcurrency = 0;
+		int w_currency = 0;
 		int p_currency = 0;
 		
 		cout 	<< "What currency would you like to add today?"
 			<< endl
-			<< "1: Dollars" << endl;
-       			<< "2: Pounds" << endl;
-       			<< "3: Yen" << endl;
-       			<< "4: Rupee" << endl;
-			<< "5: Yuan" << endl;
-       			<< "6: EXIT" << endl;
+			<< "1: Dollars" << endl
+       			<< "2: Pounds" << endl
+       			<< "3: Yen" << endl
+       			<< "4: Rupee" << endl
+			<< "5: Yuan" << endl
+       			<< "6: EXIT" << endl
        			<< "Enter your Selection" << endl;
 		cin >> choice;
 		switch (choice)
 		{
+			int w_currency = 0;
 			case 1:
 				cout	<< "How many dollars would you like to add?"
 					<< endl;
-				cin 	>> wcurrency;
+				cin 	>> w_currency;
 				while (w_currency < 0)
 				{
 					cout	<< "please enter a valid value"
@@ -91,12 +99,12 @@ void	addMoney(Wallet &myWallet)
 						<< "between 1-99" << endl;
 					cin >> p_currency;
 				}
-				
+				myWallet.addMoney(Wallet::DOLLAR, w_currency, p_currency);
            			break;
 			case 2:
 				cout	<< "How many pounds would you like to add?"
 					<< endl;
-				cin 	>> wcurrency;
+				cin 	>> w_currency;
 				while (w_currency < 0)
 				{
 					cout	<< "please enter a valid value"
@@ -113,12 +121,12 @@ void	addMoney(Wallet &myWallet)
 					cin >> p_currency;
 				}
 				
-				myWallet.addMoney(Wallet::POUNDS, wcurrency, pcurrency);
+				myWallet.addMoney(Wallet::POUNDS, w_currency, p_currency);
            			break;
 			case 3:
 				cout	<< "How many yen would you like to add?"
 					<< endl;
-				cin 	>> wcurrency;
+				cin 	>> w_currency;
 				while (w_currency < 0)
 				{
 					cout	<< "please enter a valid value"
@@ -135,12 +143,12 @@ void	addMoney(Wallet &myWallet)
 					cin >> p_currency;
 				}
 				
-				myWallet.addMoney(Wallet::YEN, wcurrency, pcurrency);
+				myWallet.addMoney(Wallet::YEN, w_currency, p_currency);
            			break;
 			case 4:
 				cout	<< "How many rupees would you like to add?"
 					<< endl;
-				cin 	>> wcurrency;
+				cin 	>> w_currency;
 				while (w_currency < 0)
 				{
 					cout	<< "please enter a valid value"
@@ -157,12 +165,12 @@ void	addMoney(Wallet &myWallet)
 					cin >> p_currency;
 				}
 				
-				myWallet.addMoney(Wallet::RUPEE, wcurrency, pcurrency);
+				myWallet.addMoney(Wallet::RUPEE, w_currency, p_currency);
            			break;
 			case 5:
 				cout	<< "How many yuan would you like to add?"
 					<< endl;
-				cin 	>> wcurrency;
+				cin 	>> w_currency;
 				while (w_currency < 0)
 				{
 					cout	<< "please enter a valid value"
@@ -179,7 +187,7 @@ void	addMoney(Wallet &myWallet)
 					cin >> p_currency;
 				}
 				
-				myWallet.addMoney(Wallet::YUAN, wcurrency, pcurrency);
+				myWallet.addMoney(Wallet::YUAN, w_currency, p_currency);
            			break;
 			case 6:
 				loop = false;
@@ -200,7 +208,7 @@ void	removeMoney(Wallet &myWallet)
 	while(loop)
 	{
 		int choice = 0;
-		int wcurrency = 0;
+		int w_currency = 0;
 		int p_currency = 0;
 		
 		cout 	<< "What currency would you like to remove today?"
@@ -218,7 +226,7 @@ void	removeMoney(Wallet &myWallet)
 			case 1:
 				cout	<< "How many dollars would you like to remove?"
 					<< endl;
-				cin 	>> wcurrency;	 
+				cin 	>> w_currency;	 
 				cout	<< "How many cents would you like to remove?"
 					<< " (Between 1-99)" << endl;
 				cin	>> p_currency;
@@ -234,7 +242,7 @@ void	removeMoney(Wallet &myWallet)
 			case 2:
 				cout	<< "How many pounds would you like to remove?"
 					<< endl;
-				cin 	>> wcurrency;	 
+				cin 	>> w_currency;	 
 				cout	<< "How many pence would you like to remove?"
 					<< " (Between 1-99)" << endl;
 				cin	>> p_currency;
@@ -250,7 +258,7 @@ void	removeMoney(Wallet &myWallet)
 			case 3:
 				cout	<< "How many Yen would you like to remove?"
 					<< endl;
-				cin 	>> wcurrency;	 
+				cin 	>> w_currency;	 
 				cout	<< "How many sen would you like to remove?"
 					<< " (Between 1-99)" << endl;
 				cin	>> p_currency;
@@ -267,7 +275,7 @@ void	removeMoney(Wallet &myWallet)
 			case 4:
 				cout	<< "How many Rupees would you like to remove?"
 					<< endl;
-				cin 	>> wcurrency;	 
+				cin 	>> w_currency;	 
 				cout	<< "How many paise would you like to remove?"
 					<< " (Between 1-99)" << endl;
 				cin	>> p_currency;
@@ -284,7 +292,7 @@ void	removeMoney(Wallet &myWallet)
 			case 5:
 				cout	<< "How many Yuan would you like to remove?"
 					<< endl;
-				cin 	>> wcurrency;	 
+				cin 	>> w_currency;	 
 				cout	<< "How many fen would you like to remove?"
 					<< " (Between 1-99)" << endl;
 				cin	>> p_currency;
@@ -325,7 +333,7 @@ void viewWallet(Wallet &myWallet)
 }
 
 //Calls function from wallet class to set all values to zero
-void emptyWallet(Wallet &myWallet)
+void emptyWallet(Wallet &)
 {
    cout << endl << "   ***Emptying Wallet...***" << endl;
   
@@ -335,3 +343,4 @@ void emptyWallet(Wallet &myWallet)
 
    system("pause");
 }
+

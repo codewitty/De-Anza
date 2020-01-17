@@ -50,7 +50,7 @@ bool Wallet::checkExisting(Wallet::walletType flag)
 */
 
 
-void Wallet::addMoney(Wallet::walletType cType, const int wpart, const int fpart)
+void Wallet::addMoney(Wallet::currencyType ctype, const int wpart, const int fpart)
 {
    int fractionalPart, wholePart;
 
