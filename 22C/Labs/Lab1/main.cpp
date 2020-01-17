@@ -20,7 +20,7 @@ int main() {
        			<< "4: Empty Wallet" << endl;
        			<< "5: EXIT" << endl << endl;
        			<< "Enter your Selection" << endl;
-		cin << choice;
+		cin >> choice;
 
 		switch (choice) {
 			case 1:
@@ -69,7 +69,7 @@ void	addMoney(Wallet &myWallet)
 			<< "5: Yuan" << endl;
        			<< "6: EXIT" << endl;
        			<< "Enter your Selection" << endl;
-		cin << choice;
+		cin >> choice;
 		switch (choice)
 		{
 			case 1:
