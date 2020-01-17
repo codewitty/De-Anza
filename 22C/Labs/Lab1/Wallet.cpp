@@ -19,13 +19,10 @@ Wallet::~Wallet()
    //delete currency;
 }
 
-/* overload subscript
- Stupid::operator[] (std::string index)
+Currency & Wallet::operator[](const int &ndx)
 {
-	std::cout << index;
+	return *(wallet[ndx]);
 }
-*/
-
 
 /* needs isZero()
 
