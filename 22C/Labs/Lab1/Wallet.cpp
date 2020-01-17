@@ -2,21 +2,21 @@
 
 Wallet::Wallet()
 {
-   	currency[DOLLAR] = new Dollar;
+   	wallet[DOLLAR] = new Dollar;
    
-	currency[POUND] = new Pound;
+	wallet[POUND] = new Pound;
   
-   	currency[RUPEE] = new Rupee;
+   	wallet[RUPEE] = new Rupee;
 
-   	currency[YEN] = new Yen;
+   	wallet[YEN] = new Yen;
 
-   	currency[YUAN] = new Yuan;
+   	wallet[YUAN] = new Yuan;
 
 }
 
 Wallet::~Wallet()
 {
-   //delete currency;
+   //delete wallet;
 }
 
 Currency & Wallet::operator[](const int &ndx)
@@ -28,20 +28,20 @@ Currency & Wallet::operator[](const int &ndx)
 
 int Wallet::numOfCurrencies() const
 {
-   unsigned currencyCount = 0;
+   unsigned walletCount = 0;
   
    for (int i = 0; i < 6; i++)
    {
-       if (!currency[i]->isZero())
-           currencyCount++;
+       if (!wallet[i]->isZero())
+           walletCount++;
    }
 
-   return currencyCount;
+   return walletCount;
 }
 
-bool Wallet::checkExisting(Wallet::currencyType flag)
+bool Wallet::checkExisting(Wallet::walletType flag)
 {
-   if (currency[flag]->isZero())
+   if (wallet[flag]->isZero())
        return true;
    else
        return false;
@@ -50,38 +50,38 @@ bool Wallet::checkExisting(Wallet::currencyType flag)
 */
 
 
-void Wallet::addMoney(Wallet::currencyType cType, const int wpart, const int fpart)
+void Wallet::addMoney(Wallet::walletType cType, const int wpart, const int fpart)
 {
    int fractionalPart, wholePart;
 
 }
 
 /*
-void Wallet::removeMoney(Wallet::currencyType flag, const int x)
+void Wallet::removeMoney(Wallet::walletType flag, const int x)
 {
    int fractionalPart, wholePart;
 
    // Whole part
-  // currency[flag]->setWholeVal(currency[flag]->getWholeVal() - static_cast<unsigned>(wholePart));
+  // wallet[flag]->setWholeVal(wallet[flag]->getWholeVal() - static_cast<unsigned>(wholePart));
 
    // Fractional part
-   //currency[flag]->setFractVal(currency[flag]->getFractVal() - static_cast<unsigned>(fractionalPart));
+   //wallet[flag]->setFractVal(wallet[flag]->getFractVal() - static_cast<unsigned>(fractionalPart));
 
-   // Update currency values
-   //currency[flag]->updateCurrencyVal();
+   // Update wallet values
+   //wallet[flag]->updateCurrencyVal();
 }
 
-int Wallet::getMoney(Wallet::currencyType flag)
+int Wallet::getMoney(Wallet::walletType flag)
 {
-   int currencyValue = currency[flag]->getWholeVal() + (currency[flag]->getFractVal() / 100);
-   return currencyValue;
+   int walletValue = wallet[flag]->getWholeVal() + (wallet[flag]->getFractVal() / 100);
+   return walletValue;
 }
 
 void Wallet::emptyWallet()
 {
    for (int i = 0; i < 6; i++)
    {
-       currency[i]->setZero();
+       wallet[i]->setZero();
    }
 }
 
@@ -92,7 +92,7 @@ bool Wallet::checkIfEmpty()
    int i = 0;
    while (i < 6 && empty)
    {
-       if (!currency[i]->isZero())
+       if (!wallet[i]->isZero())
            empty = false;
    }
   
