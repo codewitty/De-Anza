@@ -13,15 +13,16 @@
 #include "Yuan.h"
 #include "Pound.h"
 
+class Wallet;
+const int WALLET_SIZE(5);
+
 class Wallet
 {
-private:
+public:
    // Currency Pointer for each currency types
 
-Currency *currency[5];
+Currency *wallet[WALLET_SIZE];
   
-public:
-
    //enumerator to hold currency type
    enum currencyType
    {
@@ -31,14 +32,13 @@ public:
        RUPEE,
        YUAN
    };
-static currencyType x;
    //default constructor
    Wallet();
 
    //default destructor
    ~Wallet();
 
-	Wallet * operator[] (std::string flag);
+	Currency & operator[] (const int &);
    	int numOfCurrencies() const;
    	bool checkExisting(currencyType);
    	void addMoney(currencyType, const int, const int);
