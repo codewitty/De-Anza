@@ -11,7 +11,7 @@ class Rupee :
 	public Currency
 {
 public:
-	Rupee();
+	Rupee(int wPart = 0, int fPart = 0);
 	~Rupee();
 
 	// istream and ostream overloading

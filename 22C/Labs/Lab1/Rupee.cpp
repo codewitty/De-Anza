@@ -1,9 +1,11 @@
 #include "Rupee.h"
 
-Rupee::Rupee()
+Rupee::Rupee(int wPart, int fPart)
 {
+	wholePart = wPart;
+	fractionalPart = fPart;
+	normalize();
 }
-
 
 Rupee::~Rupee()
 {

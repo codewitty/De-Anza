@@ -1,9 +1,11 @@
 #include "Yuan.h"
 
-Yuan::Yuan()
+Yuan::Yuan(int wPart, int fPart)
 {
+	wholePart = wPart;
+	fractionalPart = fPart;
+	normalize();
 }
-
 
 Yuan::~Yuan()
 {

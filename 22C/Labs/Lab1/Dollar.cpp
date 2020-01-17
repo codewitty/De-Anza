@@ -1,9 +1,11 @@
 #include "Dollar.h"
 
-Dollar::Dollar()
+Dollar::Dollar(int wPart, int fPart)
 {
+	wholePart = wPart;
+	fractionalPart = fPart;
+	normalize();
 }
-
 
 Dollar::~Dollar()
 {

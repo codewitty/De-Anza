@@ -11,7 +11,7 @@ class Yen :
 	public Currency
 {
 public:
-	Yen();
+	Yen(int wPart = 0, int fPart = 0);
 	~Yen();
 
 	// istream and ostream overloading

@@ -1,26 +1,22 @@
-//Pound.h
-
-#ifndef POUND_H
-#define POUND_H
-
+#pragma once
 #include "Currency.h"
 
-//Pound class inherited form currency class
-class Pound : public Currency
+class Pound; // Forward Declaration
+
+// Function Prototypes for Overloaded Stream Operators
+std::ostream &operator << (std::ostream &, const Pound &);
+std::istream &operator >> (std::istream &, Pound &);
+
+class Pound :
+	public Currency
 {
-private:
-
-
 public:
+	Pound(int wPart = 0, int fPart = 0);
+	~Pound();
 
-   //Constructors
-
-	Pound(int wPart, int fPart);
-
-
-   friend std::ostream& operator << (std::ostream &, const Pound &);
-   friend std::istream& operator >> (std::istream &, Pound &);
+	// istream and ostream overloading
+	// Friends them..
+	friend std::ostream &operator << (std::ostream &, const Pound &);
+	friend std::istream &operator >> (std::istream &, Pound &);
 };
-
-#endif
 

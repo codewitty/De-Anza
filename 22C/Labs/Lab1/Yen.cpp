@@ -1,9 +1,11 @@
 #include "Yen.h"
 
-Yen::Yen()
+Yen::Yen(int wPart, int fPart)
 {
+	wholePart = wPart;
+	fractionalPart = fPart;
+	normalize();
 }
-
 
 Yen::~Yen()
 {

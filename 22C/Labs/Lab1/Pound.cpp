@@ -1,9 +1,11 @@
 #include "Pound.h"
 
-Pound::Pound()
+Pound::Pound(int wPart, int fPart)
 {
+	wholePart = wPart;
+	fractionalPart = fPart;
+	normalize();
 }
-
 
 Pound::~Pound()
 {
