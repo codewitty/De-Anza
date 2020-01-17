@@ -121,7 +121,7 @@ void	addMoney(Wallet &myWallet)
 					cin >> p_currency;
 				}
 				
-				myWallet.addMoney(Wallet::POUNDS, w_currency, p_currency);
+				myWallet.addMoney(Wallet::POUND, w_currency, p_currency);
            			break;
 			case 3:
 				cout	<< "How many yen would you like to add?"
