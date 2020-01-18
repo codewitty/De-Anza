@@ -18,12 +18,12 @@ Wallet::~Wallet()
 {
    //delete wallet;
 }
-
+/*
 Currency & Wallet::operator[](const int &ndx)
 {
 	return *(wallet[ndx]);
 }
-
+*/
 /* needs isZero()
 
 int Wallet::numOfCurrencies() const
@@ -52,10 +52,17 @@ bool Wallet::checkExisting(Wallet::walletType flag)
 
 void Wallet::addMoney(Wallet::currencyType ctype, const int wpart, const int fpart)
 {
+	Currency temp(wpart, fpart);
+	//(*wallet[DOLLAR]) + temp;
+//	wallet[DOLLAR] = &(*wallet[DOLLAR] + static_cast<DOLLAR>(temp);
+	//myWallet.wallet[myWallet.DOLLAR] = &(*myWallet.wallet[myWallet.DOLLAR] + firstDollar);
+}
+
+void Wallet::removeMoney(Wallet::currencyType ctype, const int wpart, const int fpart)
+{
    int fractionalPart, wholePart;
 
 }
-
 /*
 void Wallet::removeMoney(Wallet::walletType flag, const int x)
 {
