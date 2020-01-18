@@ -1,5 +1,6 @@
 #include "Rupee.h"
 
+// Constructor
 Rupee::Rupee(int wPart, int fPart)
 {
 	wholePart = wPart;
@@ -7,6 +8,7 @@ Rupee::Rupee(int wPart, int fPart)
 	normalize();
 }
 
+// Destructor
 Rupee::~Rupee()
 {
 }

@@ -1,5 +1,6 @@
 #include "Yuan.h"
 
+// Constructor
 Yuan::Yuan(int wPart, int fPart)
 {
 	wholePart = wPart;
@@ -7,6 +8,7 @@ Yuan::Yuan(int wPart, int fPart)
 	normalize();
 }
 
+// Destructor
 Yuan::~Yuan()
 {
 }

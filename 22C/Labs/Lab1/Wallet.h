@@ -1,10 +1,4 @@
-//Wallet.h
-
-#ifndef WALLET_H
-#define WALLET_H
-
-#include <string>
-#include <iostream>
+#pragma once
 
 #include "Currency.h"
 #include "Dollar.h"
@@ -13,40 +7,31 @@
 #include "Yuan.h"
 #include "Pound.h"
 
-class Wallet;
-const int WALLET_SIZE(5);
+
+class Wallet; // Forward Declaration
+const int WALLET_SIZE(5);  // 5 types....
 
 class Wallet
 {
 public:
-   // Currency Pointer for each currency types
 
-Currency *wallet[WALLET_SIZE];
-  
-   //enumerator to hold currency type
-   enum currencyType
-   {
-       DOLLAR,
-       POUND,
-       YEN,
-       RUPEE,
-       YUAN
-   };
-   //default constructor
-   Wallet();
+	// Currency Pointer for each currency type   
+	Currency *wallet[WALLET_SIZE];
 
-   //default destructor
-   ~Wallet();
+	//enumerator to hold currency types
+	enum currencyType
+	{
+		DOLLAR,
+		POUND,
+		YEN,
+		RUPEE,
+		YUAN
+	};
 
-	Currency & operator[] (const int &);
-   	int numOfCurrencies() const;
-   	bool checkExisting(currencyType);
-   	void addMoney(currencyType, const int, const int);
-   	void removeMoney(currencyType, const int, const int);
-   	int getMoney(currencyType);
-   	void emptyWallet();
-   	bool checkIfEmpty();
+	Wallet(); // Constructor
+	~Wallet(); // Destructor
 
+	// Array of curencies...
+	Currency& operator[](const int &ndx);
 };
 
-#endif

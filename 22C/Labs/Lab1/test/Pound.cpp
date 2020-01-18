@@ -1,37 +1,35 @@
-#include "Dollar.h"
+#include "Pound.h"
 
-// Constructor
-Dollar::Dollar(int wPart, int fPart)
+Pound::Pound(int wPart, int fPart)
 {
 	wholePart = wPart;
 	fractionalPart = fPart;
 	normalize();
 }
 
-// Destructor
-Dollar::~Dollar()
+Pound::~Pound()
 {
 }
 
 //********************************************************
 // Overloaded << operator. Gives cout the ability to     *
-// directly display Dollar objects.                      *
+// directly display Pound objects.                      *
 //********************************************************
-std::ostream & operator<<(std::ostream &strm, const Dollar &obj)
+std::ostream & operator<<(std::ostream &strm, const Pound &obj)
 {
-	strm << obj.wholePart << " dollars, " << obj.fractionalPart << " cents :";
+	strm << obj.wholePart << " pounds, " << obj.fractionalPart << " cents :";
 	return strm;
 }
 
 //********************************************************
 // Overloaded >> operator. Gives cin the ability to      *
-// store user input directly into Dollar objects.        *
+// store user input directly into Pound objects.        *
 //********************************************************
-std::istream & operator>>(std::istream &strm, Dollar &obj)
+std::istream & operator>>(std::istream &strm, Pound &obj)
 {
 	int whole;
 	// Prompt the user for the feet.
-	std::cout << "Enter dollars: ";
+	std::cout << "Enter pounds: ";
 	strm >> obj.wholePart;
 
 	// Prompt the user for the inches.
@@ -43,3 +41,6 @@ std::istream & operator>>(std::istream &strm, Dollar &obj)
 
 	return strm;
 }
+
+
+

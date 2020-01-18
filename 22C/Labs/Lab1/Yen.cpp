@@ -1,5 +1,6 @@
 #include "Yen.h"
 
+// Constructor
 Yen::Yen(int wPart, int fPart)
 {
 	wholePart = wPart;
@@ -7,6 +8,7 @@ Yen::Yen(int wPart, int fPart)
 	normalize();
 }
 
+// Destructor
 Yen::~Yen()
 {
 }

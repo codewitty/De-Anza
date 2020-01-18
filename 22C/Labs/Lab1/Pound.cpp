@@ -1,5 +1,6 @@
 #include "Pound.h"
 
+// Constructor
 Pound::Pound(int wPart, int fPart)
 {
 	wholePart = wPart;
@@ -7,6 +8,7 @@ Pound::Pound(int wPart, int fPart)
 	normalize();
 }
 
+// Destructor
 Pound::~Pound()
 {
 }

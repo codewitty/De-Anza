@@ -1,6 +1,5 @@
 #include "Dollar.h"
 
-// Constructor
 Dollar::Dollar(int wPart, int fPart)
 {
 	wholePart = wPart;
@@ -8,7 +7,6 @@ Dollar::Dollar(int wPart, int fPart)
 	normalize();
 }
 
-// Destructor
 Dollar::~Dollar()
 {
 }

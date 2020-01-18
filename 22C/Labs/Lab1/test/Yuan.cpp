@@ -1,37 +1,35 @@
-#include "Dollar.h"
+#include "Yuan.h"
 
-// Constructor
-Dollar::Dollar(int wPart, int fPart)
+Yuan::Yuan(int wPart, int fPart)
 {
 	wholePart = wPart;
 	fractionalPart = fPart;
 	normalize();
 }
 
-// Destructor
-Dollar::~Dollar()
+Yuan::~Yuan()
 {
 }
 
 //********************************************************
 // Overloaded << operator. Gives cout the ability to     *
-// directly display Dollar objects.                      *
+// directly display Yuan objects.                      *
 //********************************************************
-std::ostream & operator<<(std::ostream &strm, const Dollar &obj)
+std::ostream & operator<<(std::ostream &strm, const Yuan &obj)
 {
-	strm << obj.wholePart << " dollars, " << obj.fractionalPart << " cents :";
+	strm << obj.wholePart << " yuans, " << obj.fractionalPart << " cents :";
 	return strm;
 }
 
 //********************************************************
 // Overloaded >> operator. Gives cin the ability to      *
-// store user input directly into Dollar objects.        *
+// store user input directly into Yuan objects.        *
 //********************************************************
-std::istream & operator>>(std::istream &strm, Dollar &obj)
+std::istream & operator>>(std::istream &strm, Yuan &obj)
 {
 	int whole;
 	// Prompt the user for the feet.
-	std::cout << "Enter dollars: ";
+	std::cout << "Enter yuans: ";
 	strm >> obj.wholePart;
 
 	// Prompt the user for the inches.

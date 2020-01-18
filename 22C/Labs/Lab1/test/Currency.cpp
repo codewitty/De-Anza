@@ -1,6 +1,4 @@
-#include <cstdlib>
 #include "Currency.h"
-
 
 //************************************************************
 // Definition of member function normalize. This function    *
@@ -13,18 +11,12 @@
 // 2 wholePart's and 140 fractionaPart's would be adjusted   *
 // to 3 wholePart's and 40 fractionalPart's.                 *
 //************************************************************
-
 void Currency::normalize()
 {
 	if (fractionalPart >= 100)
 	{
 		wholePart += (fractionalPart / 100);
-		fractionalPart = fractionalPart % 100;
-	}
-	else if (fractionalPart < 0)
-	{
-		wholePart -= ((abs(fractionalPart) / 100) + 1);
-		fractionalPart = 100 - (abs(fractionalPart) % 100);
+		fractionalPart = fractionalPart % 12;
 	}
 }
 
@@ -104,15 +96,14 @@ bool Currency::operator == (const Currency &right)
 }
 
 //*************************************************************
-// Overloaded = operator. Assigns the value of the operand on *
-// the left of the "=" to the right.						  *
-// Returns a pointer to the updated object.					  *
+// Overloaded = operator. Returns currency object reference.  *
+// is set to a value equal to that of right.                  *
 //*************************************************************
 Currency& Currency::operator=(const Currency &right)
 {
 	if (this != &right) {
 		this->wholePart = right.wholePart;
-		this->fractionalPart = right.fractionalPart;
+		this->fractionalPart = right.fractionalPart; 
 	}
 	return *this;
 }
