@@ -46,4 +46,5 @@ public:
 	bool operator > (const Currency &);		// Overloaded >
 	bool operator < (const Currency &);		// Overloaded <
 	bool operator == (const Currency &);	// Overloaded ==
+	Currency& operator=(const Currency &);
 };

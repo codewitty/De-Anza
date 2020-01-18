@@ -95,3 +95,15 @@ bool Currency::operator == (const Currency &right)
 	return status;
 }
 
+//*************************************************************
+// Overloaded = operator. Returns currency object reference.  *
+// is set to a value equal to that of right.                  *
+//*************************************************************
+Currency& Currency::operator=(const Currency &right)
+{
+	if (this != &right) {
+		this->wholePart = right.wholePart;
+		this->fractionalPart = right.fractionalPart; 
+	}
+	return *this;
+}

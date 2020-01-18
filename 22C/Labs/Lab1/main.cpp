@@ -4,40 +4,43 @@
 using namespace std;
 
 //forward declarations
-//void	addMoney(Wallet &); 
-void	addMoney();
+void	addMoney(Wallet &); 
 void	removeMoney(Wallet &); 
 //void	viewWallet(Wallet &); 
 //void	emptyWallet(Wallet &); 
 
 int main()
 {
+	
+   Wallet myWallet;   
 
    bool loop = false;
 
    while (!loop)
    {
-       int choice = 0;
+	int choice = 0;
 
-       cout << endl << "What would you like to do with your Wallet today?" << endl; 
-       cout << "   1: Add Money" << endl;
-       cout << "   2: Remove Money" << endl;
-       cout << "   3: View Wallet" << endl;
-       cout << "   4: Empty Wallet" << endl;
-       cout << "   5: EXIT" << endl << endl;
-       cout << "   Choice: ";
+	cout 	<< endl 
+		<< "What would you like to do with your Wallet today?" << endl;
+       	cout 	<< "   1: Add Money" << endl;
+       	cout 	<< "   2: Remove Money" << endl;
+	cout 	<< "   3: View Wallet" << endl;
+	cout 	<< "   4: Empty Wallet" << endl;
+       	cout 	<< "   5: EXIT" << endl << endl;
+	cout 	<< "   Your Choice: ";
 
-       cin >> choice;
+	cin >> choice;
+	cout << endl << endl;
       
 
        switch (choice)
        {
        case 1:
-		addMoney();
+		addMoney(myWallet);
            break;
 
        case 2:
-           cout << "case 2";
+		removeMoney(myWallet);
            break;
 
        case 3:
@@ -64,8 +67,7 @@ int main()
 }
 
 
-//void	addMoney(Wallet &myWallet)
-void addMoney()
+void	addMoney(Wallet &)
 {
 	bool loop = false;
 	
@@ -91,7 +93,7 @@ void addMoney()
 				cout	<< "How many dollars would you like to add?"
 					<< endl;
 				cin 	>> w_currency;
-				while (w_currency < 0)
+				while (w_currency < 0 && w_currency > 2147483647)
 				{
 					cout	<< "please enter a valid value"
 						<< " greater than 0" << endl;
