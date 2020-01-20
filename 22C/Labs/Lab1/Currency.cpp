@@ -10,7 +10,7 @@
 // to our whole to part ratio of 1 whole is 100 parts.       *
 //                                                           *
 // For example:                                              *
-// 2 wholePart's and 140 fractionaPart's would be adjusted   *
+// 2 wholePart's and 140 fractionaParts would be adjusted   *
 // to 3 wholePart's and 40 fractionalPart's.                 *
 //************************************************************
 
