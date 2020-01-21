@@ -21,7 +21,7 @@ void emptyWallet(Wallet&);
 //****************************************************************************
 // int main() - Main declares defines a wallet that is capable of holding and 
 // managing 5 currency types. The currencies supported are Dollars, Pounds,
-// Yen, Rupees and Yuan.
+// Yen, Rupee and Yuan.
 // 
 // You can add money to the wallet, remove money from the wallet, check the 
 //	amount of money in the wallet and empty the wallet.
