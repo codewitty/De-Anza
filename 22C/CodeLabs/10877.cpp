@@ -6,8 +6,11 @@ A static int data member named nCounters which is initialized to 0.
 A constructor that takes two int arguments and assigns the first one to 
 counter and the second one to limit. 
 It also adds one to the static variable nCounters
-A function called increment that accepts no parameters and returns no value. If the data member counter is less than limit, increment just adds one to the instance variable counter.
-A function called decrement that accepts no parameters and returns no value. If counter is greater than zero, decrement subtracts one from the counter.
+A function called increment that accepts no parameters and returns no value. 
+If the data member counter is less than limit, increment just adds one 
+to the instance variable counter.
+A function called decrement that accepts no parameters and returns no value. 
+If counter is greater than zero, decrement subtracts one from the counter.
 A function called getValue that accepts no parameters. It returns the value of the instance variable counter.
 A static function named getNCounters that accepts no parameters and return an int. getNCounters returns the value of the static variable nCounters.
 */
