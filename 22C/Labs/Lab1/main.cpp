@@ -125,29 +125,9 @@ void addMoney(Wallet &mWallet)
 		{
 			case 1: // Process Dollars added to Wallet
 			{
-				// The code below validates user input and records it.
-				cout << "   How many dollars would you like to add?"
-					 << endl << "   ";
-				cin  >> w_currency;
-				while (w_currency < 0 && w_currency > 10000)
-				{
-					cout << "please enter a valid value"
-						 << " greater than 0 and less than 10000" << endl;
-					cin  >> w_currency;
-				}
-				cout << "   How many cents would you like to add?"
-					 << " (Between 1-99)" << endl << "   ";
-				cin	 >> p_currency;
-				while (p_currency < 0 || p_currency > 99)
-				{
-					cout << "   please enter a valid value "
-						 << "   between 1-99" << endl;
-					cin  >> p_currency;
-				}
-
-				// This is where we add the dollars to the wallet
-				// There are 3 operators overloaded to make this code lean and elegant
 				Dollar temp(w_currency, p_currency);
+				cin >> temp;
+				// There are 3 operators overloaded to make this code lean and elegant
 				mWallet[mWallet.DOLLAR] = mWallet[mWallet.DOLLAR] + static_cast<Currency>(temp); 
 
 				break;
