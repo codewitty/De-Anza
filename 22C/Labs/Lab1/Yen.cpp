@@ -29,14 +29,37 @@ std::ostream & operator<<(std::ostream &strm, const Yen &obj)
 //********************************************************
 std::istream & operator>>(std::istream &strm, Yen &obj)
 {
-	int whole;
-	// Prompt the user for the feet.
-	std::cout << "Enter yens: ";
-	strm >> obj.wholePart;
+	Yen temp; // Temp working Yen var.
 
-	// Prompt the user for the inches.
-	std::cout << "Enter cents: ";
-	strm >> obj.fractionalPart;
+	// Prompt the user for the dollar amount
+	std::cout << "   Enter dollars ( Between 0 and 10000) : "
+			  << std::endl << "   ";
+	
+	strm >> temp.wholePart;
+	// Validate Yen amount.
+	while (temp.wholePart < 0 && temp.wholePart > 10000)
+	{
+		std::cout << "please re-enter dollars and cents. Yens must be"
+			 << " greater than 0 and less than 10000" << std::endl << "   ";
+		strm  >> temp.wholePart; 
+	}
+
+	// Prompt the user for the cents amount
+	
+	std:: cout << "   Enter cents"
+			  << std::endl << "   ";
+
+	strm >> temp.fractionalPart;
+	// Validate Cents.
+	while (temp.fractionalPart < 0 || temp.fractionalPart > 99)
+	{
+		std::cout << "   Please re-enter cents. Cents must be"
+				  << " between 1-99" << std::endl << "   ";
+		strm >> temp.fractionalPart; 
+	}
+
+	// Update Yen Object.
+	obj = temp;
 
 	// Normalize the values.
 	obj.normalize();

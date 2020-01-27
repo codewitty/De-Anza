@@ -129,128 +129,43 @@ void addMoney(Wallet &mWallet)
 				cin >> temp;
 				// There are 3 operators overloaded to make this code lean and elegant
 				mWallet[mWallet.DOLLAR] = mWallet[mWallet.DOLLAR] + static_cast<Currency>(temp); 
-
 				break;
 			}
 
 			case 2: // Process Pounds added to Wallet
 			{
-				// The code below validates user input and records it.
-				cout << "   How many pounds would you like to add?"
-					 << endl << "   ";
-				cin  >> w_currency;
-				while (w_currency < 0 && w_currency > 10000)
-				{
-					cout << "please enter a valid value"
-						 << " greater than 0 and less than 10000" << endl;
-					cin  >> w_currency;
-				}
-				cout << "   How many pence would you like to add?"
-					 << " (Between 1-99)" << endl << "   ";
-				cin	 >> p_currency;
-				while (p_currency < 0 || p_currency > 99)
-				{
-					cout << "   please enter a valid value "
-						 << "   between 1-99" << endl;
-					cin  >> p_currency;
-				}
-
-				// This is where we add the pounds to the wallet
-				// There are 3 operators overloaded to make this code lean and elegant
 				Pound temp(w_currency, p_currency);
+				cin >> temp;
+				// There are 3 operators overloaded to make this code lean and elegant
 				mWallet[mWallet.POUND] = mWallet[mWallet.POUND] + static_cast<Currency>(temp); 
-
-           		break;
+				break;
 			}
 
 			case 3: // Process Yen added to Wallet
 			{
-				// The code below validates user input and records it.
-				cout << "   How many yen would you like to add?"
-					 << endl << "   ";
-				cin  >> w_currency;
-				while (w_currency < 0 && w_currency > 10000)
-				{
-					cout << "please enter a valid value"
-						 << " greater than 0 and less than 10000" << endl;
-					cin  >> w_currency;
-				}
-				cout << "   How many sen would you like to add?"
-					 << " (Between 1-99)" << endl << "   ";
-				cin	 >> p_currency;
-				while (p_currency < 0 || p_currency > 99)
-				{
-					cout << "   please enter a valid value "
-						 << "   between 1-99" << endl;
-					cin  >> p_currency;
-				}
-
-				// This is where we add the Yen to the wallet
-				// There are 3 operators overloaded to make this code lean and elegant
 				Yen temp(w_currency, p_currency);
+				cin >> temp;
+				// There are 3 operators overloaded to make this code lean and elegant
 				mWallet[mWallet.YEN] = mWallet[mWallet.YEN] + static_cast<Currency>(temp); 
-
-           		break;
+				break;
 			}
 
 			case 4: // Process Rupee added to Wallet
 			{
-				// The code below validates user input and records it.
-				cout << "   How many Rupees would you like to add?"
-					 << endl << "   ";
-				cin  >> w_currency;
-				while (w_currency < 0 && w_currency > 10000)
-				{
-					cout << "please enter a valid value"
-						 << " greater than 0 and less than 10000" << endl;
-					cin  >> w_currency;
-				}
-				cout << "   How many paise would you like to add?"
-					 << " (Between 1-99)" << endl << "   ";
-				cin	 >> p_currency;
-				while (p_currency < 0 || p_currency > 99)
-				{
-					cout << "   please enter a valid value "
-						 << "   between 1-99" << endl;
-					cin  >> p_currency;
-				}
-
-				// This is where we add the Rupees to the wallet
-				// There are 3 operators overloaded to make this code lean and elegant
 				Rupee temp(w_currency, p_currency);
+				cin >> temp;
+				// There are 3 operators overloaded to make this code lean and elegant
 				mWallet[mWallet.RUPEE] = mWallet[mWallet.RUPEE] + static_cast<Currency>(temp); 
-
-           		break;
+				break;
 			}
 			
 			case 5: // Process Yuan added to Wallet
 			{
-				// The code below validates user input and records it.
-				cout << "   How many Yuan would you like to add?"
-					 << endl << "   ";
-				cin  >> w_currency;
-				while (w_currency < 0 && w_currency > 10000)
-				{
-					cout << "please enter a valid value"
-						 << " greater than 0 and less than 10000" << endl;
-					cin  >> w_currency;
-				}
-				cout << "   How many fen would you like to add?"
-					 << " (Between 1-99)" << endl << "   ";
-				cin	 >> p_currency;
-				while (p_currency < 0 || p_currency > 99)
-				{
-					cout << "   please enter a valid value "
-						 << "   between 1-99" << endl << "   ";
-					cin  >> p_currency;
-				}
-
-				// This is where we add the Yuan to the wallet
-				// There are 3 operators overloaded to make this code lean and elegant
 				Yuan temp(w_currency, p_currency);
+				cin >> temp;
+				// There are 3 operators overloaded to make this code lean and elegant
 				mWallet[mWallet.YUAN] = mWallet[mWallet.YUAN] + static_cast<Currency>(temp); 
-
-           		break;
+				break;
 			}
 
 			// This is our exit process, break loop and return to main menu

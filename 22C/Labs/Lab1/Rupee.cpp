@@ -19,7 +19,7 @@ Rupee::~Rupee()
 //********************************************************
 std::ostream & operator<<(std::ostream &strm, const Rupee &obj)
 {
-	strm << obj.wholePart << " rupees, " << obj.fractionalPart << " cents :";
+	strm << obj.wholePart << " rupees, " << obj.fractionalPart << " paise :";
 	return strm;
 }
 
@@ -29,14 +29,37 @@ std::ostream & operator<<(std::ostream &strm, const Rupee &obj)
 //********************************************************
 std::istream & operator>>(std::istream &strm, Rupee &obj)
 {
-	int whole;
-	// Prompt the user for the feet.
-	std::cout << "Enter rupees: ";
-	strm >> obj.wholePart;
+	Rupee temp; // Temp working Rupee var.
 
-	// Prompt the user for the inches.
-	std::cout << "Enter cents: ";
-	strm >> obj.fractionalPart;
+	// Prompt the user for the rupee amount
+	std::cout << "   Enter rupees ( Between 0 and 10000) : "
+			  << std::endl << "   ";
+	
+	strm >> temp.wholePart;
+	// Validate Rupee amount.
+	while (temp.wholePart < 0 && temp.wholePart > 10000)
+	{
+		std::cout << "please re-enter rupees. Rupees must be"
+			 << " greater than 0 and less than 10000" << std::endl << "   ";
+		strm  >> temp.wholePart; 
+	}
+
+	// Prompt the user for the paises amount
+	
+	std:: cout << "   Enter paise"
+			  << std::endl << "   ";
+
+	strm >> temp.fractionalPart;
+	// Validate Paise.
+	while (temp.fractionalPart < 0 || temp.fractionalPart > 99)
+	{
+		std::cout << "   Please re-enter paise. Paise must be"
+				  << " between 1-99" << std::endl << "   ";
+		strm >> temp.fractionalPart; 
+	}
+
+	// Update Rupee Object.
+	obj = temp;
 
 	// Normalize the values.
 	obj.normalize();

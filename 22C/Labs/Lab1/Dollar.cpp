@@ -29,30 +29,33 @@ std::ostream & operator<<(std::ostream &strm, const Dollar &obj)
 //********************************************************
 std::istream & operator>>(std::istream &strm, Dollar &obj)
 {
-	int whole; // Whole part of currency
-	int part;  // Fractional part of currency
 	Dollar temp; // Temp working Dollar var.
 
 	// Prompt the user for the dollar amount
-	std::cout << "   Enter dollars and cents (Ex: $2.11 is 2 11) : "
+	std::cout << "   Enter dollars ( Between 0 and 10000) : "
 			  << std::endl << "   ";
-
+	
+	strm >> temp.wholePart;
 	// Validate Dollar amount.
 	while (temp.wholePart < 0 && temp.wholePart > 10000)
 	{
 		std::cout << "please re-enter dollars and cents. Dollars must be"
-			 << " greater than 0 and less than 10000" << std::endl;
-		strm  >> temp; 
+			 << " greater than 0 and less than 10000" << std::endl << "   ";
+		strm  >> temp.wholePart; 
 	}
 
 	// Prompt the user for the cents amount
+	
+	std:: cout << "   Enter cents"
+			  << std::endl << "   ";
 
+	strm >> temp.fractionalPart;
 	// Validate Cents.
 	while (temp.fractionalPart < 0 || temp.fractionalPart > 99)
 	{
-		std::cout << "please re-enter dollars and cents. Cents must be"
-				  << "   between 1-99" << std::endl;
-		strm >> temp; 
+		std::cout << "   Please re-enter cents. Cents must be"
+				  << " between 1-99" << std::endl << "   ";
+		strm >> temp.fractionalPart; 
 	}
 
 	// Update Dollar Object.

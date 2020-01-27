@@ -19,7 +19,7 @@ Pound::~Pound()
 //********************************************************
 std::ostream & operator<<(std::ostream &strm, const Pound &obj)
 {
-	strm << obj.wholePart << " pounds, " << obj.fractionalPart << " cents :";
+	strm << obj.wholePart << " pounds, " << obj.fractionalPart << " pence :";
 	return strm;
 }
 
@@ -29,20 +29,40 @@ std::ostream & operator<<(std::ostream &strm, const Pound &obj)
 //********************************************************
 std::istream & operator>>(std::istream &strm, Pound &obj)
 {
-	int whole;
-	// Prompt the user for the feet.
-	std::cout << "Enter pounds: ";
-	strm >> obj.wholePart;
+	Pound temp; // Temp working Pound var.
 
-	// Prompt the user for the inches.
-	std::cout << "Enter cents: ";
-	strm >> obj.fractionalPart;
+	// Prompt the user for the dollar amount
+	std::cout << "   Enter pounds ( Between 0 and 10000) : "
+			  << std::endl << "   ";
+	
+	strm >> temp.wholePart;
+	// Validate Pound amount.
+	while (temp.wholePart < 0 && temp.wholePart > 10000)
+	{
+		std::cout << "   Please re-enter pounds. Pounds must be"
+			 << " greater than 0 and less than 10000" << std::endl << "   ";
+		strm  >> temp.wholePart; 
+	}
+
+	// Prompt the user for the pence amount
+	
+	std:: cout << "   Enter pence"
+			  << std::endl << "   ";
+
+	strm >> temp.fractionalPart;
+	// Validate Pence.
+	while (temp.fractionalPart < 0 || temp.fractionalPart > 99)
+	{
+		std::cout << "   Please re-enter pence. Pence must be"
+				  << " between 1-99" << std::endl << "   ";
+		strm >> temp.fractionalPart; 
+	}
+
+	// Update Pound Object.
+	obj = temp;
 
 	// Normalize the values.
 	obj.normalize();
 
 	return strm;
 }
-
-
-
