@@ -43,17 +43,19 @@ int main()
 	     		addMoney(myWallet);
 				break;
     		case 2: // Remove money from the wallet.
-	     		removeMoney(myWallet);
+				string template;
 				break;
-    		case 3: // View money in wallet.
-	     		viewWallet(myWallet);
+			case 3:
+				Dollar templ;
 				break;
-    		case 4: // Empty Wallet. 
-	     		emptyWallet(myWallet);
-				break;
-    		case 5: // We are done. Exiting now.
+    		case 4: // We are done. Exiting now.
 				cout << "   Exiting your Wallet" << endl << endl;
 				loop = false;
+				break;
+			default: // We re-prompt the user to input a correnct menu option.
+				cout 	<< "   Please enter a valid choice between"
+						<< "   1-3" << endl;
+
 				break;
 		}
 	}

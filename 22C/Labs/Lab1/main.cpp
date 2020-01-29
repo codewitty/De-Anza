@@ -83,6 +83,12 @@ int main()
 				cout << "   Exiting your Wallet" << endl << endl;
 				loop = false;
 				break;
+			
+			default: // We re-prompt the user to input a correnct menu option.
+				cout 	<< "   Please enter a valid choice between"
+						<< "   1-6" << endl;
+
+				break;
 		}
 	}
 	return 0; // Program Finished
