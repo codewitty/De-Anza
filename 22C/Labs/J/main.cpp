@@ -5,17 +5,57 @@ Class: CIS 22C MW 1800 - 1950 hrs
 */
 
 #include <iostream>
-#include "Currency.h"
-#include "Dollar.h"
+//#include "Currency.h"
+//#include "Dollar.h"
 #include "ArrayTemplateClass.h"
 #include <string>
 
 using namespace std;
 
-int SORT_MAX_SIZE = 16;
-Array<int> arr_int[16];
-Array<string> arr_s[16];
-//Array<Dollar> arr_d[16];
+template<typename T>
+bool pred(T &Lhs, T &Rhs) {
+	return Lhs < Rhs;
+}
+
+/*
+bool pred(Dollar &Lhs, Dollar &Rhs) {
+	if (Lhs < Rhs)
+		return true;
+	return false;
+}
+*/
+
+template<typename T>
+void swapit(T &L, T &R) {
+	T tmp = L;
+	L = R;
+	R = tmp;
+}
+
+
+template<typename T>
+void recurSelectionSort(Array<T> &ArrayToSort, int ArraySize, int PartitionIndex = 0) {
+	if (PartitionIndex >= ArraySize)
+		return; // Should be sorted.
+	  // Find min element
+	T MinElem = ArrayToSort[PartitionIndex];
+
+	int MinElemIdx = PartitionIndex;
+	for (int ndx = PartitionIndex; ndx < ArraySize; ++ndx)
+		if (pred(ArrayToSort[ndx], MinElem)) {
+			MinElem = ArrayToSort[ndx];
+			MinElemIdx = ndx;
+		}
+	// Found the minimum element. It's in MinElemIdx
+	swapit(ArrayToSort[PartitionIndex], ArrayToSort[MinElemIdx]);
+	// Now everything until PartitionIndex is sorted. recurse on beyond the PartitionIndex
+	recurSelectionSort(ArrayToSort, ArraySize, PartitionIndex + 1);
+}
+
+const int SORT_MAX_SIZE = 16;
+Array<int> aIntArray[16];
+//Array<string> aStringArray[16];
+//Array<Dollar> aDollarArray[16];
 
 int main()
 {
@@ -28,7 +68,7 @@ int main()
 	{
 		cout << "   Please enter a valid value between 1 and 16"
 			 << endl << "   ";
-		cin >> SORT_MAX_SIZE;
+		cin >> user_size;
 	}
 
 	int choice;
@@ -56,31 +96,34 @@ int main()
 					 {
 						 cin >> user_input;
 						 cout << "   ";
-						 arr_int[i] = user_input;
+						 aIntArray[i] = user_input;
 					 }
 					 for (int i = 0; i < user_size; i++)
 					 {
-						 cout << arr_int[i] << " "; 
+						 cout << aIntArray[i] << " "; 
 					 }
 					 cout << endl;
+					 recurSelectionSort(aIntArray, user_size);
 				break;
     		case 2: // Process a string array 
+			/*
 				cout << "   Please enter the strings you would like to sort" << endl
 					 << "   One word strings only!" << endl
 					 << "   Hit enter after each string " << endl
 					 << "   (1-16 strings max)" << endl << "   ";
 					 for (int i = 0; i < user_size; i++)
 					 {
-						 cin >> arr_s[i];
+						 cin >> aStringArray[i];
 						 cout << "   ";
-						 //arr_s[i] = user_input_str;
+						 //aStringArray[i] = user_input_str;
 					 }
 					 for (int i = 0; i < user_size; i++)
 					 {
-						 cout << arr_s[i] << " "; 
+						 cout << aStringArray[i] << " "; 
 					 }
 					 cout << endl;
 				//string template;
+				*/
 				break;
 			case 3: // Process a dollar array
 				/*
@@ -90,13 +133,13 @@ int main()
 					 << "   (1-16 dollars max)" << endl << "   ";
 					 for (int i = 0; i < user_size; i++)
 					 {
-						 cin >> arr_s[i];
+						 cin >> aStringArray[i];
 						 cout << "   ";
-						 //arr_s[i] = user_input_str;
+						 //aStringArray[i] = user_input_str;
 					 }
 					 for (int i = 0; i < user_size; i++)
 					 {
-						 cout << arr_s[i] << " "; 
+						 cout << aStringArray[i] << " "; 
 					 }
 					 cout << endl;
 				//Dollar templ;
