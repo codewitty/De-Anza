@@ -1,6 +1,6 @@
 /* 
 Lab2
-Names: Joseph Saunders and Joshua N Gomes
+Names: Joseph Saunders and Joshua  Gomes
 Class: CIS 22C MW 1800 - 1950 hrs
 */
 
