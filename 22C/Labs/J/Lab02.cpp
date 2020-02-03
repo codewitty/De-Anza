@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "ArrayTemplateClass.h"
+#include "A.h"
 #include "Dollar.h"
 #include "SelectionSort.h"
 using namespace std;
@@ -106,13 +106,13 @@ int main()
 					 {
 						 cin >> aDollarArray[i];
 						 cout << "   ";
-						 //aStringArray[i] = user_input_str;
 					 }
 					 for (int i = 0; i < user_size; i++)
 					 {
 						 cout << aDollarArray[i] << " "; 
 					 }
 					 cout << endl;
+					 recurSelectionSort(aDollarArray, user_size);
 				break;
     		case 4: // We are done. Exiting now.
 				cout << "   Exiting Program" << endl << endl;
@@ -126,40 +126,3 @@ int main()
 	}
 	return 0; // Program Finished
 }
-
-/*
-	// Initialize the arrays...
-	for (int nCount = 0; nCount < RANDSEQSIZE; nCount++)
-	{
-//		Dollar workDollar;
-//		workDollar.setWholePart(fakeSequence[nCount] + 1);
-//		workDollar.setFractionalPart(fakeSequence[nCount] + 2);
-
-		aIntArray[nCount] = fakeSequence[nCount];
-//		aStringArray[nCount] = "String" + std::to_string(fakeSequence[nCount]);
-//		aDollarArray[nCount] = workDollar;
-	}
-
-	// dump the arrays
-	for (int nCount = RANDSEQSIZE-1; nCount >= 0; nCount--) {
-		cout << aIntArray[nCount] << "\t" << aStringArray[nCount] << endl;
-//		cout << "Dollar : " << aDollarArray[nCount] << endl;
-	}
-
-	recurSelectionSort(aIntArray, RANDSEQSIZE);
-//	recurSelectionSort(aDollarArray, RANDSEQSIZE);
-
-	for (int nCount = RANDSEQSIZE-1; nCount >= 0; nCount--) {
-		cout << aIntArray[nCount] << endl;
-	}
-
-//	for (int nCount = RANDSEQSIZE-1; nCount >= 0; nCount--) {
-//		cout << aDollarArray[nCount] << endl;
-//	}
-
-//	system("pause");
-
-	cout << "Hello World!" << endl;
-	return 0;
-}
-*/

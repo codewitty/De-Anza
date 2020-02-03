@@ -1,5 +1,5 @@
 #pragma once
-#include "ArrayTemplateClass.h"
+#include "A.h"
 #include "Dollar.h"
 // The templated predecessor operator (<)
 
