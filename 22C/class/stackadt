@@ -1,0 +1,47 @@
+template <typename T>
+
+class Node
+{
+	private:
+		T data;
+		Node <T> * next;
+	public:
+	.
+	.
+	.
+	.
+	.
+	.
+
+}
+
+
+
+template <typename L>
+
+class List (stack)
+{
+	private: (protected)
+		int count;
+		Node <T> * head; (top)
+	public
+	.
+	.
+	.
+	.
+	.
+};
+
+
+template <typename S>
+
+class Stack :: public List <S>
+{
+	.
+	.
+	.
+	.
+	.
+	.
+	.
+}

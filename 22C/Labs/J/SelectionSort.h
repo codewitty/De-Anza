@@ -9,11 +9,6 @@ bool pred(T& Lhs, T& Rhs) {
 	return Lhs < Rhs;
 }
 
-bool pred(Dollar& Lhs, Dollar& Rhs) {
-	if (Lhs < Rhs)
-		return true;
-	return false;
-}
 
 // Our template for our swap...
 template<typename T>

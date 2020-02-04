@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "A.h"
+#include "ArrayTemplateClass.h"
 #include "Dollar.h"
 #include "SelectionSort.h"
 using namespace std;
