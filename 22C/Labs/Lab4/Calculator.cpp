@@ -215,7 +215,7 @@ bool	inputValidationOp(string input) {
 		else
 			ndx++;
 	}
-	if (!(intCount == operatorCount - 1)){
+	if (!(intCount - 1 == operatorCount)){
 		cout << "****Error. Operators need to be only one more "
 			 << "than operands.****\n";
 			 // << "****Enter a valid expression****\n";
