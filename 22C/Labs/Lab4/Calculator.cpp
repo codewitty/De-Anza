@@ -17,6 +17,8 @@ int precedence(char c)
 	return 0;
 }
 
+//Insert equation checker here
+
 //**********************************************************************//
 // This infix to postfix convertor.										// 
 // pre:  User provided infix string expression.							//
