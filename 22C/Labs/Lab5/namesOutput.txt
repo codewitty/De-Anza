@@ -1,0 +1,46 @@
+
+...!!!!...DISPLAYING NAME TREE...!!!!...
+
+
+Nametree in PREORDER
+================================================================================
+NAME                                                                    BIRTHDAY
+================================================================================
+Joseph Saunders                                                       1975-08-04
+Jimmy Garopolo                                                        1985-09-29
+George Kittle                                                         1984-02-27
+Albus Dumbledore                                                      1960-04-14
+Harry Potter                                                          1990-22-10
+Hermione Granger                                                      1991-01-12
+Joey Alfieri                                                          1978-04-19
+Joshua Gomes                                                          1991-01-07
+Kavya Ash                                                             1995-06-22
+Minh Truong                                                           1995-10-04
+Manish Goel                                                           1980-11-08
+Kwon Alexander                                                        1988-05-04
+Richard Sherman                                                       1986-07-30
+Neville Longbottom                                                    1992-05-07
+Rachel G                                                              1232-09-00
+Ronald Weasley                                                        1990-12-05
+
+
+Nametree in POSTORDER
+================================================================================
+NAME                                                                    BIRTHDAY
+================================================================================
+Albus Dumbledore                                                      1960-04-14
+Hermione Granger                                                      1991-01-12
+Harry Potter                                                          1990-22-10
+George Kittle                                                         1984-02-27
+Joey Alfieri                                                          1978-04-19
+Jimmy Garopolo                                                        1985-09-29
+Kwon Alexander                                                        1988-05-04
+Manish Goel                                                           1980-11-08
+Rachel G                                                              1232-09-00
+Neville Longbottom                                                    1992-05-07
+Ronald Weasley                                                        1990-12-05
+Richard Sherman                                                       1986-07-30
+Minh Truong                                                           1995-10-04
+Kavya Ash                                                             1995-06-22
+Joshua Gomes                                                          1991-01-07
+Joseph Saunders                                                       1975-08-04
