@@ -114,9 +114,9 @@ void Person::setBday(string aBDay)
 //**********************************************************************//
 void Person::setOrdering(orderAttr anOrder)
 {
-	if (ordering == NAME)
+	if (anOrder == NAME)
 		pkey = &name;
-	else if (ordering == BDAY)
+	else if (anOrder == BDAY)
 		pkey = &bday;
 	else {
 		pkey = nullptr;

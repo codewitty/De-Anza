@@ -7,7 +7,6 @@ Birthday Tree in INORDER
 ================================================================================
 NAME                                                                    BIRTHDAY
 ================================================================================
-Rachel G                                                              1232-09-00
 Albus Dumbledore                                                      1960-04-14
 Joseph Saunders                                                       1975-08-04
 Joey Alfieri                                                          1978-04-19
@@ -32,7 +31,6 @@ NAME                                                                    BIRTHDAY
 Joseph Saunders                                                       1975-08-04
 Albus Dumbledore                                                      1960-04-14
 Joshua Gomes                                                          1991-01-07
-Rachel G                                                              1232-09-00
 Manish Goel                                                           1980-11-08
 Kavya Ash                                                             1995-06-22
 Joey Alfieri                                                          1978-04-19

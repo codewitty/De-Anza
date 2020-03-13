@@ -24,6 +24,104 @@ ofstream bdayfh;  // file handle for the birthday ordered traversals.
 StdioAndFileStreamer nameOut(namefh, std::cout);
 StdioAndFileStreamer bdayOut(bdayfh, std::cout);
 
+BNTree<Person> nameTree;
+BNTree<Person> bdayTree;
+// Covering function for generic add.
+bool addItem(Person* name, Person* bday){
+	// 1. Simple validation
+	// 2. Add to all 3 data structures
+
+	// TREE ADD CODE
+	nameTree.add(*name);
+	bdayTree.add(*bday);
+	// HASH ADD CODE tbd
+	// Ex. BdayHash.add(*name)
+
+	// MRU LINKED LIST ADD CODE tbd
+
+	// 3. Report results
+	return true;
+}
+
+bool searchItem(Person searchItem, orderAttr order) {
+	bool retVal{false};
+	if (order == NAME) {
+		if (nameTree.contains(searchItem))
+		{
+			cout << "\nData item found" << endl;
+			cout << nameTree.find(searchItem);
+			retVal = true;
+		}
+	}
+	else if (order == BDAY)
+	{
+		if (bdayTree.contains(searchItem))
+		{
+			cout << "\nData item found" << endl;
+			cout << bdayTree.find(searchItem);
+			retVal = true;
+		}
+	}
+	return retVal;
+
+	// HASH DELETE CODE tbd
+	// Ex. BdayHash.delete(*name)
+
+	// MRU LINKED LIST DELETE CODE tbd
+
+	// 3. Report results
+}
+
+bool deleteItem(Person person_to_delete, orderAttr order){
+	//
+	bool retVal{false};
+	if (order == NAME)
+	{
+		if (!nameTree.contains(person_to_delete))
+		{
+			cout << "\n Data item not found" << endl;
+			retVal = false;
+		}
+		else {
+			// ==> foundPersonRecord found by name, get the record.
+			Person foundPersonRecord = nameTree.find(person_to_delete);
+			cout << " We are deleting this person" << endl;
+			cout << " " << foundPersonRecord;
+			nameTree.remove(foundPersonRecord);
+			// reset search criteria so we can delete from the birthday tree
+			foundPersonRecord.setOrdering(BDAY);
+			bdayTree.remove(foundPersonRecord);
+		}
+	}
+
+	else if (order == BDAY)
+	{
+		if (!bdayTree.contains(person_to_delete))
+		{
+			cout << "\n Data item not found" << endl;
+			retVal = false;
+		}
+		else {
+			// ==> foundPersonRecord found by name, get the record.
+			Person foundPersonRecord = bdayTree.find(person_to_delete);
+			cout << " We are deleting this person" << endl;
+			cout << " " << foundPersonRecord;
+			bdayTree.remove(foundPersonRecord);
+			// reset search criteria so we can delete from the name tree
+			foundPersonRecord.setOrdering(NAME);
+			nameTree.remove(foundPersonRecord);
+		}
+	}
+	// HASH DELETE CODE tbd
+	// Ex. BdayHash.delete(*name)
+
+	// MRU LINKED LIST DELETE CODE tbd
+
+	// 3. Report results
+	return retVal;
+}
+
+
 //****************************************************************************
 // int main() - Main is our menu driven system for BST Tree based Person DB.
 //				Our DB has a record type that allows you to sort record types
@@ -68,8 +166,6 @@ int main()
 	fstream inFile;
 	int number_of_lines = 0;
 	int count = 0;
-	BNTree<Person> nameTree;
-	BNTree<Person> bdayTree;
 	int objectCount = 0;
 
 	// Ask user for file paths for input and output files
@@ -137,12 +233,14 @@ int main()
 	{
 		// Output User Menu
 		cout << endl
-			<< "   What operation would you like to carry out?" << endl;
-		cout << "   1: Add a Node" << endl;
-		cout << "   2: Search for a Node" << endl;
-		cout << "   3: Delete a Node" << endl;
-		cout << "   4: Print data" << endl;
-		cout << "   5: EXIT" << endl << endl;
+			 << "   What operation would you like to carry out?" << endl;
+		cout << "   1: Add a Node item" << endl;
+		cout << "   2: Search for a Node by Name" << endl;
+		cout << "   3: Search for a Node by Birthday" << endl;
+		cout << "   4: Delete a Node by Name" << endl;
+		cout << "   5: Delete a Node by Birthday" << endl;
+		cout << "   6: Print data" << endl;
+		cout << "   7: EXIT" << endl << endl;
 		cout << "   Your Choice: ";
 		// User response recorded
 		cin >> choice;
@@ -152,261 +250,205 @@ int main()
 		// This switch will execute all actions from the menu
 		switch (choice)
 		{
-		//************************************************************//
-		// case 1 ADDS a node to both existing trees.				  //
-		//************************************************************//
+			//************************************************************//
+			// case 1 ADDS a node to both existing trees.				  //
+			//************************************************************//
 		case 1: // Add a Node to both Trees 
 		{
 			bool flag = true;
-			int add_choice;
-			string check;
 			string new_name;
 			string new_bday;
 			while (flag) {
-				cout << "Enter the name data item for the new node.\n";
+				cout << " Enter the name data item for the new node.\n" << " ";
 				getline(cin, new_name);
-				cout << "Enter the birthday data item for the new node. "
+				cout << " Enter the birthday data item for the new node. "
 					<< "Format is yyy-mm-dd.\n";
 				getline(cin, new_bday);
 				// Normalize the name and birthday...
 				string tname = trim(new_name);
 				string tbday = trim(new_bday);
-				Person new_person(tname, tbday, NAME);
-				Person bday_person(tname, tbday, BDAY);
+				// dynamicallyy allocate & assign to array to keep track of memory
+				Person * personByName = new Person(tname, tbday, NAME); 
+				Person * personByBday = new Person(tname, tbday, BDAY); 
+				// Add to all data structures, BST, Hash Table, Linked List.
+				addItem(personByName, personByBday);
+				// save for later deallocation
+				aPersonByName[objectCount] = personByName;
+				aPersonByBday[objectCount] = personByBday; 
+				// inc object count...
 				objectCount += 1;
-				// Add the person to the name and birthday arrays...
-				aPersonByName[objectCount] = new Person(tname, tbday, NAME);
-				aPersonByBday[objectCount] = new Person(tname, tbday, BDAY);
-				nameTree.add(new_person);
-				bdayTree.add(bday_person);
-				cout << endl << "Would you like to add another data item? \n"
-					<< "Enter 1 for \"Yes\" or any other key for \"No\"\n";
-				cin >> add_choice;
-				if (cin.fail()) {
-					cin.clear();
-					cin.ignore(32767, '\n');
-					cout << "Exiting to main menu" << endl; 
-					flag = false;
-				}
-				else if (add_choice == 1)
-					flag = true;
-				else {
-					cout << "Exiting to main menu" << endl; 
-					flag = false;
-				}
+
+				// Set flag using exit function
+				flag = exitFunction();
 			}
 			break;
 		}
 		//************************************************************//
-		// case 1 SEARCHES for a user specified node.				  //
+		// case 2 SEARCHES for a user specified node.				  //
 		//************************************************************//
-		case 2: // Search for a particular Node
+		case 2: // Search for a particular Node by Name 
 		{
 			bool sflag = true;
-			bool sflag2 = true;
-			int s_choice;
-			int search_choice;
-			string search_name;
-			string search_bday;
+			string name;
 			while (sflag)
 			{
-				while (sflag2) {
-					cout << "\nWould you like to search for a Name or a Birthday?"
-						<< "\nType 1 for Name and 2 for Birthday and 3 to Exit." << endl;
-					cin >> search_choice;
-					cin.ignore(32767, '\n');
-					if (cin.fail()) {
-						cin.clear();
-						cin.ignore(32767, '\n');
-					cout << endl << "!!!!!! Please Enter 1 , 2 or 3 !!!!!!" << endl; 
-						sflag2 = true;
-					}
-					else if (search_choice == 1)
-					{
-						cout << " Enter the name you would like to look for.\n";
-						getline(cin, search_name);
-						Person search_person(search_name, "0000-00-00", NAME);
-						if (nameTree.contains(search_person))
-						{
-							cout << "\nData item found" << endl;
-							cout << nameTree.find(search_person);
-						}
-						else
-						{
-							cout << "\nData item not found" << endl;
-						}
+				cout << " Enter the name of the person you would like to look for.\n";
+				getline(cin, name);
+				string tname = trim(name);
+				Person search_name(tname, "000-00-00", NAME);
 
-					}
-					else if (search_choice == 2)
-					{
-						cout << " Enter the birthday you would like to look for.\n";
-						getline(cin, search_bday);
-						Person search_person("zzz zzzz", search_bday, BDAY);
-						if (bdayTree.contains(search_person))
-						{
-							cout << "\nData item found" << endl;
-							cout << bdayTree.find(search_person);
-						}
-						else
-						{
-							cout << "\nData item not found" << endl;
-						}
-					}
-					else if (search_choice == 3)
-						sflag2 = false;
-					else
-					{
-						cout << "Please enter 1 or 2.\n" << endl;
-						sflag2 = true;
-					}
-				}
-				cout << "Would you like to search for another data item? \n"
-					<< "Enter 1 for \"Yes\" or any other key for \"No\"\n";
-				cin >> s_choice;
-				cin.ignore(32767, '\n');
-				if (cin.fail()) {
-					cin.clear();
-					cin.ignore(32767, '\n');
-					cout << "Exiting to main menu" << endl; 
-					sflag = false;
-				}
-				else if (s_choice == 1) {
-					sflag = true;
-					sflag2 = true;
-				}
-				else {
-					cout << "Exiting to main menu" << endl; 
-					sflag = false;
-			}
-		}
-			break;
-		}
-		//************************************************************//
-		// case 3 DELETES a node from both existing trees.			  //
-		//************************************************************//
-		case 3: // Delete a particular Node 
-		{
-			bool rflag = true;
-			bool rflag2 = true;
-			char rem_choice;
-			int r_choice;
-			string r_name;
-			string r_bday;
-			while (rflag) {
-				while (rflag2)
-				{
-					cout << "Would you like to delete by Name or by Birthday? "
-						<< "Type 1 for Name, 2 for Birthday and 3 to exit.\n";
-					cin >> r_choice;
-					cin.ignore(32767, '\n');
-					if (cin.fail()) {
-						cin.clear();
-						cin.ignore(32767, '\n');
-						cout << endl << "!!!!!! Please Enter 1 , 2 or 3 !!!!!!" << endl; 
-					}
-					else if (r_choice == 1)
-					{
-						cout << "Enter the name of the data item to be deleted.\n";
-						getline(cin, r_name);
-						Person new_person(r_name, "", NAME);
-						nameTree.remove(new_person);
-					}
-					else if (r_choice == 2)
-					{
-						cout << "Enter the birthdate of the data item to be deleted. ";
-						cout << "Birthdate must be in yyy-mm-dd format.\n";
-						getline(cin, r_bday);
-						Person bday_person("", r_bday, BDAY);
-						bdayTree.remove(bday_person);
-					}
-					else if (r_choice == 3)
-						rflag2 = false;
-					else {
-						cout << "Please enter 1, 2 or 3.\n" << endl;
-					}
-				}
-				cout << "Would you like to remove another data item? \n"
-					<< "Enter Y for \"Yes\" or any other key for \"No\"\n";
-				cin >> rem_choice;
-				cin.ignore(32767, '\n');
-				if (cin.fail()) {
-					cin.clear();
-					cin.ignore(32767, '\n');
-					cout << "Exiting to main menu" << endl; 
-					rflag = false;
-				}
-				if (rem_choice == 'Y' || rem_choice == 'y') {
-					rflag = true;
-					rflag2 = true;
-				}
+				if (searchItem(search_name, NAME))
+					cout << "\nData item found" << endl;
 				else
-					rflag = false;
+					cout << "\nData item not found" << endl;
+				// Set flag using exit function
+				sflag = exitFunction();
 			}
 			break;
 		}
 		//************************************************************//
-		// case 4 PRINTS all node from both existing trees.			  //
+		// case 3 SEARCHES for a user specified node.				  //
+		//************************************************************//
+		case 3: // Search for a particular Node by Bday
+		{
+			bool sflag = true;
+			string bday;
+			while (sflag)
+			{
+				cout << " Enter the birthday of the person you would like to look for.\n";
+				getline(cin, bday);
+				string tbday = trim(bday);
+				Person search_bday("", tbday, BDAY);
+
+				if (searchItem(search_bday, BDAY))
+					cout << "\nData item found" << endl;
+				else
+					cout << "\nData item not found" << endl;
+				// Set flag using exit function
+				sflag = exitFunction();
+			}
+			break;
+		}
+
+		//************************************************************//
+		// case 4 DELETES a node from both existing trees by Name.	  //
+		//************************************************************//
+		case 4: // Delete a particular Node by Name
+		{
+			bool removingDataItems = true;
+			string r_name;
+
+			// loop allows you to keep deleting items to your hearts content...
+			while (removingDataItems) {
+				cout << " Enter the name of the person item to be deleted.\n";
+				cout << " ";
+				getline(cin, r_name);
+				Person name_to_delete(r_name, "", NAME);  // sparse record wtih user entered name
+				// deleteItem is the entry point to delete the item from ALL data structures.
+				if (deleteItem(name_to_delete, NAME)) // DELETE entrypoint!
+				{
+					cout << "Deleting done" << endl;
+				}
+				else 
+				{
+					cout << "Item not found or deleted." << endl;
+				}
+				// Set flag using exit function
+				removingDataItems = exitFunction();
+			}
+		break;
+	} // End switch
+
+		//************************************************************//
+		// case 5 DELETES a node from both existing trees by Birthday.//
+		//************************************************************//
+		case 5: // Delete a particular Node by Birthday
+		{
+			bool removingDataItems = true;
+			string r_bday;
+
+			// loop allows you to keep deleting items to your hearts content...
+			while (removingDataItems) {
+				cout << " Enter the birthday of the person item to be deleted.\n";
+				cout << " ";
+				getline(cin, r_bday);
+				Person bday_to_delete("", r_bday, BDAY);  // sparse record wtih user entered name
+				// deleteItem is the entry point to delete the item from ALL data structures.
+				if (deleteItem(bday_to_delete, BDAY)) // DELETE entrypoint!
+				{
+					cout << "Deleting done" << endl;
+				}
+				else 
+				{
+					cout << "Item not found or deleted." << endl;
+				}
+				// Set flag using exit function
+				removingDataItems = exitFunction();
+			}
+		break;
+		} // End switch case 5
+		//************************************************************//
+		// case 6 PRINTS all node from both existing trees.			  //
 		// Name Tree is printed in Preorder and Postorder modes.	  //
 		// Birthday Tree is printed in Inorder and BreadthFirst mode. //
 		//************************************************************//
-		case 4:
+		case 6:
 		{
 
 			nameOut << endl << "...!!!!...DISPLAYING NAME TREE...!!!!..." << endl;
 			nameOut << endl << endl << "Nametree in PREORDER" << endl;
-			nameOut << string(80,'=') << endl; 
+			nameOut << string(80, '=') << endl;
 			nameOut << left << setw(60) << "NAME" << right << setw(20) << "BIRTHDAY" << endl;
-			nameOut << string(80,'=') << endl; 
+			nameOut << string(80, '=') << endl;
 			nameTree.preorderTraverse(displayPersonName);
 			nameOut << endl << endl << "Nametree in POSTORDER" << endl;
-			nameOut << string(80,'=') << endl; 
+			nameOut << string(80, '=') << endl;
 			nameOut << left << setw(60) << "NAME" << right << setw(20) << "BIRTHDAY" << endl;
-			nameOut << string(80,'=') << endl; 
+			nameOut << string(80, '=') << endl;
 			nameTree.postorderTraverse(displayPersonName);
 			bdayOut << endl << endl << "...!!!!...DISPLAYING BIRTHDAY TREE...!!!!..." << endl;
 			bdayOut << endl << endl << "Birthday Tree in INORDER" << endl;
-			bdayOut << string(80,'=') << endl; 
+			bdayOut << string(80, '=') << endl;
 			bdayOut << left << setw(60) << "NAME" << right << setw(20) << "BIRTHDAY" << endl;
-			bdayOut << string(80,'=') << endl; 
+			bdayOut << string(80, '=') << endl;
 			bdayTree.inorderTraverse(displayPersonBday);
 			bdayOut << endl << endl << "Birthday Tree in BREADTHFIRST ORDER" << endl;
-			bdayOut << string(80,'=') << endl; 
+			bdayOut << string(80, '=') << endl;
 			bdayOut << left << setw(60) << "NAME" << right << setw(20) << "BIRTHDAY" << endl;
-			bdayOut << string(80,'=') << endl; 
+			bdayOut << string(80, '=') << endl;
 			bdayTree.breadthfirstTraverse(displayPersonBday);
 		}
 		break;
-		// End Case 4
 
 		//************************************************************//
-		// case 6 PRINTS all node from both existing trees and		  //
+		// case 7 PRINTS all node from both existing trees and		  //
 		//		 exits the menu.									  //
 		// Name Tree is printed in Preorder and Postorder modes.	  //
 		// Birthday Tree is printed in Inorder and BreadthFirst mode. //
 		//************************************************************//
-		case 5:
+		case 7:
 		{
 			nameOut << endl << "...!!!!...DISPLAYING NAME TREE...!!!!..." << endl;
 			nameOut << endl << endl << "Nametree in PREORDER" << endl;
-			nameOut << string(80,'=') << endl; 
+			nameOut << string(80, '=') << endl;
 			nameOut << left << setw(60) << "NAME" << right << setw(20) << "BIRTHDAY" << endl;
-			nameOut << string(80,'=') << endl; 
+			nameOut << string(80, '=') << endl;
 			nameTree.preorderTraverse(displayPersonName);
 			nameOut << endl << endl << "Nametree in POSTORDER" << endl;
-			nameOut << string(80,'=') << endl; 
+			nameOut << string(80, '=') << endl;
 			nameOut << left << setw(60) << "NAME" << right << setw(20) << "BIRTHDAY" << endl;
-			nameOut << string(80,'=') << endl; 
+			nameOut << string(80, '=') << endl;
 			nameTree.postorderTraverse(displayPersonName);
 			bdayOut << endl << endl << "...!!!!...DISPLAYING BIRTHDAY TREE...!!!!..." << endl;
 			bdayOut << endl << endl << "Birthday Tree in INORDER" << endl;
-			bdayOut << string(80,'=') << endl; 
+			bdayOut << string(80, '=') << endl;
 			bdayOut << left << setw(60) << "NAME" << right << setw(20) << "BIRTHDAY" << endl;
-			bdayOut << string(80,'=') << endl; 
+			bdayOut << string(80, '=') << endl;
 			bdayTree.inorderTraverse(displayPersonBday);
 			bdayOut << endl << endl << "Birthday Tree in BREADTHFIRST ORDER" << endl;
-			bdayOut << string(80,'=') << endl; 
+			bdayOut << string(80, '=') << endl;
 			bdayOut << left << setw(60) << "NAME" << right << setw(20) << "BIRTHDAY" << endl;
-			bdayOut << string(80,'=') << endl; 
+			bdayOut << string(80, '=') << endl;
 			bdayTree.breadthfirstTraverse(displayPersonBday);
 			cout << endl << endl << "~~~~~~~~~~~~EXITING PROGRAM~~~~~~~~~~~~~~~~" << endl;
 			cout << endl;
@@ -415,7 +457,7 @@ int main()
 		} // End Case 5
 		default:
 			cout << "   Please enter a valid choice between"
-				<< "   1-5" << endl;
+				<< "   1-7" << endl;
 		} // End Switch for Menu
 	} // End While loop for Menu
 
@@ -423,10 +465,11 @@ int main()
 	int personCount = aPersonByName.GetLength();
 
 	// Clean up allocated memory for Person Objects.
-	for (int index = 0; index < personCount; ++index) {
+	for (int index = 0; index < objectCount; ++index) {
 		delete aPersonByName[index];
 		delete aPersonByBday[index];
 	}
+
 	return 0;
 }
 

@@ -1,6 +1,11 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Person.h"
+#include "LinkedList.h"
+#include "BNTree.h"
+#include "BSTNode.h"
+
 using namespace std;
 
 // Forward Declarations
@@ -10,6 +15,7 @@ string ltrim(string s);
 string rtrim(string s);
 const string WHITESPACE = " \n\r\t\f\v";
 const int ARRAY_SIZE{ 20 };
+bool exitFunction();
 
 void DeleteEmptyLines(string &Path)
 {
@@ -42,3 +48,27 @@ string trim(string s)
 }
 
 
+bool exitFunction() {
+	bool retVal;
+	char rem_choice;
+	cout << "\n Would you like to work with another data item? \n"
+		 << " Enter Y for \"Yes\" or any other key for \"No\"\n";
+	cin >> rem_choice;
+	cin.ignore(32767, '\n');
+	if (cin.fail()) {
+		cin.clear();
+		cin.ignore(32767, '\n');
+		cout << "\n Exiting to main menu" << endl;
+		retVal = false;
+	}
+	if (rem_choice == 'Y' || rem_choice == 'y') {
+		retVal = true;
+	}
+	else {
+		cout << "\n Exiting to main menu" << endl;
+		retVal = false;
+	}
+	return retVal;
+}
+
+		
