@@ -5,6 +5,8 @@ Class: CIS 22C MW 1800 - 1950 hrs
 */
 
 #include <iostream>
+#include <algorithm>
+#include <string>
 #include "Currency.h"
 #include "Wallet.h"
 using namespace std;
@@ -14,9 +16,7 @@ void addMoney(Wallet&);
 void removeMoney(Wallet&);
 void viewWallet(Wallet&);
 void emptyWallet(Wallet&);
-
-
-
+bool validate_input(string);
 
 //****************************************************************************
 // int main() - Main declares defines a wallet that is capable of holding and 
@@ -48,6 +48,7 @@ int main()
 	// Loop until done
 	while (loop)
 	{
+		string valid;
 		int choice = 0;
 
 		// Output User Menu
@@ -61,8 +62,16 @@ int main()
      	cout << "   Your Choice: ";
 
 		// User response recorded
-     	cin >> choice;
-     	cout << endl << endl;
+     	getline(cin, valid);
+
+		// User response validation
+		while (!validate_input(valid)){
+			cout << "Error!! Invalid input detected. Enter a positive number please: ";
+			getline(cin, valid);
+		}
+		// Convert string to int for switch menu
+		choice = atoi(valid.c_str());
+     	cout << endl;
 
 		// This switch will execute all actions from the menu
     	switch (choice)
@@ -86,7 +95,7 @@ int main()
 			
 			default: // We re-prompt the user to input a correnct menu option.
 				cout 	<< "   Please enter a valid choice between"
-						<< "   1-6" << endl;
+						<< "   1-5" << endl;
 
 				break;
 		}
@@ -112,6 +121,7 @@ void addMoney(Wallet &mWallet)
 		int choice = 0; 	// Currency Choice
 		int w_currency = 0; // Currency Whole Units
 		int p_currency = 0; // Currency Fractional Units
+		string valid;
 	
 		// Present the User Menu of Currency types
 		cout << "   What currency would you like to add today?"
@@ -124,9 +134,18 @@ void addMoney(Wallet &mWallet)
        		 << "   6: EXIT TO MAIN MENU" << endl
        		 << "   Enter your Selection: ";
 
-		// Record User choice
-		cin >> choice;
-		cout << endl << endl;
+		// User response recorded
+     	getline(cin, valid);
+
+		// User response validation
+		while (!validate_input(valid)){
+			cout << "Error!! Invalid input detected. Enter a positive number please: ";
+			getline(cin, valid);
+		}
+		// Convert string to int for switch menu
+		choice = atoi(valid.c_str());
+     	cout << endl;
+
 		switch (choice)
 		{
 			case 1: // Process Dollars added to Wallet
@@ -219,9 +238,18 @@ void removeMoney(Wallet &mWallet)
        		 << "   6: EXIT TO MAIN MENU" << endl
        		 << "   Enter your Selection: ";
 
-		// Record User choice
-		cin >> choice;
-		cout << endl << endl;
+		// User response recorded
+     	getline(cin, valid);
+
+		// User response validation
+		while (!validate_input(valid)){
+			cout << "Error!! Invalid input detected. Enter a positive number please: ";
+			getline(cin, valid);
+		}
+		// Convert string to int for switch menu
+		choice = atoi(valid.c_str());
+     	cout << endl;
+
 		switch (choice)
 		{
 			case 1: // Process Dollars removed from Wallet
@@ -587,5 +615,17 @@ void emptyWallet(Wallet& mWallet)
 	}
 
 	cout << "Your wallet is now empty" << endl << endl;
+}
+
+bool validate_input(string str) {
+		// Check user input for non-numeric values
+		if (str.end() != find_if_not(str.begin(), str.end(), ::isdigit)) {
+			return false;
+		}
+		// Check for empty string
+		else if (str.empty())
+			return false;
+		else
+			return true;
 }
 
