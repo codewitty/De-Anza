@@ -22,10 +22,10 @@
 
 ---
 
-### 30 Days of Code
-- This is the code I wrote for the 30 day challenge on LeetCode. Find the challenge <a href="https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/" target="_blank">`here`</a>
+### 22 A
+- This is the code I wrote for the intro to C++ class at De Anza
 
-#### 1. Backspace String Compare
+#### 1. HW 1 
 - Given two strings S and T, return if they are equal when both are typed into empty text editors. # means a backspace character.\
 Note that after backspacing an empty text, the text will continue empty.\
 My solution is <a href="https://github.com/codewitty/LeetCode/blob/master/30-day-leetcoding-challenge/Backspace%20String%20Compare.cpp/" target="_blank">`here`</a>.\
