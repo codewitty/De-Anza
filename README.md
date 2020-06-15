@@ -17,13 +17,8 @@
 	* [HW 1](#1-HW-1)
 - [22B](#22B)
 	* [Lab 1](#1-Lab-1)
-	* [Merge Sorted Array.cpp](#2-merge-sorted-array)
-	* [Remove Elements.cpp](#3-remove-elements)
-	* [Check If N and Its Double Exist.cpp](#4-check-if-n-and-its-double-exist)
-	* [Valid Mountain Array.cpp](#5-valid-mountain-array)
-	* [Replace Elements with Greatest Element on Right Side.cpp](#6-replace-elements-with-greatest-element-on-right-side)
-- [Random](#random)
-	* [2. Add Two Numbers.cpp](#add-two-numbers)
+- [22C](#22C)
+	* [1. Labs](#1-Labs)
 
 ---
 
