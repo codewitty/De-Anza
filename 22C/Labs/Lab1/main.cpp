@@ -226,6 +226,7 @@ void removeMoney(Wallet &mWallet)
 		int choice = 0; 	// Currency Choice
 		int w_currency = 0; // Currency Whole Units
 		int p_currency = 0; // Currency Fractional Units
+		string valid;
 	
 		// Present the User Menu of Currency types
 		cout << "   What currency would you like to remove today?"

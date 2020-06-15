@@ -1,6 +1,6 @@
 #include "Dollar.h"
 
-// Constructor
+// Dollar Constructor
 Dollar::Dollar(int wPart, int fPart)
 {
 	wholePart = wPart;
